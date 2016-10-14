@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/friendships', to: "friendships#create"
   root 'welcome#index'
 
+
   resources :users do
     resources :events
     resources :friendships
