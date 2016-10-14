@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @friends = current_user.friends
     @event = Event.new
   end
 
