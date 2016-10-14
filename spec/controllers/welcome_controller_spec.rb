@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe WelcomeController, type: :controller do
 
-<<<<<<< HEAD
-=======
   describe "GET #index" do
     it "returns http success" do
       get :index
@@ -11,5 +9,4 @@ RSpec.describe WelcomeController, type: :controller do
     end
   end
 
->>>>>>> redoing Devise commit
 end
