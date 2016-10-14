@@ -8,10 +8,11 @@ class User < ApplicationRecord
   has_many :events, foreign_key: :host_id
   has_many :votes
   has_many :voted_venues, through: :votes, source: :venue_choice
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  has_secure_password
+ def friends
+   self.frienders + self.friendees
+ end
 
-  def friends
-    self.frienders + self.friendees
-  end
 end
