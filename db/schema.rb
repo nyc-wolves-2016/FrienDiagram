@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20161013233056) do
   create_table "user_addresses", force: :cascade do |t|
     t.string   "address"
     t.integer  "user_id"
-    t.float    "latitutde"
+    t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
