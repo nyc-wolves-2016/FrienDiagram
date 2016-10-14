@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
   has_many :venue_choices
   has_many :invitations
-  belongs_to :user
+  belongs_to :host, class_name: :User
 end

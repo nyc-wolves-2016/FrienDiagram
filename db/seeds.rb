@@ -30,12 +30,12 @@ per.user_addresses << add1
 add1.save
 per.save
 
-event1 = Event.create(user: per, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
-event2 = Event.create(user_id: per.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
-event3 = Event.create(user_id: devin.id, venue: "Time Square's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
-event4 = Event.create(user_id: logan.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
-event5 = Event.create(user_id: neel.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
-event6 = Event.create(user_id: edwin.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event1 = Event.create(host_id: per.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event2 = Event.create(host_id: per.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event3 = Event.create(host_id: devin.id, venue: "Time Square's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event4 = Event.create(host_id: logan.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event5 = Event.create(host_id: neel.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
+event6 = Event.create(host_id: edwin.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
 
 venue1 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 47.759011, longitude: 40.759011)
 
