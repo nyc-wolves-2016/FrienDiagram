@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20161013233056) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "host_id"
     t.string   "venue"
     t.string   "venue_address"
     t.float    "venue_latitude"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20161013233056) do
     t.datetime "date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -35,12 +34,11 @@ ActiveRecord::Schema.define(version: 20161013233056) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "guest_id"
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_invitations_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_invitations_on_user_id", using: :btree
   end
 
   create_table "user_addresses", force: :cascade do |t|
@@ -94,6 +92,5 @@ ActiveRecord::Schema.define(version: 20161013233056) do
   end
 
   add_foreign_key "invitations", "events"
-  add_foreign_key "invitations", "users"
   add_foreign_key "user_addresses", "users"
 end
