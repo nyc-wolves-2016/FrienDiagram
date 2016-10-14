@@ -8,7 +8,7 @@
 
   <%= f.label :friends %>
 
-  <%= f.collection_select(:host, current_user.friends, :username, {include_blank: 'None'}) %>
+  <%= f.collection_select(:host, current_user.friends, :id, :username) %>
 
 
 <% end %>
