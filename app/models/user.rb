@@ -14,5 +14,4 @@ class User < ApplicationRecord
  def friends
    self.frienders + self.friendees
  end
-
 end
