@@ -4,10 +4,9 @@
   <%= f.text_field :venue %><br />
 
   <%= f.label :date %>:
-  <%=  f.text_field :date, "data-provide" => 'datepicker' %>
+  <%=  f.text_field :date, "data-provide" => 'datepicker' %><br/>
 
-  <%= f.label :friends %>
-
+  <%= f.label :friends %>:
   <%= f.collection_select(:host, current_user.friends, :id, :username) %>
 
 
