@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20161013233056) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "host_id"
+    t.string   "title"
     t.string   "venue"
     t.string   "venue_address"
     t.float    "venue_latitude"

@@ -5,4 +5,10 @@ class EventsController < ApplicationController
   def show
     @user = current_user
   end
+
+  def new
+    @friends = current_user.friends
+    @event = Event.new
+  end
+
 end
