@@ -1,4 +1,9 @@
 class Venue extends React.Component {
+  constructor() {
+    super();
+    this.handleVenueClick = this.handleVenueClick.bind(this);
+  }
+
   render () {
     const { venue } = this.props
     const { name, rating, price} = this.props.venue
