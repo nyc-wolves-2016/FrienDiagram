@@ -39,10 +39,10 @@ class App extends React.Component {
     //   type: "GET",
     //   cache: false
     // })
-    // xhr.success(function(response) {
-    debugger
-      this.setState({possibleVenues: response})
-    })
+    // // xhr.success(function(response) {
+    // debugger
+    //   this.setState({possibleVenues: response})
+    // })
   }
 
   setEventDetails(index) {
