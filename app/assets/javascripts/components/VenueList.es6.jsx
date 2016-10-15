@@ -5,12 +5,11 @@ class VenueList extends React.Component {
     this.passVenueData = this.passVenueData.bind(this);
   }
 
-  passVenueData(venue) {
+  passVenueData(venueIndex) {
     // After clicking venue
     // Send information up to App
     // this.props.handleData(response)
-    debugger;
-    
+    this.props.handleData(venueIndex)
   }
 
   render() {

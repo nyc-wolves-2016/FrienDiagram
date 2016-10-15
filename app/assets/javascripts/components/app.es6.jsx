@@ -4,7 +4,7 @@ class App extends React.Component {
     this.state = {
       possibleVenues: [],
       midpoint: [],
-      detailsView: {},
+      selectedVenue: {},
       lat: 40.705116,
       lng: -74.00883,
       choices: [
@@ -20,11 +20,7 @@ class App extends React.Component {
         }
       ]
     }
-  }
-
-  venueDetailedView(venue) {
-    debugger;
-    this.setState({detailsView: venue})
+    this.setEventDetails = this.setEventDetails.bind(this);
   }
 
   componentDidMount(){
@@ -36,21 +32,30 @@ class App extends React.Component {
     })
   }
 
-  gatherClickData(venueData) {
+  setEventDetails(index) {
     // setState to the data collected
     // to venueData
+    var places = this.state.possibleVenues;
+    debugger;
+    this.setState((prevState) => {
+      return {
+        selectedVenue: [...prevState.selectedVenue, places[index]]
+      }
+    })
   }
 
   render() {
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
+    // Uncomment line below to see state change
+    // console.log('This is my state', this.state)
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
         <div className="venue-list-container">
-          <VenueList handleData={this.gatherClickData} venues={ possibleVenues } />
+          <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
         </div>
         <div className="venue-details-container">
-          <EventDetails details={detailsView}/>
+          <EventDetails details={this.state.selectedVenue} />
         </div>
       </div>
     )

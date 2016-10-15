@@ -20,11 +20,11 @@ class Venue extends React.Component {
           <span> Name: {name} </span><br></br>
           <span> Rating: {rating} </span><br></br>
           <span> Price: {price} </span><br></br>
-          <hr></hr>
         </div>
         <form className="venue-choice" action="/users/1/events">
           <button className="venue-choice_button" type="submit"></button>
         </form>
+        <hr></hr>
       </div>
     )
   }
