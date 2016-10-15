@@ -14,27 +14,31 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <p><%= current_user %></p>
+    <%= react_component 'mySidenav' %>
+    <%= react_component 'mySidenavmenu' %>
 
-    <% if current_user %>
-      <%= link_to 'Create new event', new_user_event_path(current_user) %>
-    <% end %>
-    <br />
-    <span>
-      ignore this link after you're redirected
-      ..testing..
-    </span>
-    <% if user_signed_in? %>
-      <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      </li>
-    <% end %>
-    <br />
-    <br />
-    <br />
-    <%= yield %>
+    <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <p><%= current_user %></p>
+
+        <% if current_user %>
+          <%= link_to 'Create new event', new_user_event_path(current_user) %>
+        <% end %>
+        <br />
+        <span>
+          ignore this link after you're redirected
+          ..testing..
+        </span>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+        <% end %>
+        <br />
+        <br />
+      <%= yield %>
+    </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
