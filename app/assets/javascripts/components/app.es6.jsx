@@ -27,6 +27,9 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
+        <div className="venue-list-container">
+          <VenueList venues={this.state.possibleVenues} />
+        </div>
       </div>
     )
   }
