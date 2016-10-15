@@ -19,6 +19,7 @@ class App extends React.Component {
           lng: -73.9884472
         }
       ]
+      this.handleClick = this.handleClick.bind(this);
     }
   }
 
