@@ -1,4 +1,4 @@
-class VenueDetails extends React.Component {
+class EventDetails extends React.Component {
   render() {
     const { name, address, rating, price } = this.props.details
     return(
