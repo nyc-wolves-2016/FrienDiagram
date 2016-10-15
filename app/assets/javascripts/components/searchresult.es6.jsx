@@ -1,7 +1,6 @@
 class SearchResult extends React.Component {
   // componentDidMount(event){
   //   var token = document.querySelector('meta[name=csrf-token]').content;
-  //   debugger
   //   this.setState({token: token})
   // }
 

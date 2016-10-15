@@ -34,7 +34,7 @@ class MapView extends React.Component {
       <div>
         <div>
           <div id="map"></div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=KEY">
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC96I8KJbqYcYiMBXZ-enZ-0qjQqjcSIzg">
           </script>
         </div>
       </div>
