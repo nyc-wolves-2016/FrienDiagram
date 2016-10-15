@@ -22,13 +22,22 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    $.ajax({
+      url: "/users/1/events/1"
+    })
+    .done((response) => {
+      this.setState({possibleVenues: response})
+    })
+  }
+
   render() {
-    let { choices, lat, lng, midpoint } = this.state
+    const { choices, lat, lng, midpoint, possibleVenues } = this.state
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
         <div className="venue-list-container">
-          <VenueList venues={this.state.possibleVenues} />
+          <VenueList venues={ possibleVenues } />
         </div>
       </div>
     )
