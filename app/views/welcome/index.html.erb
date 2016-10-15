@@ -1,1 +1,11 @@
-<%= react_component 'FriendSearchForm' %>
+<%= user_signed_in? %><br />
+<%= current_user %><br />
+<%= session[:user_id] %><br />
+
+<%= react_component 'FriendSearchForm', { token: @token } %>
+<%= render 'events/form' %>
+<% @friends.each do |friend| %>
+<p><%= friend.username%></p>
+<p><%= friend.email%></p>
+<p><%= friend.username%></p></br>
+<% end %>

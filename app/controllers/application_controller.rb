@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  helper_method :log_out, :logged_in?, :current_user, :log_in
+  # helper_method :log_out, :logged_in?, :current_user, :log_in
   helper_method :resource_name, :resource, :devise_mapping
-
+  before_action :authenticate_user!
   # -- devise -- #
   def resource_name
     :user
@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  # def current_user
+  #   User.find_by(id: params[:user_id])
+  # end
+
+
 
   # -- devise --
 

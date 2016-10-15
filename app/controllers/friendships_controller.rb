@@ -10,7 +10,12 @@ class FriendshipsController < ApplicationController
   def create
     friendee = User.find_by(user_params)
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
-    redirect_to root_path
+    if @friendship.save
+      redirect_to root_path
+    else
+      @errors = "You're already friends with this person."
+      render root_path
+    end
   end
 
   private

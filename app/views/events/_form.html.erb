@@ -1,0 +1,13 @@
+<h2>This is the form to create new event</h2>
+<%= form_for :event do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :venue %><br />
+
+  <%= f.label :date %>:
+  <%=  f.text_field :date, "data-provide" => 'datepicker' %><br/>
+
+  <%= f.label :friends %>:
+  <%= f.collection_select(:host, current_user.friends, :id, :username) %>
+
+
+<% end %>

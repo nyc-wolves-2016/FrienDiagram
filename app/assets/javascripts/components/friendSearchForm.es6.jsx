@@ -34,7 +34,6 @@ class FriendSearchForm extends React.Component {
     })
     .done(function(response){
       this.setState({results: response.response})
-      debugger
     }.bind(this))
   }
 
@@ -55,14 +54,14 @@ class FriendSearchForm extends React.Component {
 
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-10">
-              <button type="submit" className="btn btn-default">Register</button>
+              <button type="submit" className="btn btn-default">Search for Friend</button>
             </div>
           </div>
           </form>
 
 
           { this.state.results.map((result, i) => {
-            return <SearchResult data={result} key={i} />
+            return <SearchResult data={result} key={i} token={this.props.token} />
             })
           }
       </div>
