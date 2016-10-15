@@ -21,6 +21,7 @@ class App extends React.Component {
       ]
     }
   }
+
   venueDetailedView(venue) {
     debugger;
     this.setState({detailsView: venue})
@@ -35,13 +36,18 @@ class App extends React.Component {
     })
   }
 
+  gatherClickData(venueData) {
+    // setState to the data collected
+    // to venueData
+  }
+
   render() {
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
         <div className="venue-list-container">
-          <VenueList venues={ possibleVenues } />
+          <VenueList handleData={this.gatherClickData} venues={ possibleVenues } />
         </div>
         <div className="venue-details-container">
           <EventDetails details={detailsView}/>
