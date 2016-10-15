@@ -20,12 +20,12 @@ class App extends React.Component {
         }
       ]
     }
-    this.handleVenueClick = this.handleVenueClick.bind(this);
   }
-  handleVenueClick (){
+  venueDetailedView(venue) {
+    debugger;
     this.setState({detailsView: venue})
   }
-  
+
   componentDidMount(){
     $.ajax({
       url: "/users/1/events/1"
