@@ -1,7 +1,12 @@
 class VenueQuickView extends React.Component {
     render() {
+      const { name, rating, expense} = this.props.venue
       return (
-        <p>Hi</p>
+        <div className="venue-quickview">
+          <span> {name} </span>
+          <span> {rating} </span>
+          <span> {expense} </span>
+        </div>
       )
     }
 }

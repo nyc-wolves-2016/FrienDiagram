@@ -4,11 +4,14 @@ class EventsController < ApplicationController
 
   def show
     @user = current_user
+    @event = Event.find(params[:id])
+    @possibleVenues = @event.venue_choices
+    render json: @possibleVenues
   end
 
   def new
-    @friends = current_user.friends
     @event = Event.new
+    @friends = current_user.friends
   end
 
 end
