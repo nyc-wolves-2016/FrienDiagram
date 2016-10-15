@@ -32,12 +32,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { choices, lat, lng, midpoint, possibleVenues } = this.state
+    const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
         <div className="venue-list-container">
           <VenueList venues={ possibleVenues } />
+        </div>
+        <div className="venue-details-container">
+          <VenueDetails details={detailsView}/>
         </div>
       </div>
     )
