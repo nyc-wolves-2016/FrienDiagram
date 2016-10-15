@@ -3,8 +3,9 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: [],
+      midpoint: [40.705116, -74.00883],
       selectedVenue: {},
+      // Will remove and use MidPoint as these variables
       lat: 40.705116,
       lng: -74.00883,
       choices: [
@@ -24,10 +25,22 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    $.ajax({
-      url: "/users/1/events/1"
-    })
-    .done((response) => {
+    var lat = this.state.midpoint[0].toString();
+    var lng = this.state.midpoint[1].toString();
+    var location= "location="+lat+","+lng;
+    var rankby = "&rankby=distance";
+    //TODO added food - should recieve this from event object
+    var types = "&types=food";
+    var key = "&key=[KEY]";
+    var radius = "&500";
+    //TODO This is where we want to ping Google
+    // var xhr = $.ajax({
+    //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+location+rankby+types+radius+key,
+    //   type: "GET",
+    //   cache: false
+    // })
+    // xhr.success(function(response) {
+    debugger
       this.setState({possibleVenues: response})
     })
   }
@@ -36,7 +49,6 @@ class App extends React.Component {
     // setState to the data collected
     // to venueData
     var places = this.state.possibleVenues;
-    debugger;
     this.setState((prevState) => {
       return {
         selectedVenue: [...prevState.selectedVenue, places[index]]
@@ -47,7 +59,7 @@ class App extends React.Component {
   render() {
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
-    // console.log('This is my state', this.state)
+    console.log('This is my state', this.state)
     return (
       <div className="app-container">
         <MapView choices={choices} lat={lat} lng={lng} />
