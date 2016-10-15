@@ -1,11 +1,21 @@
 class VenueQuickView extends React.Component {
+  constructor() {
+    super();
+    this.handleVenueClick = this.handleVenueClick.bind(this);
+  }
+
+  handleVenueClick() {
+    var venue = this.props.venue
+    this.props.handleVenueClick(venue)
+  }
+
     render() {
-      const { name, rating, expense} = this.props.venue
+      const { name, rating, price} = this.props.venue
       return (
-        <div className="venue-quickview">
-          <span> {name} </span>
-          <span> {rating} </span>
-          <span> {expense} </span>
+        <div onClick={this.handleVenueClick} className="venue-quickview">
+          <span> Name: {name} </span>
+          <span> Rating: {rating} </span>
+          <span> Price: {price} </span>
         </div>
       )
     }

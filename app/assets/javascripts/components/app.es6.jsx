@@ -21,6 +21,10 @@ class App extends React.Component {
       ]
     }
   }
+  venueDetailedView(venue) {
+    debugger;
+    this.setState({detailsView: venue})
+  }
 
   componentDidMount(){
     $.ajax({
