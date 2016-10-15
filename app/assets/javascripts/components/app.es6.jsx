@@ -19,10 +19,13 @@ class App extends React.Component {
           lng: -73.9884472
         }
       ]
-      this.handleClick = this.handleClick.bind(this);
     }
+    this.handleVenueClick = this.handleVenueClick.bind(this);
   }
-
+  handleVenueClick (){
+    this.setState({detailsView: venue})
+  }
+  
   componentDidMount(){
     $.ajax({
       url: "/users/1/events/1"

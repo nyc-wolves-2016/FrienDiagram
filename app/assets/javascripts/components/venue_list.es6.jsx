@@ -1,6 +1,7 @@
 class VenueList extends React.Component {
   render() {
-    const venues = [{name: "freedomTower", rating: 4, expense: 4}]
+    debugger;
+    const { venues } = this.props
     return (
       <div className="venue-list">
         {venues.map((venue, i) =>
