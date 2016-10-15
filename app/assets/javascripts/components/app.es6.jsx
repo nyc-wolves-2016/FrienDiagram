@@ -44,7 +44,7 @@ class App extends React.Component {
           <VenueList venues={ possibleVenues } />
         </div>
         <div className="venue-details-container">
-          <VenueDetails details={detailsView}/>
+          <EventDetails details={detailsView}/>
         </div>
       </div>
     )
