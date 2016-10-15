@@ -1,7 +1,6 @@
 class MapView extends React.Component {
   constructor(){
     super();
-
   }
 
   componentDidMount() {
