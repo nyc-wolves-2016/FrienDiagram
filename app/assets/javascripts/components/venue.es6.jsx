@@ -1,17 +1,30 @@
 class Venue extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    // Hey, the user has clicked *this* venue
+    var venue = this.props.venue.id - 1
+    this.props.handleClick(venue)
+  }
+
   render () {
     const { venue } = this.props
     const { name, rating, price} = this.props.venue
     return (
       <div className="venue">
-        <div onClick={this.handleVenueClick} className="venue-quickview">
-          <span> Name: {name} </span>
-          <span> Rating: {rating} </span>
-          <span> Price: {price} </span>
+        <div onClick={this.handleClick} className="venue-quickview">
+          <span> Name: {name} </span><br></br>
+          <span> Rating: {rating} </span><br></br>
+          <span> Price: {price} </span><br></br>
         </div>
         <form className="venue-choice" action="/users/1/events">
           <button className="venue-choice_button" type="submit"></button>
         </form>
+        <hr></hr>
       </div>
     )
   }
