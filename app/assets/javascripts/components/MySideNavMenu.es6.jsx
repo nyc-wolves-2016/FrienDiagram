@@ -14,6 +14,7 @@ class mySidenavmenu extends React.Component {
           <a href="#">Settings</a>
           <a href="#">Find New Friend</a>
           <a href={"/users/" + {id} + "/events/new"}>Create New Event</a>
+          <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
         </div>
       )
     }

@@ -23,16 +23,6 @@
         <p><%= current_user %></p>
 
         <br />
-        <span>
-          ignore this link after you're redirected
-          ..testing..
-        </span>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          </li>
-        <% end %>
-        <br />
         <br />
       <%= yield %>
     </div>
