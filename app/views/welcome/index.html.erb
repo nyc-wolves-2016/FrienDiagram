@@ -2,8 +2,11 @@
 <%= current_user %><br />
 <%= session[:user_id] %><br />
 
+
 <%= react_component 'FriendSearchForm', { token: @token } %>
+<%= react_component 'UserAddressForm' %>
 <%= render 'events/form' %>
+
 
 <h3>Incoming Invitations</h3>
 <% current_user.invited_events.each do |event| %>
@@ -14,7 +17,7 @@
     <% if event.status == "Open" %>
       <%= form_for event do |f| %>
       <%= f.label :Homebase %>:
-      <%= f.collection_select(:guest_address, current_user.user_addresses, :address, :address) %>
+      <%= f.collection_select(:guest_address, current_user.user_addresses, :id, :username) %>
       <%= f.button %>
     <% end %>
     <% else %>

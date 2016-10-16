@@ -11,6 +11,11 @@ class Venue extends React.Component {
     this.props.handleClick(venue)
   }
 
+  handleChoiceClick(event){
+    event.preventDefault();
+    debugger
+  }
+
   render () {
     const { venue } = this.props
     const { name, rating, price} = this.props.venue
@@ -21,7 +26,7 @@ class Venue extends React.Component {
           <span> Rating: {rating} </span><br></br>
           <span> Price: {price} </span><br></br>
         </div>
-        <form className="venue-choice" action="/users/1/events">
+        <form onClick={this.handleChoiceClick} className="venue-choice" action="/users/1/events">
           <button className="venue-choice_button" type="submit"></button>
         </form>
         <hr></hr>

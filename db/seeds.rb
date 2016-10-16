@@ -25,11 +25,6 @@ f9 = Friendship.create(friender: devin, friendee: neel)
 f10 = Friendship.create(friender: logan, friendee: neel)
 f11 = Friendship.create(friender: edwin, friendee: neel)
 
-add1 = UserAddress.create(address: "160 Parkside Avenue, Brooklyn, NY 11226", latitude: 40.654228, longitude: -73.962959)
-per.user_addresses << add1
-add1.save
-per.save
-
 event1 = Event.create(host_id: per.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
 event2 = Event.create(host_id: per.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
 event3 = Event.create(host_id: devin.id, venue: "Time Square's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )

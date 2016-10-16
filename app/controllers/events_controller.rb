@@ -5,12 +5,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if @event.invitees.include?(current_user)
+    # if @event.invitees.include?(current_user)
       @possibleVenues = @event.venue_choices
       render json: @possibleVenues
-    else
-      redirect_to root_path
-    end
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   def new
@@ -31,7 +31,6 @@ class EventsController < ApplicationController
   def update
     event = Event.find_by(id: params[:id])
     event.status = "Accepted"
-    binding.pry
     event.guest_address = event_params[:guest_address]
     event.save
     redirect_to root_path

@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :user_addresses
+
 
 end
