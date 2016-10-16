@@ -40,9 +40,10 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find_by(id: params[:id])
+    binding.pry
     event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
     event.save
-    redirect_to root_path
+    redirect_to event_path
   end
 
   private

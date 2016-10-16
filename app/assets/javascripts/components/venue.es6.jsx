@@ -11,9 +11,9 @@ class Venue extends React.Component {
     this.props.handleClick(venue)
   }
 
-  handleChoiceClick(event){
-    event.preventDefault();
-  }
+  // handleChoiceClick(event){
+  //   event.preventDefault();
+  // }
 
   render () {
     const { venue } = this.props
