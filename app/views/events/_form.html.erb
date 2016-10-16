@@ -7,7 +7,7 @@
   <%=  f.datetime_field :date, "data-provide" => 'datepicker' %><br/>
 
   <%= f.label :friends %>:
-  <%= f.collection_select(:guest, current_user.friends, :id, :email) %>
+  <%= f.collection_select(:guests, current_user.friends, :id, :email) %>
   </br>
 
   <%= f.label :Homebase %>:
