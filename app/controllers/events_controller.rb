@@ -5,14 +5,19 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    # if @event.invitees.include?(current_user)
-      @possibleVenues = @event.venue_choices
-      render json: @possibleVenues
-    # else
-    #   redirect_to root_path
-    # end
+    @user = current_user
+    if @event.invitees.include?(current_user)
+      if @event.venue_choices
+        @possibleVenues = @event.venue_choices
+      end
+    else
+      redirect_to root_path
+    end
   end
 
+  def search
+    render json: @possibleVenues
+  end
   def new
     @event = Event.new
     @friends = current_user.friends
