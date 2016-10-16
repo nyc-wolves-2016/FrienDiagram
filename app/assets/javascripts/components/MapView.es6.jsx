@@ -53,27 +53,9 @@ class MapView extends React.Component {
 
   componentDidMount() {
     const { lat, lng, choices } = this.props
-    //   // this.lat ## this.lng to set the state of the map.
-    //   if (!this.map) {
-    //     this.map = new google.maps.Map(this.refs.map, {
-    //       center: {lat: 40.745, lng: -73.897},
-    //       zoom: 14,
-    //       streetViewControl: false
-    //     })
-    //   }
+
     this.callPlaces(lat, lng);
     this.initMap(lat,lng);
-    // concatLink = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries=places&callback=initMap"
-    // this.setState({link: concatLink })
-
-      // choices.forEach(function(venue){
-      //   var marker = new google.maps.Marker({
-      //     position: {lat: venue.lat, lng: venue.lng},
-      //     map: map,
-      //   });
-      // })
-
-
     }
 
   render() {

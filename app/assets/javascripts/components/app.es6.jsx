@@ -18,7 +18,6 @@ class App extends React.Component {
 
   setEventDetails(index) {
     // setState to the data collected
-    // to venueData
     var venues = this.state.possibleVenues;
     this.setState((prevState) => {
       return {
@@ -34,29 +33,29 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var lat = this.state.midpoint[0].toString();
-    var lng = this.state.midpoint[1].toString();
-    var location= "location="+lat+","+lng;
-    var rankby = "&rankby=distance";
-    //TODO added food - should recieve this from event object
-    var types = "&types=food";
-    var key = "&key=[KEY]";
-    var radius = "&500";
-    //TODO This is where we want to ping Google
-
+    // TODO Possible Feature
+    // var lat = this.state.midpoint[0].toString();
+    // var lng = this.state.midpoint[1].toString();
+    // var location= "location="+lat+","+lng;
+    // var rankby = "&rankby=distance";
+    // var types = "&types=food";
+    // var key = "&key=[KEY]";
+    // var radius = "&500";
+    //TODO This is where we want to ping Google (?)
   }
 
   componentWillMount() {
-    this.setState({
-      midpoint: [],
-      selectedVenue: {},
-      status: "" ,
-      markers: [],
-      // Will remove and use MidPoint as these variables
-      lat: "",
-      lng: "",
-      choices: [ ]
-    })
+    // TODO ** FIGURE OUT WHAT THIS DOES **
+    // this.setState({
+    //   midpoint: [],
+    //   selectedVenue: {},
+    //   status: "" ,
+    //   markers: [],
+    //   // Will remove and use MidPoint as these variables
+    //   lat: "",
+    //   lng: "",
+    //   choices: [ ]
+    // })
   }
 
   render() {
