@@ -13,7 +13,6 @@ class Venue extends React.Component {
 
   handleChoiceClick(event){
     event.preventDefault();
-    debugger
   }
 
   render () {

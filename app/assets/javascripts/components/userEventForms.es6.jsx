@@ -25,7 +25,6 @@ class UserEventForms extends React.Component {
       data: data
     })
     .done(function(response){
-      debugger
       this.setState({formAddress: ""})
     }.bind(this))
   }

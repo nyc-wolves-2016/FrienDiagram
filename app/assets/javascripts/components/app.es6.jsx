@@ -69,7 +69,6 @@ class App extends React.Component {
   }
 
   render() {
-    debugger;
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
     // console.log('This is my state', this.state)
