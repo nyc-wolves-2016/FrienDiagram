@@ -24,33 +24,6 @@ class App extends React.Component {
     this.setEventDetails = this.setEventDetails.bind(this);
   }
 
-<<<<<<< HEAD
-  componentDidMount(){
-    var lat = this.state.midpoint[0].toString();
-    var lng = this.state.midpoint[1].toString();
-    var location= "location="+lat+","+lng;
-    var rankby = "&rankby=distance";
-    //TODO added food - should recieve this from event object
-    var types = "&types=food";
-    var key = "&key=[KEY]";
-    var radius = "&500";
-
-    //TODO This is where we want to ping Google
-    // var xhr = $.ajax({
-    //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+location+rankby+types+radius+key,
-    //   type: "GET",
-    //   cache: false
-    // })
-    // // xhr.success(function(response) {
-    // debugger
-    //   this.setState({possibleVenues: response})
-    // })
-    $.ajax({
-      url: '/events/2'
-    }).done(function(response){
-      this.setState({possibleVenues: response})
-    }.bind(this))
-=======
   findVenueChoices(possibleVenues, lat, lng) {
     if (possibleVenues.length < 1) {
       $.ajax({
@@ -60,7 +33,6 @@ class App extends React.Component {
         this.setState({possibleVenues: response});
       })
     }
->>>>>>> Add in conditions to controller to handle possibleVenues
   }
 
   setEventDetails(index) {
@@ -83,6 +55,17 @@ class App extends React.Component {
     var key = "&key=[KEY]";
     var radius = "&500";
     this.setState({possibleVenues: this.props.possibleVenues})
+    this.findVenueChoices(this.state.possibleVenues, this.state.lat, this.state.lng)
+    //TODO This is where we want to ping Google
+    // var xhr = $.ajax({
+    //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+location+rankby+types+radius+key,
+    //   type: "GET",
+    //   cache: false
+    // })
+    // // xhr.success(function(response) {
+    // debugger
+    //   this.setState({possibleVenues: response})
+    // })
   }
 
   render() {
