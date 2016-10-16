@@ -8,4 +8,7 @@ class AddAttachmentAvatarToUsers < ActiveRecord::Migration
   def self.down
     remove_attachment :users, :avatar
   end
+
+  # TODO remove if we pull out of PaperClip #
+
 end

@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :voted_venues, through: :votes, source: :venue_choice
   has_many :invited_events, through: :invitations, source: :event
   has_many :hosts, through: :invited_events
-# Neccessary for Paperlip GEM #
 
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+# Neccessary for Paperlip GEM #
+# TODO remove if we pull out of PaperClip #
    has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
@@ -26,5 +26,6 @@ class User < ApplicationRecord
  def primary_address
    self.user_addresses.find { |add| add.status == "Primary" }
  end
+
 
 end
