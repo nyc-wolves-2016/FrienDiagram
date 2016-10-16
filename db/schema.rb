@@ -22,9 +22,14 @@ ActiveRecord::Schema.define(version: 20161013233056) do
     t.string   "venue_address"
     t.float    "venue_latitude"
     t.float    "venue_longitude"
+    t.string   "host_address"
+    t.string   "guest_address"
+    t.string   "status",          default: "Open"
     t.datetime "date"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.date     "day"
+    t.integer  "hour"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -47,8 +52,9 @@ ActiveRecord::Schema.define(version: 20161013233056) do
     t.integer  "user_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "Primary"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
   end
 

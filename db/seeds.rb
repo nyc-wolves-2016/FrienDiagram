@@ -38,30 +38,19 @@ event5 = Event.create(host_id: neel.id, venue: "Per's Palace", venue_address: "1
 event6 = Event.create(host_id: edwin.id, venue: "Per's Palace", venue_address: "1234 six seven", venue_latitude: 40.759011, venue_longitude: -73.984472, date: Time.now )
 
 venue1 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 47.759011, longitude: 40.759011)
-
 venue2 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 57.759011, longitude: 70.759011)
-
 venue3 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 17.759011, longitude: 10.759011)
-
 venue4 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 27.759011, longitude: 20.759011)
-
 venue5 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 23.759011, longitude: 40.759011)
-
 venue6 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 31.759011, longitude: 24.759011)
-
 venue7 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 64.759011, longitude: 97.759011)
-
 venue8 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 64.759011, longitude: 26.759011)
-
 venue9 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 97.759011, longitude: 24.759011)
-
 venue10 = VenueChoice.create(name: "Whitehorse", address: "48 wall street, New York, NY 10001", rating: 5, price: "$$$", event: event1, latitude: 111.759011, longitude: 43.759011)
 
 invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
-invite1 = Invitation.create(guest: devin, event: event1)
+invite1 = Invitation.create(guest: logan, event: event2)
+invite1 = Invitation.create(guest: neel, event: event3)
+invite1 = Invitation.create(guest: edwin, event: event4)
+invite1 = Invitation.create(guest: devin, event: event5)
+invite1 = Invitation.create(guest: devin, event: event6)

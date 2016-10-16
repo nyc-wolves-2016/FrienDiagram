@@ -4,8 +4,33 @@
 
 <%= react_component 'FriendSearchForm', { token: @token } %>
 <%= render 'events/form' %>
-<% @friends.each do |friend| %>
-<p><%= friend.username%></p>
-<p><%= friend.email%></p>
-<p><%= friend.username%></p></br>
+
+<h3>Incoming Invitations</h3>
+<% current_user.invited_events.each do |event| %>
+  <span><%= event.host.id%></span>
+  <span><%= event.host.username%></span>
+  <span><%= event.title%></span>
+  <span><%= event.date%></span>
+    <% if event.status == "Open" %>
+      <%= form_for event do |f| %>
+      <%= f.label :Homebase %>:
+      <%= f.collection_select(:guest_address, current_user.user_addresses, :address, :address) %>
+      <%= f.button %>
+    <% end %>
+    <% else %>
+    <span><%=event.status%></span>
+    <% end %>
+<% end %>
+
+<h3>Outgoing Invitations</h3>
+<% current_user.events.each do |event| %>
+  <span><%= event.id %></span>
+  <span><%= event.title%></span></br>
+  <% event.guests.each do |guest| %>
+    <span><%= guest.email %></span>
+    <% end %>
+    <span><%= event.status %></span>
+  </br>
+  </br>
+
 <% end %>
