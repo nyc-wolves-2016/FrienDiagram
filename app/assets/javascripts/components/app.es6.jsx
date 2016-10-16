@@ -81,6 +81,9 @@ class App extends React.Component {
             <div className="venue-list-container">
               <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
             </div>
+            <div>
+              <EventDetails details={this.props}/>
+            </div>
         </div>
 
       /* <div className="venue-details-container">
