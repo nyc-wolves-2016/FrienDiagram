@@ -67,20 +67,6 @@ class App extends React.Component {
     this.setEventDetails = this.setEventDetails.bind(this);
   }
 
-  createMarkers() {
-
-  }
-
-  findVenueChoices(possibleVenues, lat, lng) {
-    // if (possibleVenues.length < 1) {
-    //   $.ajax({
-    //     url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&type=restaurant&key=AIzaSyC9P_uAb8slpBhg4LlB5Srk4QkI0btzxBY"
-    //   })
-    //   .done((response) => {
-    //     this.setState({possibleVenues: response});
-    //   })
-    // }
-  }
 
   setEventDetails(index) {
     // setState to the data collected
@@ -92,6 +78,7 @@ class App extends React.Component {
       };
     })
   }
+
   componentDidMount() {
     var lat = this.state.midpoint[0].toString();
     var lng = this.state.midpoint[1].toString();
@@ -101,8 +88,7 @@ class App extends React.Component {
     var types = "&types=food";
     var key = "&key=[KEY]";
     var radius = "&500";
-    this.setState({possibleVenues: this.props.possibleVenues})
-    this.findVenueChoices(this.state.possibleVenues, this.state.lat, this.state.lng)
+    // this.setState({possibleVenues: this.props.possibleVenues})
     //TODO This is where we want to ping Google
     // var xhr = $.ajax({
     //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+location+rankby+types+radius+key,
