@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/friendships', to: "friendships#search"
   post '/friendships', to: "friendships#create"
   get '/friendships/new', to: "friendships#new"
+  get '/events/search', to: "events#search"
 
 
   resources :users do

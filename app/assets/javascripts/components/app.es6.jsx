@@ -2,7 +2,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      possibleVenues: ['White Horse', 'White Horse'],
+      possibleVenues: [],
       midpoint: [40.705116, -74.00883],
       selectedVenue: {},
       // Will remove and use MidPoint as these variables
@@ -24,6 +24,7 @@ class App extends React.Component {
     this.setEventDetails = this.setEventDetails.bind(this);
   }
 
+<<<<<<< HEAD
   componentDidMount(){
     var lat = this.state.midpoint[0].toString();
     var lng = this.state.midpoint[1].toString();
@@ -49,6 +50,17 @@ class App extends React.Component {
     }).done(function(response){
       this.setState({possibleVenues: response})
     }.bind(this))
+=======
+  findVenueChoices(possibleVenues, lat, lng) {
+    if (possibleVenues.length < 1) {
+      $.ajax({
+        url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&type=restaurant&key=AIzaSyC9P_uAb8slpBhg4LlB5Srk4QkI0btzxBY"
+      })
+      .done((response) => {
+        this.setState({possibleVenues: response});
+      })
+    }
+>>>>>>> Add in conditions to controller to handle possibleVenues
   }
 
   setEventDetails(index) {
@@ -61,8 +73,20 @@ class App extends React.Component {
       }
     })
   }
+  componentDidMount() {
+    var lat = this.state.midpoint[0].toString();
+    var lng = this.state.midpoint[1].toString();
+    var location= "location="+lat+","+lng;
+    var rankby = "&rankby=distance";
+    //TODO added food - should recieve this from event object
+    var types = "&types=food";
+    var key = "&key=[KEY]";
+    var radius = "&500";
+    this.setState({possibleVenues: this.props.possibleVenues})
+  }
 
   render() {
+    debugger;
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
     // console.log('This is my state', this.state)
