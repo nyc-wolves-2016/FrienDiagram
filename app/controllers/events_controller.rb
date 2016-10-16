@@ -6,13 +6,12 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = current_user
-    if @event.invitees.include?(current_user)
       if @event.venue_choices
         @possibleVenues = @event.venue_choices
       end
-    else
-      redirect_to root_path
-    end
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   def search

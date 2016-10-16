@@ -1,6 +1,7 @@
 Rails.application.configure do
+  # TODO will need to remove if we pull out of PaperClip #
   Paperclip.options[:command_path] = "/usr/local/bin/"
-  config.action_mailer.default_url_options = { host: 'https://secret-anchorage-44595.herokuapp.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

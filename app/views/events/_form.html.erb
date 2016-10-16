@@ -11,7 +11,7 @@
   </br>
 
   <%= f.label :Homebase %>:
-  <%= f.collection_select(:host_address, current_user.user_addresses, :id, :address) %>
+  <%= f.collection_select(:host_address_id, current_user.user_addresses, :id, :address) %>
 
   <%= f.hidden_field :host, :value => current_user %>
   </br>
