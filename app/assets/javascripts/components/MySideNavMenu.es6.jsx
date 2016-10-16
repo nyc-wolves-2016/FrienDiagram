@@ -10,6 +10,7 @@ class mySidenavmenu extends React.Component {
       return(
         <div id="mySidenav" className="sidenav">
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav.bind(this)}>&times;</a>
+          <a href="/">Home</a>
           <a href="#">Profile</a>
           <a href="#">Settings</a>
           <a href="/friendships/new">Find New Friend</a>
@@ -21,8 +22,9 @@ class mySidenavmenu extends React.Component {
     return (
       <div id="mySidenav" className="sidenav">
         <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav.bind(this)}>&times;</a>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
+        <a href="/">Home</a>
+        <a href="/users/sign_in">Login</a>
+        <a href="/users/sign_up">Register</a>
         <a href="#">About</a>
       </div>
     )
