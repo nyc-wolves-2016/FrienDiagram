@@ -7,8 +7,9 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string  :venue_address
       t.float   :venue_latitude
       t.float   :venue_longitude
-      t.string  :host_address
-      t.string  :guest_address
+      t.integer :host_address_id
+      t.integer :guest_address_id
+      t.string  :midpoint
       t.string  :status, default: "Open"
       t.datetime :date
       t.date    :day

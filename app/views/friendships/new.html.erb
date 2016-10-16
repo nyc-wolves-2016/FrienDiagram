@@ -1,8 +1,11 @@
-<% @users.each do |user| %>
+<%= react_component 'FriendSearchForm', { token: @token } %></br>
+
+<% @friends.each do |friend| %>
   <div class="user_list_container">
     <div class="user_name">
-      <span><%=user.username%></span></br>
-      <span><%=user.email%></span></br>
+      <span>PROFILE PIC GOES HERE</span></br>
+      <span><%=friend.username%></span></br>
+      <span><%=friend.email%></span></br>
     </div>
   </div></br>
 <% end %>

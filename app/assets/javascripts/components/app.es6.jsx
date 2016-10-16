@@ -45,7 +45,7 @@ class App extends React.Component {
     //   this.setState({possibleVenues: response})
     // })
     $.ajax({
-      url: '/users/1/events/1'
+      url: '/events/2'
     }).done(function(response){
       this.setState({possibleVenues: response})
     }.bind(this))

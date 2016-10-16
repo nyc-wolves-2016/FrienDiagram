@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/friendships', to: "friendships#search"
   post '/friendships', to: "friendships#create"
+  get '/friendships/new', to: "friendships#new"
 
 
   resources :users do
@@ -15,5 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :user_addresses
+
 
 end
