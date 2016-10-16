@@ -31,7 +31,8 @@ class EventsController < ApplicationController
   def create
     @event =  current_user.events.new(event_params)
     if @event.save
-      @event.guests << User.find_by(id: params[:event][:guest])
+      binding.pry
+      @event.guests << User.find_by(id: params[:event][:guests])
       redirect_to event_path(@event)
     else
       render 'new'
