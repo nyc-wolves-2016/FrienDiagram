@@ -25,9 +25,6 @@ class Venue extends React.Component {
           <span> Rating: {rating} </span><br></br>
           <span> Price: {price} </span><br></br>
         </div>
-        <form onClick={this.handleChoiceClick} className="venue-choice" action="/users/1/events">
-          <button className="venue-choice_button" type="submit"></button>
-        </form>
         <hr></hr>
       </div>
     )

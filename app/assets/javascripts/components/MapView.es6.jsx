@@ -61,7 +61,11 @@ class MapView extends React.Component {
   render() {
     const { link } = this.props
     return (
+      <div className="col-md-12">
         <div ref="map" id="map" className="mapview-container"><script src={link} async defer></script></div>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC96I8KJbqYcYiMBXZ-enZ-0qjQqjcSIzg">
+          </script>
+      </div>
     )
   }
 }

@@ -1,6 +1,6 @@
 class EventDetails extends React.Component {
   render() {
-    const { title, date } = this.props.details
+    const { title, date, host } = this.props.details
     const { name, venue_address } = this.props.venue
     return(
       <div className="details">
@@ -12,7 +12,12 @@ class EventDetails extends React.Component {
         <h2>-------------</h2>
         <span> {date} </span>
         <br></br>
-
+        <button onClick={this.} type="button" className="btn btn-default" aria-label="Left Align">
+          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+        <button type="button" className="btn btn-default" aria-label="Left Align">
+          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
       </div>
     );
   }
