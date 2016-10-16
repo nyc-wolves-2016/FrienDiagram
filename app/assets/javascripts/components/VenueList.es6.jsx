@@ -6,9 +6,6 @@ class VenueList extends React.Component {
   }
 
   passVenueData(venueIndex) {
-    // After clicking venue
-    // Send information up to App
-    // this.props.handleData(response)
     this.props.handleData(venueIndex)
   }
 

@@ -31,7 +31,8 @@ class EventsController < ApplicationController
   def create
     @event =  current_user.events.new(event_params)
     if @event.save
-      @event.guests << User.find_by(id: params[:event][:guest])
+      binding.pry
+      @event.guests << User.find_by(id: params[:event][:guests])
       redirect_to event_path(@event)
     else
       render 'new'
@@ -40,9 +41,10 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find_by(id: params[:id])
+    binding.pry
     event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
     event.save
-    redirect_to root_path
+    redirect_to event_path
   end
 
   private
