@@ -33,6 +33,7 @@ class App extends React.Component {
     var types = "&types=food";
     var key = "&key=[KEY]";
     var radius = "&500";
+
     //TODO This is where we want to ping Google
     // var xhr = $.ajax({
     //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+location+rankby+types+radius+key,
@@ -43,6 +44,11 @@ class App extends React.Component {
     // debugger
     //   this.setState({possibleVenues: response})
     // })
+    $.ajax({
+      url: '/users/1/events/1'
+    }).done(function(response){
+      this.setState({possibleVenues: response})
+    }.bind(this))
   }
 
   setEventDetails(index) {
