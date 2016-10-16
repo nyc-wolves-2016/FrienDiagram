@@ -13,7 +13,7 @@ class mySidenavmenu extends React.Component {
           <a href="#">Profile</a>
           <a href="#">Settings</a>
           <a href="/friendships/new">Find New Friend</a>
-          <a href={"/events/new"}>Create New Event</a>
+          <a href="/events/new">Create New Event</a>
           <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
         </div>
       )
