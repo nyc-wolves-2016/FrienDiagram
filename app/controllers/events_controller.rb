@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
   before_action :find_user
   def index
+    if user_signed_in?
+      @token = form_authenticity_token
+      session[:user_id] = current_user.id
+      @friends = current_user.friends
+    end
   end
 
   def show
