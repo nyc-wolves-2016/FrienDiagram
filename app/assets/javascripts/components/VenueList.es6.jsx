@@ -17,9 +17,11 @@ class VenueList extends React.Component {
     return (
       <div className="venue-list">
         {venues.map((venue, i) =>
-          <Venue key={i}
-          venue={venue}
-          handleClick={this.passVenueData} />
+          <div key={i} className="col-md-6">
+            <Venue
+            venue={venue}
+            handleClick={this.passVenueData} />
+          </div>
           )
         }
       </div>
