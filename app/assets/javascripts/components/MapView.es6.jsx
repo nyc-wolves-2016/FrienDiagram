@@ -1,62 +1,59 @@
 class MapView extends React.Component {
   constructor(){
     super();
+    this.state = {
+      venues: [],
+      link: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries"
+    }
     this.initMap = this.initMap.bind(this);
     this.callPlaces = this.callPlaces.bind(this);
     this.createMarker = this.createMarker.bind(this);
     this.callback = this.callback.bind(this);
   }
 
-  initMap(lat,lng) {
-    var midpoint = {lat: lat, lng: lng};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,
-      center: midpoint
-    });
-    midPoint = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
-      map: map
-    });
-    var request = {
-      location: midpoint,
-      radius: '500',
-      types: ['restaurant']
-    };
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
-  }
+    initMap(lat,lng) {
+      var midpoint = {lat: lat, lng: lng};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: midpoint
+      });
+      midPoint = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map
+      });
+    }
 
-  // callPlaces() {
-  //   debugger;
-  //   infoWindow = new google.maps.InfoWindow();
-  //   service = new google.maps.places.PlacesService(map);
-  //   service.nearbySearch({
-  //     location: midpoint,
-  //     radius: 500,
-  //     type: ['restaurant']
-  //   }, this.callback());
-  // }
+    callPlaces(lat, lng){
+      $.ajax({
+        url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=500&type=restaurant&key=AIzaSyC9P_uAb8slpBhg4LlB5Srk4QkI0btzxBY"
+      }).done((response) => {
+        console.log(response);
+        this.setState({venues: response})
+      }).fail((response) => {
+        console.log(response)
+      })
+    }
 
-  createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    });
+    createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
-  }
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+    }
 
-  callback(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
+    callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          this.createMarker(results[i]);
+        }
       }
     }
-  }
 
   componentDidMount() {
     const { lat, lng, choices } = this.props
@@ -68,7 +65,11 @@ class MapView extends React.Component {
     //       streetViewControl: false
     //     })
     //   }
-    this.initMap(lat, lng)
+    this.callPlaces(lat, lng);
+    this.initMap(lat,lng);
+    concatLink = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries=places&callback=initMap"
+    this.setState({link: concatLink })
+
       // choices.forEach(function(venue){
       //   var marker = new google.maps.Marker({
       //     position: {lat: venue.lat, lng: venue.lng},
@@ -80,8 +81,9 @@ class MapView extends React.Component {
     }
 
   render() {
+    const { link } = this.state
     return (
-        <div ref="map" id="map" className="mapview-container"><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries=places&callback=initMap" async defer></script></div>
+        <div ref="map" id="map" className="mapview-container"><script src={link} async defer></script></div>
     )
   }
 }
