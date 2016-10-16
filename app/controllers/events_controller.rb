@@ -1,12 +1,16 @@
 class EventsController < ApplicationController
+  before_action :find_user
   def index
   end
 
   def show
-    @user = current_user
     @event = Event.find(params[:id])
-    @possibleVenues = @event.venue_choices
-    render json: @possibleVenues
+    if @event.invitees.include?(current_user)
+      @possibleVenues = @event.venue_choices
+      render json: @possibleVenues
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -14,4 +18,31 @@ class EventsController < ApplicationController
     @friends = current_user.friends
   end
 
+  def create
+    @event = Event.new(title: event_params[:title], date: event_params[:date], host: current_user )
+    if @event.save
+      invite = Invitation.create(guest_id: event_params[:guests], event: @event)
+      redirect_to event_path(@event)
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    event = Event.find_by(id: params[:id])
+    event.status = "Accepted"
+    binding.pry
+    event.guest_address = event_params[:guest_address]
+    event.save
+    redirect_to root_path
+  end
+
+  private
+  def event_params
+    params.require(:event).permit(:title, :date, :host, :guests, :guest_address)
+  end
+
+  def find_user
+    @user = current_user
+  end
 end

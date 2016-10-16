@@ -1,13 +1,20 @@
 <h2>This is the form to create new event</h2>
-<%= form_for :event do |f| %>
+<%= form_for :event, url: events_path  do |f| %>
   <%= f.label :title %>:
-  <%= f.text_field :venue %><br />
+  <%= f.text_field :title %><br />
 
   <%= f.label :date %>:
-  <%=  f.text_field :date, "data-provide" => 'datepicker' %><br/>
+  <%=  f.datetime_field :date, "data-provide" => 'datepicker' %><br/>
 
   <%= f.label :friends %>:
-  <%= f.collection_select(:host, current_user.friends, :id, :username) %>
+  <%= f.collection_select(:guests, current_user.friends, :id, :email) %>
+  </br>
 
+  <%= f.label :Homebase %>:
+  <%= f.collection_select(:host_address, current_user.user_addresses, :id, :address) %>
+
+  <%= f.hidden_field :host, :value => current_user %>
+  </br>
+  <%= f.submit "Create Event" %>
 
 <% end %>
