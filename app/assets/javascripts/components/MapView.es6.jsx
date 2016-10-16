@@ -1,10 +1,6 @@
 class MapView extends React.Component {
   constructor(){
     super();
-    this.state = {
-      venues: [],
-      link: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries"
-    }
     this.initMap = this.initMap.bind(this);
     this.callPlaces = this.callPlaces.bind(this);
     this.createMarker = this.createMarker.bind(this);
@@ -27,8 +23,8 @@ class MapView extends React.Component {
       $.ajax({
         url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=500&type=restaurant&key=AIzaSyC9P_uAb8slpBhg4LlB5Srk4QkI0btzxBY"
       }).done((response) => {
-        console.log(response);
-        this.setState({venues: response})
+        // Function to pas data to App
+        this.props.passUpPlaces(response.results)
       }).fail((response) => {
         console.log(response)
       })
@@ -67,8 +63,8 @@ class MapView extends React.Component {
     //   }
     this.callPlaces(lat, lng);
     this.initMap(lat,lng);
-    concatLink = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries=places&callback=initMap"
-    this.setState({link: concatLink })
+    // concatLink = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries=places&callback=initMap"
+    // this.setState({link: concatLink })
 
       // choices.forEach(function(venue){
       //   var marker = new google.maps.Marker({
@@ -81,7 +77,7 @@ class MapView extends React.Component {
     }
 
   render() {
-    const { link } = this.state
+    const { link } = this.props
     return (
         <div ref="map" id="map" className="mapview-container"><script src={link} async defer></script></div>
     )

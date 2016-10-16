@@ -8,63 +8,20 @@ class App extends React.Component {
           rating: 1,
           price: "$$$",
           lat: 40.713230,
-          lng: -74.013367,
-          id: 1
-         },
-         {
-           name: "Walgreens",
-           rating: 5,
-           price: "$",
-           lat: 42.759011,
-           lng: -74.9884472,
-           id: 2
-         },
-         {
-           name: "Alabama",
-           rating: 2,
-           price: "$",
-           lat: 62.759011,
-           lng: -84.9884472,
-           id: 3
-         },
-         {
-           name: "Pipers",
-           rating: 5,
-           price: "$$$",
-           lat: 62.759011,
-           lng: -34.9884472,
-           id: 4
-         },
-         {
-           name: "Tea Pot",
-           rating: 2,
-           price: "$",
-           lat: 72.759011,
-           lng: -74.9884472,
-           id: 5
-         }
+          lng: -74.013367
+        },
+        {
+          name: "freedomTower",
+          lat: 40.759011,
+          lng: -73.9884472
+        }
       ],
-      midpoint: [],
-      selectedVenue: [],
-      status: "" ,
-      markers: [],
-      // Will remove and use MidPoint as these variables
-      lat: "",
-      lng: "",
-      choices: [ ]
-      //   // {
-      //   //   name: "freedomTower",
-      //   //   lat: 40.713230,
-      //   //   lng: -74.013367
-      //   // },
-      //   // {
-      //   //   name: "freedomTower",
-      //   //   lat: 40.759011,
-      //   //   lng: -73.9884472
-      //   // }
-      // ]
+      venues: [],
+      link: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries"
+>>>>>>> Pass up GPlaces ping from MapView to App.
     }
     this.setEventDetails = this.setEventDetails.bind(this);
+    this.grabPlaces = this.grabPlaces.bind(this);
   }
 
 
@@ -77,6 +34,18 @@ class App extends React.Component {
        selectedVenue: venues[index]
       };
     })
+  }
+
+  grabPlaces(venuesArray) {
+    // Take places ping from MapView
+    // Send info to ListView
+
+    this.setState((prevState) => {
+      return {
+        possibleVenues: [...prevState.possibleVenues, venuesArray]
+      }
+    })
+    debugger;
   }
 
   componentDidMount() {
@@ -117,11 +86,16 @@ class App extends React.Component {
   render() {
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
-    // console.log('This is my state', this.state)
+    console.log('This is my state', this.state)
     return (
         <div className="app-container row">
             <div className="col-md-12">
-              <MapView choices={choices} lat={lat} lng={lng} />
+              <MapView
+              passUpPlaces={this.grabPlaces}
+              choices={choices}
+              lat={lat}
+              lng={lng}
+              mapLink={this.state.link} />
             </div>
 
             <div className="venue-list-container">
