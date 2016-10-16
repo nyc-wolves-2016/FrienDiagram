@@ -16,19 +16,26 @@ class MapView extends React.Component {
     midPoint = new google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: map
-    }, this.callPlaces());
+    });
+    var request = {
+      location: midpoint,
+      radius: '500',
+      types: ['restaurant']
+    };
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
   }
 
-  callPlaces() {
-    debugger;
-    infoWindow = new google.maps.InfoWindow();
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-      location: midpoint,
-      radius: 500,
-      type: ['restaurant']
-    }, this.callback());
-  }
+  // callPlaces() {
+  //   debugger;
+  //   infoWindow = new google.maps.InfoWindow();
+  //   service = new google.maps.places.PlacesService(map);
+  //   service.nearbySearch({
+  //     location: midpoint,
+  //     radius: 500,
+  //     type: ['restaurant']
+  //   }, this.callback());
+  // }
 
   createMarker(place) {
     var placeLoc = place.geometry.location;
