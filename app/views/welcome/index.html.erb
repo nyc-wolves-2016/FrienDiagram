@@ -1,7 +1,7 @@
 <%= user_signed_in? %><br />
-<%= current_user %><br />
+<%= current_user.email %><br />
 <%= session[:user_id] %><br />
-
+<%= image_tag current_user.avatar.url %>
 
 <%= react_component 'FriendSearchForm', { token: @token } %>
 <%= react_component 'UserAddressForm' %>
@@ -10,10 +10,12 @@
 
 <h3>Incoming Invitations</h3>
 <% current_user.invited_events.each do |event| %>
-  <span><%= event.host.id%></span>
-  <span><%= event.host.username%></span>
-  <span><%= event.title%></span>
-  <span><%= event.date%></span>
+  <a href="events/<%=event.id%>">
+    <span><%= event.host.id%></span>
+    <span><%= event.host.username%></span>
+    <span><%= event.title%></span>
+    <span><%= event.date%></span>
+  </a>
     <% if event.status == "Open" %>
       <%= form_for event do |f| %>
       <%= f.label :Homebase %>:
@@ -27,12 +29,14 @@
 
 <h3>Outgoing Invitations</h3>
 <% current_user.events.each do |event| %>
-  <span><%= event.id %></span>
-  <span><%= event.title%></span></br>
-  <% event.guests.each do |guest| %>
-    <span><%= guest.email %></span>
-    <% end %>
-    <span><%= event.status %></span>
+  <a href="events/<%=event.id%>">
+    <span><%= event.id %></span>
+    <span><%= event.title%></span></br>
+    <% event.guests.each do |guest| %>
+      <span><%= guest.email %></span>
+      <% end %>
+      <span><%= event.status %></span>
+    </a>
   </br>
   </br>
 
