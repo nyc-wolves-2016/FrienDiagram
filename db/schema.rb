@@ -22,14 +22,15 @@ ActiveRecord::Schema.define(version: 20161013233056) do
     t.string   "venue_address"
     t.float    "venue_latitude"
     t.float    "venue_longitude"
-    t.string   "host_address"
-    t.string   "guest_address"
-    t.string   "status",          default: "Open"
+    t.integer  "host_address_id"
+    t.integer  "guest_address_id"
+    t.string   "midpoint"
+    t.string   "status",           default: "Open"
     t.datetime "date"
     t.date     "day"
     t.integer  "hour"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "friendships", force: :cascade do |t|

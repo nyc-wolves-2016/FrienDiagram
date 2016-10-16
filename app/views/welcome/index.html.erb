@@ -17,7 +17,7 @@
     <% if event.status == "Open" %>
       <%= form_for event do |f| %>
       <%= f.label :Homebase %>:
-      <%= f.collection_select(:guest_address, current_user.user_addresses, :id, :username) %>
+      <%= f.collection_select(:guest_address, current_user.user_addresses, :id, :address) %>
       <%= f.button %>
     <% end %>
     <% else %>

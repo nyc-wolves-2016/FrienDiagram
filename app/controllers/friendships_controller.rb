@@ -2,6 +2,11 @@ class FriendshipsController < ApplicationController
   def index
   end
 
+  def new
+    @friendship = Friendship.new
+    @friends = current_user.friends
+  end
+
   def search
     @user = User.find_by(email: params[:email])
     render json: {response: [@user] }
@@ -14,7 +19,7 @@ class FriendshipsController < ApplicationController
       redirect_to root_path
     else
       @errors = "You're already friends with this person."
-      render root_path
+      redirect_to root_path
     end
   end
 
