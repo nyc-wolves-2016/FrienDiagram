@@ -2,7 +2,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      possibleVenues: [],
+      possibleVenues: ['White Horse', 'White Horse'],
       midpoint: [40.705116, -74.00883],
       selectedVenue: {},
       // Will remove and use MidPoint as these variables
@@ -65,17 +65,21 @@ class App extends React.Component {
   render() {
     const { choices, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
-    console.log('This is my state', this.state)
+    // console.log('This is my state', this.state)
     return (
-      <div className="app-container">
-        <MapView choices={choices} lat={lat} lng={lng} />
-        <div className="venue-list-container">
-          <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
+        <div className="app-container row">
+            <div className="col-md-12">
+              <MapView choices={choices} lat={lat} lng={lng} />
+            </div>
+
+            <div className="venue-list-container">
+              <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
+            </div>
         </div>
-        <div className="venue-details-container">
-          <EventDetails details={this.state.selectedVenue} />
-        </div>
-      </div>
+
+      /* <div className="venue-details-container">
+        <EventDetails details={this.state.selectedVenue} />
+      </div> */
     )
   }
 }
