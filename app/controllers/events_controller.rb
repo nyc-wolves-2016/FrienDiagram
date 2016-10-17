@@ -5,6 +5,7 @@ class EventsController < ApplicationController
       @token = form_authenticity_token
       session[:user_id] = current_user.id
       @friends = current_user.friends
+      @home_bases = current_user.user_addresses
     end
   end
 

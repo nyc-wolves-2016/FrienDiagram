@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
       <div>
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
-        <NewEventForm friendData={this.props.friends} sendEventData={this.gatherEventData} />
+        <NewEventForm homeBases={this.props.homeBases} friendData={this.props.friends} sendEventData={this.gatherEventData} />
       </div>
     )
   }
