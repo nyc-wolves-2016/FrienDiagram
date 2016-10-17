@@ -4,8 +4,7 @@ class NewEventForm extends React.Component {
   }
 
   render() {
-    const { friendData, homeBases } = this.props;
-    debugger;
+    const { friendData, homeBaseData } = this.props;
     return (
       <div>
         <h2>This is a form to create a new event</h2>
@@ -27,7 +26,7 @@ class NewEventForm extends React.Component {
 
           <p>Homebase:</p>
           <select name="host_address_id">
-            {homeBases.map((homeBase, i) => {
+            {homeBaseData.map((homeBase, i) => {
               return <option key={i} value={homeBase.address}>
                 {homeBase.address}
               </option>
