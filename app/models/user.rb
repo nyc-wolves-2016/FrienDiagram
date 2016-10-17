@@ -27,5 +27,9 @@ class User < ApplicationRecord
    self.user_addresses.find { |add| add.status == "Primary" }
  end
 
-
+ def bookmarks
+   bookmarks = self.voted_venues.map do |venue|
+     venue.place_id
+   end
+ end
 end
