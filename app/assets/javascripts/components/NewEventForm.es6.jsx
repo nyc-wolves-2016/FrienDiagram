@@ -10,24 +10,24 @@ class NewEventForm extends React.Component {
         <h2>This is a form to create a new event</h2>
         <form action="/events" method="post">
           <label htmlFor="title">Event Title:</label><br/>
-          <input type="text" name="title" placeholder="Event Title" /><br/>
+          <input type="text" name="event[title]" placeholder="Event Title" /><br/>
 
           <label htmlFor="date">Date:</label><br/>
-          <input type="datetime-local" name="eventTime" />
+          <input type="datetime-local" name="event[date]" />
 
           <p>Friends:</p>
-          <select name="guest_address_id">
+          <select name="invitation[guest_id]">
             {friendData.map((friend, i) => {
-              return <option key={i} value={friend.email}>
+              return <option key={i} value={friend.id}>
                 {friend.email}
               </option>
             })}
           </select>
 
           <p>Homebase:</p>
-          <select name="host_address_id">
+          <select name="event[host_address_id]">
             {homeBaseData.map((homeBase, i) => {
-              return <option key={i} value={homeBase.address}>
+              return <option key={i} value={homeBase.id}>
                 {homeBase.address}
               </option>
             })}

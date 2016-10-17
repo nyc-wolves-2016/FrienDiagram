@@ -8,6 +8,7 @@ class Event < ApplicationRecord
 
   def host_coordinates
     if has_both_points
+      binding.pry
       [UserAddress.find_by(id: self.host_address_id).latitude, UserAddress.find_by(id: self.host_address_id).longitude]
     end
   end

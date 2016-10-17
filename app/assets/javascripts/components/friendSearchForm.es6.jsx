@@ -28,7 +28,7 @@ class FriendSearchForm extends React.Component {
     }
     $.ajax({
       url: '/friendships',
-      method: 'get',
+      method: 'post',
       data: data
     })
     .done(function(response){

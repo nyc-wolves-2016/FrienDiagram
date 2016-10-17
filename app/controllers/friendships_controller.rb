@@ -14,6 +14,7 @@ class FriendshipsController < ApplicationController
 
   def create
     friendee = User.find_by(user_params)
+    binding.pry
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
     if @friendship.save
       redirect_to root_path
