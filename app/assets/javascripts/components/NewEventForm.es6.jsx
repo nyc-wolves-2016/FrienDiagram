@@ -1,13 +1,11 @@
 class NewEventForm extends React.Component {
   constructor() {
     super();
-
   }
 
-
   render() {
-    var friendData = this.props.friendData;
-    var homeBaseData = this.props.homeBases;
+    const { friendData, homeBases } = this.props;
+    debugger;
     return (
       <div>
         <h2>This is a form to create a new event</h2>
@@ -19,7 +17,7 @@ class NewEventForm extends React.Component {
           <input type="datetime-local" name="eventTime" />
 
           <p>Friends:</p>
-          <select name="cars">
+          <select name="guest_address_id">
             {friendData.map((friend, i) => {
               return <option key={i} value={friend.email}>
                 {friend.email}
@@ -28,8 +26,8 @@ class NewEventForm extends React.Component {
           </select>
 
           <p>Homebase:</p>
-          <select name="cars">
-            {homeBaseData.map((homeBase, i) => {
+          <select name="host_address_id">
+            {homeBases.map((homeBase, i) => {
               return <option key={i} value={homeBase.address}>
                 {homeBase.address}
               </option>
@@ -37,7 +35,7 @@ class NewEventForm extends React.Component {
           </select>
 
           <br/><br/>
-
+          <input type="hidden" name="authenticity_token" value={this.props.token}/>
           <input type="submit" value="Create Event" />
         </form>
       </div>

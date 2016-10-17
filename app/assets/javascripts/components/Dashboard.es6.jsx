@@ -1,18 +1,25 @@
 class Dashboard extends React.Component {
   constructor() {
     super();
-
-    // this.state = {
-    //
-    // }
-    // this.gatherFriendData = this.gatherFriendData.bind(this);
+    this.state = {
+      friendData : []
+    }
+    this.gatherFriendData = this.gatherFriendData.bind(this);
     // this.gatherAddressData = this.gatherAddressData.bind(this);
     // this.gatherEventData = this.gatherEventData.bind(this);
   }
 
-  gatherFriendData(searchResult) {
-    this.setState((prevState) => {
+  componentDidMount() {
+    this.setState({ friendData: this.props.friends })
+  }
 
+  gatherFriendData(searchResult) {
+    // this.props.friends.push(searchResult)
+    console.log(this.state)
+    this.setState((prevState) => {
+      return {
+        friendData: [...prevState.friendData, searchResult]
+      }
     })
   }
 
@@ -24,8 +31,9 @@ class Dashboard extends React.Component {
 
         <NewEventForm
         homeBases={this.props.homeBases}
-        friendData={this.props.friends}
-        sendEventData={this.gatherEventData} />
+        friendData={this.state.friendData}
+        sendEventData={this.gatherEventData}
+        token={this.props.token} />
       </div>
     )
   }

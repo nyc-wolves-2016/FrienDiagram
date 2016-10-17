@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   # def current_user
-  #   User.find_by(id: params[:user_id])
+  #   user = User.find_by(id: params[:user_id])
   # end
 #this is not a change
 
