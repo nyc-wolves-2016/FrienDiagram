@@ -45,7 +45,7 @@ class App extends React.Component {
     // console.log('This is my state', this.state)
     console.log(possibleVenues)
     return (
-        <div>
+        <div className="container">
 
               <MapView
               passUpPlaces={this.grabPlaces}
