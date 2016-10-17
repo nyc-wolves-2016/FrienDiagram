@@ -16,12 +16,11 @@ class App extends React.Component {
   }
 
 
-  setEventDetails(index) {
+  setEventDetails(venue) {
     // setState to the data collected
-    var venues = this.state.possibleVenues;
     this.setState((prevState) => {
       return {
-       selectedVenue: venues[index]
+       selectedVenue: venue
       };
     })
   }

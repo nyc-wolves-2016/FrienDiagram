@@ -7,7 +7,7 @@ class Venue extends React.Component {
   handleClick(event) {
     event.preventDefault();
     // Hey, the user has clicked *this* venue
-    var venue = this.props.venue.id - 1
+    var venue = this.props.venue
     this.props.handleClick(venue)
   }
 
