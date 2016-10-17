@@ -6,17 +6,23 @@ class EventsController < ApplicationController
       session[:user_id] = current_user.id
       @friends = current_user.friends
       @home_bases = current_user.user_addresses
+    else
+      redirect_to root_path
     end
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
-    @user = current_user
-      if @event && @event.venue_choices
-        @possibleVenues = @event.venue_choices
-      else
+    if !user_signed_in?
       redirect_to root_path
+    else
+      @event = Event.find_by(id: params[:id])
+      if !@event.invitees.include?(current_user)
+        redirect_to root_path
+      else
+        @possibleVenues = @event.venue_choices
+        @bookmarks = current_user.bookmarks
       end
+    end
   end
 
   def search
