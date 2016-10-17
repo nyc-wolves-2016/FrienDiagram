@@ -83,14 +83,15 @@ ActiveRecord::Schema.define(version: 20161016163703) do
 
   create_table "venue_choices", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "vicinity"
     t.integer  "rating"
-    t.string   "price"
-    t.integer  "event_id"
+    t.string   "price_level"
+    t.string   "place_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "event_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["event_id"], name: "index_venue_choices_on_event_id", using: :btree
   end
 

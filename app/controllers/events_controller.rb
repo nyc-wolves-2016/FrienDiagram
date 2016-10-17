@@ -10,14 +10,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:id])
     @user = current_user
-      if @event.venue_choices
+      if @event && @event.venue_choices
         @possibleVenues = @event.venue_choices
+      else
+      redirect_to root_path
       end
-    # else
-    #   redirect_to root_path
-    # end
   end
 
   def search
@@ -32,7 +31,6 @@ class EventsController < ApplicationController
   def create
     @event =  current_user.events.new(event_params)
     if @event.save
-      binding.pry
       @event.guests << User.find_by(id: params[:event][:guests])
       redirect_to event_path(@event)
     else
@@ -42,7 +40,6 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find_by(id: params[:id])
-    binding.pry
     event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
     event.save
     redirect_to event_path
