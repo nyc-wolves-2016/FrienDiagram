@@ -33,7 +33,7 @@ class NewEventForm extends React.Component {
 
           <br/><br/>
 
-          <input type="Create Event" />
+          <input type="button" value="Create Event" />
         </form>
       </div>
     )
