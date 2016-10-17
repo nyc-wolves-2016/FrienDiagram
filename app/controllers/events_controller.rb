@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     else
       redirect_to root_path
     end
-    render component: 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token }
+    # render component: 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token }
   end
 
   def show
