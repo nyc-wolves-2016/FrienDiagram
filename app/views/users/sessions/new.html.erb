@@ -1,6 +1,6 @@
-<!-- <h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<!--
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin-helper" })  do |f| %>
+<h2 class="form-signin-heading">Please Sign In</h2>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -28,7 +28,7 @@
 
 <form id="new_user" class="new_user form-signin" action="/users/sign_in" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
-  <input type="hidden" name="authenticity_token" value="AOqjzDi8NNsrVV2e1/t1OWGnO5SbsEfazP/N911Xef0VuBBexJ6oSDBu5f1g8P0gCFY4/6ffye9HDuEGuEOheA==">
+  <input type="hidden" name="authenticity_token" value="#{@token}">
 
 
   <h2 class="form-signin-heading">Please sign in</h2>

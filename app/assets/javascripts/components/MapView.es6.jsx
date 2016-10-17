@@ -5,8 +5,6 @@ class MapView extends React.Component {
       possibleVenues: []
     }
   }
-  
-
   componentDidMount() {
     const { searchType, lat, lng, midpoint, choices } = this.props
     //
