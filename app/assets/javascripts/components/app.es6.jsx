@@ -3,13 +3,13 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: {40.705116, -74.0088},
+      midpoint: {lat: 40.705116, lng: -74.00883},
       selectedVenue: {},
+      searchType: ['restaurant'],
       // Will remove and use MidPoint as these variables
       lat: 40.705116,
       lng: -74.00883,
-      venues: [],
-      link: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBINYOJFWMyIvjB33nka8JbXQ7ObqXaJA&libraries"
+      venues: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
@@ -26,6 +26,7 @@ class App extends React.Component {
   }
 
   grabPlaces(venuesArray) {
+    debugger;
     // Take places ping from MapView
     // Send info to ListView
     this.setState({ possibleVenues: venuesArray })
@@ -40,7 +41,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { lat, lng, midpoint, possibleVenues, detailsView } = this.state
+    const { searchType, lat, lng, midpoint, possibleVenues, detailsView } = this.state
     // Uncomment line below to see state change
     // console.log('This is my state', this.state)
     console.log(possibleVenues)
@@ -52,7 +53,9 @@ class App extends React.Component {
               venues={possibleVenues}
               lat={lat}
               lng={lng}
-              mapLink={this.state.link} />
+              midpoint={midpoint}
+              searchType={searchType}
+              />
               <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
               <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
           </div>
