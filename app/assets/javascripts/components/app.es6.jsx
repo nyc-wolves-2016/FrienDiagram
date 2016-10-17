@@ -3,7 +3,7 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: [40.705116, -74.00883],
+      midpoint: {40.705116, -74.0088},
       selectedVenue: {},
       // Will remove and use MidPoint as these variables
       lat: 40.705116,
@@ -32,7 +32,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
 
   }
 

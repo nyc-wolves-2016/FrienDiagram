@@ -52,20 +52,19 @@ class MapView extends React.Component {
     }
 
   componentDidMount() {
-    const { lat, lng, choices } = this.props
-
-    this.callPlaces(lat, lng);
-    this.initMap(lat,lng);
+    // const { lat, lng, choices } = this.props
+    //
+    // this.callPlaces(lat, lng);
+    // this.initMap(lat,lng);
+    this.map = new window.google.maps.Map(this.refs.map, {
+      center: {lat: 0, lng: -180},
+      zoom: 2
+    });
     }
 
   render() {
-    const { link } = this.props
     return (
-      <div className="col-md-12">
-        <div ref="map" id="map" className="mapview-container"><script src={link} async defer></script></div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC96I8KJbqYcYiMBXZ-enZ-0qjQqjcSIzg">
-          </script>
-      </div>
+        <div ref="map" id="map" className="mapview-container col-md-12"></div>
     )
   }
 }
