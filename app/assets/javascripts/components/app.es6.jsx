@@ -26,7 +26,6 @@ class App extends React.Component {
   }
 
   grabPlaces(venuesArray) {
-    debugger;
     // Take places ping from MapView
     // Send info to ListView
     this.setState({ possibleVenues: venuesArray })
