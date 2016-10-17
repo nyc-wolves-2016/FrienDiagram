@@ -33,33 +33,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    // TODO Possible Feature
-=======
-<<<<<<< HEAD
-    var lat = this.state.midpoint[0].toString();
-    var lng = this.state.midpoint[1].toString();
-    var location= "location="+lat+","+lng;
-    var rankby = "&rankby=distance";
-    //TODO added food - should recieve this from event object
-    var types = "&types=food";
-    var key = "&key=[KEY]";
-    var radius = "&500";
-    //TODO This is where we want to ping Google
+
+
   }
 
   componentWillMount() {
-    // TODO ** FIGURE OUT WHAT THIS DOES **
-    // this.setState({
-    //   midpoint: [],
-    //   selectedVenue: {},
-    //   status: "" ,
-    //   markers: [],
-    //   // Will remove and use MidPoint as these variables
-    //   lat: "",
-    //   lng: "",
-    //   choices: [ ]
-    // })
+
   }
 
   render() {
@@ -76,11 +55,9 @@ class App extends React.Component {
               lat={lat}
               lng={lng}
               mapLink={this.state.link} />
-        
               <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
               <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
-        </div>
-
+          </div>
     )
   }
 }
