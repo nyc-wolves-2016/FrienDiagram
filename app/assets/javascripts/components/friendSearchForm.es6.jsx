@@ -36,9 +36,9 @@ class FriendSearchForm extends React.Component {
     }.bind(this))
   }
 
-  gatherSearchData() {
+  gatherSearchData(friendToAdd) {
     // Send data up to Dashboard using sendFriendData(response)
-
+    this.props.sendFriendData(friendToAdd);
   }
 
   render() {
@@ -46,7 +46,7 @@ class FriendSearchForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.searchUser} className="form-horizontal">
+        <form onSubmit={this.searchUser} action="" className="form-horizontal">
 
           <div className="form-group">
             <label htmlFor="inputEmail3" className="col-sm-2 control-label">Search By Email</label>
@@ -63,7 +63,11 @@ class FriendSearchForm extends React.Component {
           </form>
 
           { this.state.results.map((result, i) => {
-            return <SearchResult passUpData={this.gatherSearchData} data={result} key={i} token={this.props.token} />
+            return <SearchResult
+            passUpData={this.gatherSearchData}
+            data={result}
+            key={i}
+            token={this.props.token} />
             })
           }
       </div>

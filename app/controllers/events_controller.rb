@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event =  current_user.events.new(event_params)
     if @event.save
       @event.guests << User.find_by(id: params[:event][:guests])
@@ -47,7 +48,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :date, :host_id, :host_address_id, :guest_address_id)
+    params.permit(:title, :date, :host_id, :host_address_id, :guest_address_id)
   end
 
   def find_user

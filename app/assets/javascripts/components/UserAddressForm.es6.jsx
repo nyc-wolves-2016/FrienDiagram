@@ -6,6 +6,7 @@ class UserAddressForm extends React.Component {
     }
     this.userAddressChange = this.userAddressChange.bind(this);
     this.addUserAddress = this.addUserAddress.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   userAddressChange(event) {
@@ -23,10 +24,15 @@ class UserAddressForm extends React.Component {
       method: 'post',
       data: data
     })
-    // .done(function(response){
-    //   debugger
-    //   this.setState({address: ""})
-    // }.bind(this))
+    .done(function(response){
+      this.setState({address: ""})
+    }.bind(this))
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    debugger;
+    this.props.sendAddressData(this.state.address);
   }
 
   render() {
@@ -34,8 +40,7 @@ class UserAddressForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.addUserAddress} className="form-horizontal">
-
+        <form onSubmit={this.handleSubmit} className="form-horizontal">
 
           <div className="form-group">
             <label htmlFor="inputEmail3" className="col-sm-2 control-label">Add an Address</label>

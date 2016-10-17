@@ -1,19 +1,44 @@
 class Dashboard extends React.Component {
   constructor() {
     super();
-
-    // this.state = {
-    //
-    // }
-    // this.gatherFriendData = this.gatherFriendData.bind(this);
-    // this.gatherAddressData = this.gatherAddressData.bind(this);
+    this.state = {
+      friendData : [],
+      homeBaseData: []
+    }
+    this.gatherFriendData = this.gatherFriendData.bind(this);
+    this.gatherAddressData = this.gatherAddressData.bind(this);
     // this.gatherEventData = this.gatherEventData.bind(this);
   }
 
-  gatherFriendData(searchResult) {
-    this.setState((prevState) => {
+  componentDidMount() {
+    this.setState({
+      friendData: this.props.friends,
+      homeBaseData: this.props.homeBases
+     })
+  }
 
+  gatherFriendData(searchResult) {
+    console.log(this.state)
+    this.setState((prevState) => {
+      return {
+        friendData: [...prevState.friendData, searchResult]
+      }
     })
+  }
+
+  gatherAddressData(newAddress) {
+    debugger;
+    console.log(this.state)
+    this.setState((prevState) => {
+      return {
+        homeBaseData: [...prevState.homeBaseData, newAddress]
+      }
+    })
+    debugger;
+  }
+
+  fakeFunction() {
+    return this.props.homeBases
   }
 
   render() {
@@ -24,8 +49,10 @@ class Dashboard extends React.Component {
 
         <NewEventForm
         homeBases={this.props.homeBases}
-        friendData={this.props.friends}
-        sendEventData={this.gatherEventData} />
+        friendData={this.state.friendData}
+        homeBaseData={this.state.homeBaseData}
+        sendEventData={this.gatherEventData}
+        token={this.props.token} />
       </div>
     )
   }

@@ -3,7 +3,7 @@
 <%= session[:user_id] %><br />
 <%= image_tag current_user.avatar.url %>
 
-<%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends } %>
+<%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token } %>
 <!-- <%= react_component 'FriendSearchForm', { token: @token } %> -->
 
 <!-- <%= react_component 'UserAddressForm' %> -->
