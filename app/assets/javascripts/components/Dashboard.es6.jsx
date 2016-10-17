@@ -35,10 +35,6 @@ class Dashboard extends React.Component {
     })
   }
 
-  fakeFunction() {
-    return this.props.homeBases
-  }
-
   render() {
     return (
       <div>
