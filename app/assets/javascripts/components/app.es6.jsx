@@ -55,7 +55,7 @@ class App extends React.Component {
               midpoint={midpoint}
               searchType={searchType}
               />
-              <VenueList handleData={this.setEventDetails} venues={ possibleVenues } />
+              <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
               <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
           </div>
     )

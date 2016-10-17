@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   post '/friendships', to: "friendships#create"
   get '/friendships/new', to: "friendships#new"
   get '/events/search', to: "events#search"
-
+  # post '/choices', to: "venue_choices#create"
 
   resources :users do
     resources :friendships
   end
 
-  resources :events
+  resources :events do
+    resources :venue_choices, only: [:delete, :create]
+  end
   resources :user_addresses
 end

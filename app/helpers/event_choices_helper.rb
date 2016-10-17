@@ -1,0 +1,2 @@
+module EventChoicesHelper
+end

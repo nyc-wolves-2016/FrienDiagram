@@ -21,6 +21,7 @@ class VenueList extends React.Component {
             <div key={i} className="col-md-6">
               <Venue
               venue={venue}
+              details={this.props.details}
               handleClick={this.passVenueData} />
             </div>
             )
