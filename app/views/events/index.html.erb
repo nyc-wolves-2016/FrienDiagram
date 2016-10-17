@@ -3,11 +3,12 @@
 <%= session[:user_id] %><br />
 <%= image_tag current_user.avatar.url %>
 
-<%= react_component 'FriendSearchForm', { token: @token } %>
+<%= react_component 'Dashboard', { token: @token, friends: @friends } %>
+<!-- <%= react_component 'FriendSearchForm', { token: @token } %> -->
 
-<%= react_component 'UserAddressForm' %>
+<!-- <%= react_component 'UserAddressForm' %> -->
 
-<%= react_component 'NewEventForm' %>
+<!-- <%= react_component 'NewEventForm' %> -->
 <!-- <%= render 'events/form' %> -->
 
 

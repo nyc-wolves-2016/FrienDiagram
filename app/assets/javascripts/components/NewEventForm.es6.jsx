@@ -4,6 +4,7 @@ class NewEventForm extends React.Component {
   }
 
   render() {
+    var data = this.props.friendData;
     return (
       <div>
         <h2>This is a form to create a new event</h2>
@@ -17,10 +18,11 @@ class NewEventForm extends React.Component {
 
           <p>Friends:</p>
           <select name="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+            {data.map((friend, i) => {
+              return <option key={i} value={friend.email}>
+                {friend.email}
+              </option>
+            })}
           </select>
 
           <p>Homebase:</p>

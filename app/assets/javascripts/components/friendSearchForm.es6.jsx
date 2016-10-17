@@ -9,18 +9,17 @@ class FriendSearchForm extends React.Component {
     this.userNameChange = this.userNameChange.bind(this);
     this.emailChange = this.emailChange.bind(this);
     this.searchUser = this.searchUser.bind(this);
+    this.gatherSearchData = this.gatherSearchData.bind(this);
   }
 
   userNameChange(event) {
     this.setState( { username: event.target.value } );
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   emailChange(event) {
     this.setState( { email: event.target.value });
   };
-
-
 
   searchUser(event){
     event.preventDefault();
@@ -37,13 +36,17 @@ class FriendSearchForm extends React.Component {
     }.bind(this))
   }
 
+  gatherSearchData() {
+    // Send data up to Dashboard using sendFriendData(response)
+
+  }
+
   render() {
     const { username, email } = this.state;
 
     return(
       <div>
         <form onSubmit={this.searchUser} className="form-horizontal">
-
 
           <div className="form-group">
             <label htmlFor="inputEmail3" className="col-sm-2 control-label">Search By Email</label>
@@ -59,9 +62,8 @@ class FriendSearchForm extends React.Component {
           </div>
           </form>
 
-
           { this.state.results.map((result, i) => {
-            return <SearchResult data={result} key={i} token={this.props.token} />
+            return <SearchResult passUpData={this.gatherSearchData} data={result} key={i} token={this.props.token} />
             })
           }
       </div>
