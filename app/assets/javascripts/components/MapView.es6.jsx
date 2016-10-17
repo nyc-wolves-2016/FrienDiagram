@@ -64,7 +64,7 @@ class MapView extends React.Component {
 
   render() {
     return (
-        <div ref="map" id="map" className="mapview-container col-md-12"></div>
+        <div ref="map" id="map"></div>
     )
   }
 }

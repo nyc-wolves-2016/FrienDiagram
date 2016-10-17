@@ -40,18 +40,18 @@ class UserAddressForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.handleSubmit} className="form-horizontal">
+        <form onSubmit={this.handleSubmit}>
 
-          <div className="form-group">
-            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Add an Address</label>
+          <div>
+            <label htmlFor="inputEmail3" className="control-label">Add an Address</label>
 
-            <div className="col-sm-10">
+            <div>
               <input type="text" onChange={this.userAddressChange} value={address} className="form-control" id="inputEmail3" placeholder="Email" />
             </div>
           </div>
 
           <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
+            <div>
               <button type="submit" className="btn btn-default">Add</button>
             </div>
           </div>

@@ -46,18 +46,18 @@ class FriendSearchForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.searchUser} action="" className="form-horizontal">
+        <form onSubmit={this.searchUser}>
 
-          <div className="form-group">
-            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Search By Email</label>
-            <div className="col-sm-10">
-              <input type="email" onChange={this.emailChange} value={email} className="form-control" id="inputEmail3" placeholder="Email" />
+          <div>
+            <label htmlFor="inputEmail3">Search By Email</label>
+            <div>
+              <input type="email" onChange={this.emailChange} value={email} id="inputEmail3" placeholder="Email" />
             </div>
           </div>
 
-          <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
-              <button type="submit" className="btn btn-default">Search for Friend</button>
+          <div>
+            <div>
+              <button type="submit">Search for Friend</button>
             </div>
           </div>
           </form>

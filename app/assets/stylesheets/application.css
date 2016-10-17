@@ -1,17 +1,17 @@
-body {
+/*body {
   margin: 0;
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee !important;
   transition: background-color .5s;
-}
+}*/
 
  #map {
    width: 70%;
    height: 400px;
   }
 
-  .mysidenav {
+  /*.mysidenav {
     text-align: center;
     color: #fff;
     height: 100%;
@@ -106,4 +106,4 @@ body {
 
 .details {
   clear: right;
-}
+}*/

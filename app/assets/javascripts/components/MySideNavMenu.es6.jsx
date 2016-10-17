@@ -1,27 +1,35 @@
 class mySidenavmenu extends React.Component {
-  closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("container").style.marginLeft= "100px";
-    document.body.style.backgroundColor = "white";
-  }
   renderActiveLinks() {
     if(this.props.current_user) {
       const { id } = this.props.current_user
       return(
-        <div id="mySidenav" className="sidenav">
-          <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav.bind(this)}>&times;</a>
-          <a href="/">Home</a>
-          <a href="#">Profile</a>
-          <a href="#">Settings</a>
-          <a href="/friendships/new">Find New Friend</a>
-          <a href="/events/new">Create New Event</a>
-          <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
-        </div>
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="userView">
+              <img class="background" src="images/office.jpg" />
+              <a href="#!user">
+                <img class="circle" src="images/yuna.jpg" />
+              </a>
+              <a href="#!name">
+                <span class="white-text name">John Doe</span>
+              </a>
+              <a href="#!email">
+                <span class="white-text email">jdandturk@gmail.com</span>
+              </a>
+            </div>
+          </li>
+          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+          <li><a href="#!">Second Link</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       )
     }
     return (
-      <div id="mySidenav" className="sidenav">
-        <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav.bind(this)}>&times;</a>
+      <div>
+        <a href="javascript:void(0)"onClick={this.closeNav.bind(this)}>&times;</a>
         <a href="/">Home</a>
         <a href="/users/sign_in">Login</a>
         <a href="/users/sign_up">Sign up</a>
