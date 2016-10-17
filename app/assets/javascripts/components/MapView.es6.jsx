@@ -4,16 +4,8 @@ class MapView extends React.Component {
     this.state = {
       possibleVenues: []
     }
-
   }
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
-
-
-
+  
 
   componentDidMount() {
     const { searchType, lat, lng, midpoint, choices } = this.props

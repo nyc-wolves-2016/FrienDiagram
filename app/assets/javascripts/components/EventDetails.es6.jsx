@@ -12,12 +12,6 @@ class EventDetails extends React.Component {
         <h2>-------------</h2>
         <span> {date} </span>
         <br></br>
-        <button type="button" className="btn btn-default" aria-label="Left Align">
-          <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        </button>
-        <button type="button" className="btn btn-default" aria-label="Left Align">
-          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
       </div>
     );
   }

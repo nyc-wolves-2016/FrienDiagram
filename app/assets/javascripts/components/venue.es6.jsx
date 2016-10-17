@@ -25,6 +25,9 @@ class Venue extends React.Component {
           <span> Rating: {rating} </span><br></br>
           <span> Price: {price} </span><br></br>
         </div>
+        <button type="button" className="btn btn-default" aria-label="Left Align">
+        <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
         <hr></hr>
       </div>
     )
