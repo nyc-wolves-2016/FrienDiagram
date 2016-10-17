@@ -39,8 +39,8 @@ class Venue extends React.Component {
     const { venue, details } = this.props
     const { name, rating, price} = this.props.venue
     return (
-      <div className="venue">
-        <div onClick={this.handleClick} className="venue-quickview">
+      <div>
+        <div onClick={this.handleClick}>
           <span> Name: {name} </span><br></br>
           <span> Rating: {rating} </span><br></br>
           <span> Price: {price} </span><br></br>

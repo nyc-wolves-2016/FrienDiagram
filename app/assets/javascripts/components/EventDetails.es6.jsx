@@ -3,7 +3,7 @@ class EventDetails extends React.Component {
     const { title, date, host } = this.props.details
     const { name, venue_address } = this.props.venue
     return(
-      <div className="details">
+      <div>
         <h3>Event Details Component:</h3>
         <span> {title} </span><br></br>
         <h2>-------------</h2>
