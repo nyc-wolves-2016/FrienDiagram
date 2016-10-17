@@ -1,6 +1,9 @@
 class VenueList extends React.Component {
   constructor() {
     super();
+    this.state = {
+      // add state to each venue
+    }
 
     this.passVenueData = this.passVenueData.bind(this);
   }
