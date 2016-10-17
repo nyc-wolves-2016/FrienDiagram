@@ -1,6 +1,5 @@
 Rails.application.configure do
-  # TODO will need to remove if we pull out of PaperClip #
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Settings specified here will take precedence over those in config/application.rb.
 

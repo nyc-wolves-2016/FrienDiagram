@@ -25,7 +25,6 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'geocoder'
-gem "paperclip", "~> 5.0.0"
 
 
 group :development, :test do

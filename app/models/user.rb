@@ -14,11 +14,6 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-# Neccessary for Paperlip GEM #
-# TODO remove if we pull out of PaperClip #
-   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
  def friends
    self.frienders + self.friendees
  end

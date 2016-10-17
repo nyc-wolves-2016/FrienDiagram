@@ -31,7 +31,6 @@ class UserAddressForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    debugger;
     this.props.sendAddressData(this.state.address);
   }
 

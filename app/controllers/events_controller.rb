@@ -35,10 +35,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @event =  current_user.events.new(event_params)
+    @event = Event.new({
+      host_id: current_user.id,
+      title:  params[:event][:title],
+      host_address_id: params[:event][:host_address_id].to_i,
+      date: params[:event][:date]
+      })
     if @event.save
-      @event.guests << User.find_by(id: params[:event][:guests])
+      binding.pry
+      Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
       redirect_to event_path(@event)
     else
       render 'new'
@@ -53,10 +58,6 @@ class EventsController < ApplicationController
   end
 
   private
-  def event_params
-    params.permit(:title, :date, :host_id, :host_address_id, :guest_address_id)
-  end
-
   def find_user
     @user = current_user
   end

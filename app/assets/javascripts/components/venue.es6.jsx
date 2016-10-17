@@ -24,7 +24,6 @@ class Venue extends React.Component {
         venue: { name, vicinity, rating, price_level, place_id }
       }
     }).done(function(){
-        // debugger
         this.children('button').removeClass('btn-default')
         this.children('button').addClass('btn-success')
         this.children().children().text(' Bookmarked')

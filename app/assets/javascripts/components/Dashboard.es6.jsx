@@ -27,14 +27,12 @@ class Dashboard extends React.Component {
   }
 
   gatherAddressData(newAddress) {
-    debugger;
     console.log(this.state)
     this.setState((prevState) => {
       return {
         homeBaseData: [...prevState.homeBaseData, newAddress]
       }
     })
-    debugger;
   }
 
   fakeFunction() {

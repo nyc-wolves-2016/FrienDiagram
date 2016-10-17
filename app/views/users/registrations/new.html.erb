@@ -2,12 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true } ) do |f| %>
   <%= devise_error_messages! %>
-  # TODO remove if we pull out of PaperClip #
 
-  <div>
-    Add Your <%= f.label :avatar %>:
-    <%= f.file_field :avatar %>
-  </div>
 
   <div class="field">
     <%= f.label :email %><br />

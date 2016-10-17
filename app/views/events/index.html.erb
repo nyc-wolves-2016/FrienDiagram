@@ -1,7 +1,7 @@
 <%= user_signed_in? %><br />
 <%= current_user.email %><br />
 <%= session[:user_id] %><br />
-<%= image_tag current_user.avatar.url %>
+
 
 <%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token } %>
 <!-- <%= react_component 'FriendSearchForm', { token: @token } %> -->
