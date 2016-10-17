@@ -19,7 +19,10 @@ class MapView extends React.Component {
     var midpointLocal = new google.maps.Marker({
       position: midpoint,
       map: this.map,
-      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 8
+      }
     });
     var request = {
       location: midpoint,
@@ -34,7 +37,11 @@ class MapView extends React.Component {
         var placeLoc = results[i].geometry.location;
         var marker = new google.maps.Marker({
           map: this.map,
-          position: results[i].geometry.location
+          position: results[i].geometry.location,
+          icon: {
+            url:'../place_project.png',
+            scaledSize: new google.maps.Size(30, 30)
+          }
         });
         this.addMarkerListener(marker, results[i])
       }
