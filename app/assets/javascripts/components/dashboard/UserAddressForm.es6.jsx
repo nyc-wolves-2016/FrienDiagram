@@ -39,13 +39,13 @@ class UserAddressForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form id="add-address-form" onSubmit={this.handleSubmit}>
 
           <div>
             <label htmlFor="inputEmail3" className="control-label">Add an Address</label>
 
             <div>
-              <input type="text" onChange={this.userAddressChange} value={address} className="form-control" id="inputEmail3" placeholder="Email" />
+              <input type="text" onChange={this.userAddressChange} value={address} className="form-control" id="inputEmail3" placeholder="Add New Address" />
             </div>
           </div>
 

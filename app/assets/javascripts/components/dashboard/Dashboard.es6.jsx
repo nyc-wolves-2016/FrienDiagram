@@ -18,31 +18,40 @@ class Dashboard extends React.Component {
   }
 
   gatherFriendData(searchResult) {
-    console.log(this.state)
-    var data = searchResult
+    var data = searchResult;
     $.ajax({
       url: "/friendships",
       method: "post",
       data: {
         email: data
       }
-    }).done(function(response){
+    }).done(function(response) {
       this.setState((prevState) => {
         return {
           friendData: [response.response[0]].concat(this.state.friendData)
         }
       })
+      $('#friend-search-form').trigger('reset')
     }.bind(this))
 
   }
 
   gatherAddressData(newAddress) {
-    console.log(this.state)
-    this.setState((prevState) => {
-      return {
-        homeBaseData: [...prevState.homeBaseData, newAddress]
+    var data = newAddress;
+    $.ajax({
+      url: '/user_addresses',
+      method: 'POST',
+      data: {
+        address: data
       }
-    })
+    }).done(function(response) {
+      this.setState((prevState) => {
+        return {
+          homeBaseData: [...prevState.homeBaseData, response.response[0]]
+        }
+      })
+      $('#inputEmail3').val("")
+    }.bind(this))
   }
 
   render() {
