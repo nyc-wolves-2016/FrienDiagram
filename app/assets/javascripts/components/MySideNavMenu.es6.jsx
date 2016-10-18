@@ -6,9 +6,9 @@ class mySidenavmenu extends React.Component {
         <ul id="slide-out" className="side-nav fixed">
           <li>
             <div className="userView">
-              <img className="background" src="images/office.jpg" />
+              {/* <img className="background" src="images/office.jpg" /> */}
               <a href="#!user">
-                <img className="circle" src="images/yuna.jpg" />
+                {/* <img className="circle" src="images/yuna.jpg" /> */}
               </a>
               <a href="#!name">
                 <span className="white-text name">John Doe</span>
@@ -18,11 +18,14 @@ class mySidenavmenu extends React.Component {
               </a>
             </div>
           </li>
-          <li><a href="#!"><i className="material-icons">cloud</i>First Link With Icon</a></li>
-          <li><a href="#!">Second Link</a></li>
+          <li><a href="/"><i className="material-icons">cloud</i>Home</a></li>
+          <li><a href="#!">Profile</a></li>
           <li><div className="divider"></div></li>
-          <li><a className="subheader">Subheader</a></li>
-          <li><a className="waves-effect" href="#!">Third Link With Waves</a></li>
+          <li><a href="#!">Settings</a></li>
+          <li><a className="waves-effect" href="#!">Find New Friend</a></li>
+          <li><a href="/events">Create New Event</a></li>
+          <li><a href="#!">Notifications</a></li>
+          <li><a  data-method="delete" href="/users/sign_out">Log out</a></li>
         </ul>
       )
     }
@@ -53,7 +56,7 @@ class mySidenavmenu extends React.Component {
         <li><a href="/"><i className="material-icons">cloud</i>Home</a></li>
         <li><a href="/users/sign_in">Login</a></li>
         <li><div className="divider"></div></li>
-        <li><a href="/users/sign_up">Sign in</a></li>
+        <li><a href="/users/sign_up">Sign up</a></li>
         <li><a className="waves-effect" href="#!">About</a></li>
       </ul>
     )
