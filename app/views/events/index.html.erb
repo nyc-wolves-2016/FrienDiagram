@@ -14,7 +14,7 @@
     <span><%= event.title%></span>
     <span><%= event.date%></span>
   </a>
-    <% if event.status == "Open" %>
+    <% if event.status == "Open" && has_address? %>
       <%= form_for event do |f| %>
       <%= f.label :Homebase %>:
       <%= f.collection_select(:guest_addresses, current_user.user_addresses, :id, :address) %>

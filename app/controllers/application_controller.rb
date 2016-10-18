@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # helper_method :log_out, :logged_in?, :current_user, :log_in
-  helper_method :resource_name, :resource, :devise_mapping
+  helper_method :resource_name, :resource, :devise_mapping, :has_address?
   before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
   # -- devise -- #
   def resource_name
@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
     added_attrs = [:first_name, :last_name, :username, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
+
+  def has_address?
+    @user = User.find_by(id: session[:user_id])
+    return true if @user.user_addresses.length > 0
+      else return false
   end
 
   # def current_user

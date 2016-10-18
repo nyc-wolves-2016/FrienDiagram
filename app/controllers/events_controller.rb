@@ -57,10 +57,14 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find_by(id: params[:id])
-    event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
-    event.save
-    redirect_to event_path
+    if has_address?
+      event = Event.find_by(id: params[:id])
+      event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
+      event.save
+      redirect_to event_path
+    else
+      render events_path
+    end
   end
 
   def confirm

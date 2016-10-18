@@ -66,6 +66,8 @@ class Dashboard extends React.Component {
         sendEventData={this.gatherEventData}
         token={this.props.token}
         current_user_id = {this.props.current_user_id}/>
+
+        <acceptInviteForm homeBases={this.props.homeBases} />
       </div>
     )
   }
