@@ -44,6 +44,7 @@ class Venue extends React.Component {
             <i className="medium material-icons">stars</i>
             </button>
           </form>
+          
           <div onClick={this.handleClick} className="col s8 card-panel teal push-s1 waves-effect waves-light">
               <span><h5> <strong>{name}</strong> </h5></span><hr></hr>
               <div className="row">

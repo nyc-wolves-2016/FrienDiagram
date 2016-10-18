@@ -14,6 +14,7 @@ class App extends React.Component {
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
     this.removeVenueChoice = this.removeVenueChoice.bind(this);
+    this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
 
   componentWillMount() {
@@ -48,7 +49,24 @@ class App extends React.Component {
         this.state.venueChoices.splice(i, 1)
         this.setState({ venueChoices: this.state.venueChoices })
       }
+  }
 
+  acceptVenueChoice(venue) {
+    debugger;
+    // update route
+    // create a custom route
+    // def finalize
+    //  use for purpose of updating
+    //  PATCH/PUT
+    // end
+    // Change status of event to confirmed
+    // add venue information
+    // venue address
+    $.ajax({
+
+    }).done(function(response) {
+      
+    })
   }
 
   render() {
@@ -64,8 +82,14 @@ class App extends React.Component {
               lng={lng}
               midpoint={midpoint}
               searchType={searchType}
-              />
-            <EventDetails venueChoices={ venueChoices } details={ event } removeVenueChoice={this.removeVenueChoice}/>
+            />
+            <EventDetails
+            venueChoices={ venueChoices }
+            details={ event }
+            removeVenueChoice={this.removeVenueChoice}
+            acceptVenueChoice={this.acceptVenueChoice}
+            />
+
           </div>
             <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
           </div>
