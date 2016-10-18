@@ -13,6 +13,7 @@ class App extends React.Component {
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
+    this.removeVenueChoice = this.removeVenueChoice.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +38,16 @@ class App extends React.Component {
     this.setState({ possibleVenues: venuesArray })
   }
 
+  removeVenueChoice(venue) {
+      var i = this.state.venueChoices.indexOf(venue)
+
+      if (i != -1) {
+        this.state.venueChoices.splice(i, 1)
+        this.setState({ venueChoices: this.state.venueChoices })
+      }
+
+  }
+
   render() {
     const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
     const { event } = this.props;
@@ -51,7 +62,7 @@ class App extends React.Component {
               midpoint={midpoint}
               searchType={searchType}
               />
-            <EventDetails venueChoices={ venueChoices } details={ event }/>
+            <EventDetails venueChoices={ venueChoices } details={ event } removeVenueChoice={this.removeVenueChoice}/>
           </div>
             <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
           </div>
