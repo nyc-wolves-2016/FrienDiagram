@@ -64,7 +64,7 @@ class MapView extends React.Component {
 
   render() {
     return (
-        <div ref="map" id="map" className="col s6 m3 card valign-wrapper"></div>
+        <div ref="map" id="map" className="col s3 m3 card valign-wrapper"></div>
     )
   }
 }
