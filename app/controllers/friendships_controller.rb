@@ -9,12 +9,13 @@ class FriendshipsController < ApplicationController
 
   def search
     @user = User.find_by(email: params[:email])
-    render json: {response: [@user] }
+    render json: {response: @user }
   end
 
   def create
     friendee = User.find_by(user_params)
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
+    binding.pry
     if @friendship.save
       render json: {response: [friendee] }
     else
@@ -25,6 +26,6 @@ class FriendshipsController < ApplicationController
 
   private
   def user_params
-    params.permit(:email)
+    params.require(:email).permit(:email)
   end
 end

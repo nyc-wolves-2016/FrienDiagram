@@ -32,7 +32,8 @@ class FriendSearchForm extends React.Component {
       data: data
     })
     .done(function(response){
-      this.setState({results: response.response})
+      friend = response.response
+      this.setState({results: [friend]})
     }.bind(this))
   }
 
