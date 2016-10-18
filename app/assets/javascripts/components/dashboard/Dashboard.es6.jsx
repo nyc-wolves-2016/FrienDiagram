@@ -65,7 +65,8 @@ class Dashboard extends React.Component {
         friendData={this.state.friendData}
         homeBaseData={this.state.homeBaseData}
         sendEventData={this.gatherEventData}
-        token={this.props.token} />
+        token={this.props.token}
+        current_user_id = {this.props.current_user_id}/>
       </div>
     )
   }

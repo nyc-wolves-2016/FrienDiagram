@@ -36,11 +36,13 @@ class EventsController < ApplicationController
   end
 
   def create
+    form = params[:event]
     @event = Event.new({
-      host_id: current_user.id,
-      title:  params[:event][:title],
-      host_address_id: params[:event][:host_address_id].to_i,
-      date: params[:event][:date]
+      host_id:          form[:host_id],
+      title:            form[:title],
+      host_address_id:  form[:host_address_id].to_i,
+      date:             form[:date],
+      event_type:       form[:event_type]
       })
     if @event.save
       Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
@@ -60,5 +62,9 @@ class EventsController < ApplicationController
   private
   def find_user
     @user = current_user
+  end
+
+  def event_params
+    params.require(:event).permit(:host_id, :title, :type, :host_address_id, :date)
   end
 end
