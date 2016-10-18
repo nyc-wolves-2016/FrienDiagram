@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-per = User.create(username: "per", email: "per@gmail.com", password: "password123" )
-devin = User.create(username: "devin", email: "devin@gmail.com", password: "password123" )
-logan = User.create(username: "logan", email: "logan@gmail.com", password: "password123" )
-edwin = User.create(username: "edwin", email: "edwin@gmail.com", password: "password123" )
-neel = User.create(username: "neel", email: "neel@gmail.com", password: "password123" )
-pan = User.create(username: "pan", email: "pan@gmail.com", password: "password123" )
+per = User.create(first_name: "per", last_name: "", username: "per", email: "per@gmail.com", password: "password123" )
+devin = User.create(first_name: "devin", last_name: "", username: "devin", email: "devin@gmail.com", password: "password123" )
+logan = User.create(first_name: "logan", last_name: "", username: "logan", email: "logan@gmail.com", password: "password123" )
+edwin = User.create(first_name: "edwin", last_name: "", username: "edwin", email: "edwin@gmail.com", password: "password123" )
+neel = User.create(first_name: "neel", last_name: "", username: "neel", email: "neel@gmail.com", password: "password123" )
+pan = User.create(first_name: "pan", last_name: "", username: "pan", email: "pan@gmail.com", password: "password123" )
 
 f1 = Friendship.create(friender: per, friendee: devin)
 f2 = Friendship.create(friender: per, friendee: logan)
