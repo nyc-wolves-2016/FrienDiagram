@@ -43,7 +43,6 @@ class EventsController < ApplicationController
       date: params[:event][:date]
       })
     if @event.save
-      binding.pry
       Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
       redirect_to event_path(@event)
     else

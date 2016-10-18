@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 
   def search
     @user = User.find_by(email: params[:email])
-    render json: {response: [@user] }
+    render json: {response: [@user.email] }
   end
 
   def create
