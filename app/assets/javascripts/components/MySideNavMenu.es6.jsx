@@ -33,14 +33,6 @@ class mySidenavmenu extends React.Component {
       )
     }
     return (
-      // <div>
-      //   <a href="javascript:void(0)" >&times;</a>
-      //   <a href="/">Home</a>
-      //   <a href="/users/sign_in">Login</a>
-      //   <a href="/users/sign_up">Sign up</a>
-      //   <a href="#">About</a>
-      // </div>
-
       <ul id="slide-out" className="side-nav fixed">
         <li>
           <div className="userView">
