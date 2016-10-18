@@ -3,12 +3,12 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: {lat: 40.705116, lng: -74.00883},
+      midpoint: {lat: 0, lng: 0},
       venueChoices: [],
-      searchType: ['restaurant'],
+      searchType: [],
       // Will remove and use MidPoint as these variables
-      lat: 40.705116,
-      lng: -74.00883,
+      // lat: 0,
+      // lng: 0,
       venues: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
@@ -16,8 +16,11 @@ class App extends React.Component {
     this.removeVenueChoice = this.removeVenueChoice.bind(this);
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
+    const { event } = this.props
+    this.setState({ midpoint: { lat: event.midpoint[0], lng: event.midpoint[1] },
+                    searchType: [event.event_type]
+    })
   }
 
   setEventDetails(venue) {
