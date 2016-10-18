@@ -1,9 +1,9 @@
-<h2>Sign up</h2>
-
 <div class="row">
-  <form class="col s12" action"/users" accept-charset="UTF-8" method="post">
+  <form id="new_user" class="col s12" action="/users" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="#{@token}">
+
+  <%= devise_error_messages! %>
 
     <div class="row">
       <div class="input-field col s6">
