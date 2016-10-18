@@ -38,18 +38,18 @@ class Venue extends React.Component {
     const { venue, details } = this.props
     const { name, rating, price} = this.props.venue
     return (
-      <div>
-        <div onClick={this.handleClick}>
-          <span> Name: {name} </span><br></br>
-          <span> Rating: {rating} </span><br></br>
-          <span> Price: {price} </span><br></br>
+      <div className="row">
+          <form className="col s1" id={details.id} onSubmit={this.handleBookmark} method="post">
+            <button type="submit" className="btn-floating waves-effect waves-light btn" aria-label="Left Align">
+            <i className="medium material-icons">stars</i>
+            </button>
+          </form>
+          <div onClick={this.handleClick} className="col s8 card-panel teal push-s1">
+              <span>{name} </span><br></br>
+              <span> Rating: {rating} </span><br></br>
+              <span> Price: {price} </span><br></br>
         </div>
-        <form id={details.id} onSubmit={this.handleBookmark} method="post">
-          <button type="submit" className="btn btn-default" aria-label="Left Align">
-            <span className="glyphicon glyphicon-bookmark" aria-hidden="true"> Bookmark </span>
-          </button>
-        </form>
-        <hr></hr>
+
       </div>
     )
   }
