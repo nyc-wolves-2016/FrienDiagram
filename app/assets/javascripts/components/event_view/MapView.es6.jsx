@@ -8,7 +8,7 @@ class MapView extends React.Component {
   }
 
   componentDidMount() {
-    const { searchType, lat, lng, midpoint, choices } = this.props
+    const { searchType, midpoint, choices } = this.props
     //
     // this.callPlaces(lat, lng);
     // this.initMap(lat,lng);
