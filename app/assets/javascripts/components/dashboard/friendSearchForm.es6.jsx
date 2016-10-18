@@ -44,6 +44,7 @@ class FriendSearchForm extends React.Component {
 
   render() {
     const { username, email, results } = this.state;
+    console.log(results)
     return(
       <div>
         <form id="friend-search-form" onSubmit={this.searchUser}>
