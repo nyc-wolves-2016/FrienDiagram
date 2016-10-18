@@ -8,7 +8,6 @@ class MapView extends React.Component {
   }
 
   componentDidMount() {
-    console.log('hello', this.props)
     const { searchType, midpoint, choices } = this.props
     //
     // this.callPlaces(lat, lng);
@@ -64,7 +63,6 @@ class MapView extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
         <div ref="map" id="map" className="col s3 m3 card valign-wrapper"></div>
     )
