@@ -52,21 +52,19 @@ class App extends React.Component {
   }
 
   acceptVenueChoice(venue) {
-    debugger;
-    // update route
-    // create a custom route
-    // def finalize
-    //  use for purpose of updating
-    //  PATCH/PUT
-    // end
     // Change status of event to confirmed
     // add venue information
     // venue address
-    $.ajax({
-
-    }).done(function(response) {
-      
-    })
+    // debugger;
+    // $.ajax({
+    //   url: '/events/confirm',
+    //   method: 'post',
+    //   data: {
+    //     venue: venue
+    //   }
+    // }).done(function(response) {
+    //   debugger;
+    // }.bind(this))
   }
 
   render() {
@@ -91,7 +89,11 @@ class App extends React.Component {
             />
 
           </div>
-            <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
+            <VenueList
+            handleData={this.setEventDetails}
+            details = {this.props.event}
+            venues={ possibleVenues }
+            />
           </div>
     )
   }

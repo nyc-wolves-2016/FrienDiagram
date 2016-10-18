@@ -59,6 +59,13 @@ class EventsController < ApplicationController
     redirect_to event_path
   end
 
+  def confirm
+    binding.pry
+    event = Event.find_by(id: params[:id])
+    # event.update_attributes()
+    # event.save
+    # redirect_to event_path
+  end
   private
   def find_user
     @user = current_user
