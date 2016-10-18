@@ -23,30 +23,45 @@
   </div>
 <% end %>
 
- render "users/shared/links" 
+ render "users/shared/links"
 -->
 
 
-<form id="new_user" class="new_user form-signin" action="/users/sign_in" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="✓">
-  <input type="hidden" name="authenticity_token" value="#{@token}">
+<div class="row">
+  <form class="col s12" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="#{@token}">
 
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate" value name="user[email]">
+        <label for="email" data-error="wrong" data-success="right">Email</label>
+      </div>
+    </div>
 
-  <h2 class="form-signin-heading">Please sign in</h2>
-  <label for="inputEmail" class="sr-only">Email address</label>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate" name="user[password]">
+        <label for="password">Password</label>
+      </div>
+    </div>
 
-  <input type="email" id="inputEmail" class="form-control" value name="user[email]" placeholder="Email address" required autofocus>
+    <!-- Switch -->
+    <label for="remember_me">Remember me</label>
+    <div class="section">
+    <div class="switch">
+      <label>
+        Off
+        <input name="user[remember_me]" type="hidden" value="0" />
+        <input type="checkbox" value="1" name="user[remember_me]">
+        <span class="lever"></span>
+        On
+      </label>
+    </div>
+    </div>
 
-  <label for="inputPassword" class="sr-only">Password</label>
-
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password"  name ="user[password]" autocomplete="off" required>
-
-  <div class="checkbox">
-    <label>
-      <input name="user[remember_me]" type="hidden" value="0">
-      <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me"> Remember me
-    </label>
-  </div>
-
-  <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit" value="Sign in" data-disable-with="Sign in">Sign in</button>
-</form>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
