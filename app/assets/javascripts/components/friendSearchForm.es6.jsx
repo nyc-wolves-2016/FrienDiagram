@@ -4,7 +4,7 @@ class FriendSearchForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      results: []
+      results: ["hello", "hhello"]
     }
     this.userNameChange = this.userNameChange.bind(this);
     this.emailChange = this.emailChange.bind(this);
@@ -42,8 +42,7 @@ class FriendSearchForm extends React.Component {
   }
 
   render() {
-    const { username, email } = this.state;
-
+    const { username, email, results } = this.state;
     return(
       <div>
         <form onSubmit={this.searchUser}>
@@ -62,12 +61,13 @@ class FriendSearchForm extends React.Component {
           </div>
           </form>
 
-          { this.state.results.map((result, i) => {
+          { results.map((result, i) => {
             return <SearchResult
-            passUpData={this.gatherSearchData}
-            data={result}
-            key={i}
-            token={this.props.token} />
+                    passUpData={this.gatherSearchData}
+                    data={result}
+                    key={i}
+                    token={this.props.token}
+                   />
             })
           }
       </div>

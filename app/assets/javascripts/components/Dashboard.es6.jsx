@@ -20,7 +20,6 @@ class Dashboard extends React.Component {
   gatherFriendData(searchResult) {
     console.log(this.state)
     var data = searchResult
-    debugger
     $.ajax({
       url: "/friendships",
       method: "post",
