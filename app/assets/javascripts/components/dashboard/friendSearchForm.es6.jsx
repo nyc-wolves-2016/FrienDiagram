@@ -39,7 +39,6 @@ class FriendSearchForm extends React.Component {
 
   gatherSearchData(friendToAdd) {
     // Send data up to Dashboard using sendFriendData(response)
-    debugger
     this.props.sendFriendData(friendToAdd);
   }
 
@@ -58,7 +57,7 @@ class FriendSearchForm extends React.Component {
 
           <div>
             <div>
-              <button type="submit">Search for Friend</button>
+              <button type="submit" className="waves-effect waves-light btn">Search for Friend</button>
             </div>
           </div>
           </form>
