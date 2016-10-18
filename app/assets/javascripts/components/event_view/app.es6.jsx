@@ -71,7 +71,7 @@ class App extends React.Component {
 
   render() {
     const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
-    const { event } = this.props;
+    const { event, user } = this.props;
     return (
         <div>
           <div className="row card-panel teal l12">

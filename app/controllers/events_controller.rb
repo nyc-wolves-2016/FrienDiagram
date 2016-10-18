@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
   before_action :find_user
   def index
-    if user_signed_in?
-      @token = form_authenticity_token
-      session[:user_id] = current_user.id
-      @friends = current_user.friends
-      @home_bases = current_user.user_addresses
-    else
-      redirect_to root_path
-    end
+      if user_signed_in?
+        @token = form_authenticity_token
+        session[:user_id] = current_user.id
+        @friends = current_user.friends
+        @home_bases = current_user.user_addresses
+      else
+        redirect_to root_path
+      end
     # render component: 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token }
   end
 
@@ -45,8 +45,14 @@ class EventsController < ApplicationController
       event_type:       form[:event_type]
       })
     if @event.save
-      Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
-      redirect_to event_path(@event)
+    
+      if current_user === @event.host
+        @pending = "#{@event.title} is awaiting approval."
+        render 'events/index'
+      else
+        Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
+        redirect_to event_path(@event)
+      end
     else
       render 'new'
     end
