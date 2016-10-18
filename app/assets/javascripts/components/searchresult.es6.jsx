@@ -22,7 +22,6 @@ class SearchResult extends React.Component {
           <div>
             <div>
               <input type="hidden" name="email" value={email}/>
-
               <input type="hidden" name="authenticity_token" value={this.props.token}/>
               <button type="submit">Add as Friend</button>
             </div>

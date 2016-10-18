@@ -19,11 +19,22 @@ class Dashboard extends React.Component {
 
   gatherFriendData(searchResult) {
     console.log(this.state)
-    this.setState((prevState) => {
-      return {
-        friendData: [...prevState.friendData, searchResult]
+    var data = searchResult
+    debugger
+    $.ajax({
+      url: "/friendships",
+      method: "post",
+      data: {
+        email: data
       }
-    })
+    }).done(function(){
+      this.setState((prevState) => {
+        return {
+          friendData: [...prevState.friendData, searchResult]
+        }
+      })
+    }.bind(this))
+
   }
 
   gatherAddressData(newAddress) {
@@ -33,10 +44,6 @@ class Dashboard extends React.Component {
         homeBaseData: [...prevState.homeBaseData, newAddress]
       }
     })
-  }
-
-  fakeFunction() {
-    return this.props.homeBases
   }
 
   render() {

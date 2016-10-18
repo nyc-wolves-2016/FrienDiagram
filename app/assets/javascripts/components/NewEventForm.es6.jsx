@@ -17,9 +17,9 @@ class NewEventForm extends React.Component {
 
           <p>Friends:</p>
           <select name="invitation[guest_id]">
-            {friendData.map((friend, i) => {
+            { friendData.map((friend, i) => {
               return <option key={i} value={friend.id}>
-                {friend.email}
+                {friend.email }
               </option>
             })}
           </select>

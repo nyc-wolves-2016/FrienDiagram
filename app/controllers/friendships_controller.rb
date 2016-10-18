@@ -9,12 +9,11 @@ class FriendshipsController < ApplicationController
 
   def search
     @user = User.find_by(email: params[:email])
-    render json: {response: [@user] }
+    render json: {response: [@user.email] }
   end
 
   def create
     friendee = User.find_by(user_params)
-    binding.pry
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
     if @friendship.save
       redirect_to root_path
