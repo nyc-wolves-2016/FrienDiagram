@@ -46,8 +46,8 @@ class App extends React.Component {
     console.log(possibleVenues)
     return (
         <div className="container">
-
-              <MapView
+          <div className="row card-panel teal">
+            <MapView
               passUpPlaces={this.grabPlaces}
               venues={possibleVenues}
               lat={lat}
@@ -55,8 +55,9 @@ class App extends React.Component {
               midpoint={midpoint}
               searchType={searchType}
               />
-              <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
-              <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
+            <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
+          </div>
+            <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
           </div>
     )
   }
