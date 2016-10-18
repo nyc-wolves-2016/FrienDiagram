@@ -7,8 +7,11 @@ class mySidenavmenu extends React.Component {
           <li>
             <div className="userView">
               {/* <img className="background" src="images/office.jpg" /> */}
-              <a href="#!user">
+              <a href="#!user"/>
                 {/* <img className="circle" src="images/yuna.jpg" /> */}
+              <img className="background"/>
+              <a href="#!user">
+                <img className="circle"/>
               </a>
               <a href="#!name">
                 <span className="white-text name">John Doe</span>

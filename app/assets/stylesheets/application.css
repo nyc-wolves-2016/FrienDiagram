@@ -11,6 +11,10 @@
    height: 400px;
   }
 
+  .event_form {
+    display: inline-block;
+  }
+
   /*.mysidenav {
     text-align: center;
     color: #fff;
