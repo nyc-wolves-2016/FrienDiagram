@@ -39,6 +39,7 @@ class FriendSearchForm extends React.Component {
 
   gatherSearchData(friendToAdd) {
     // Send data up to Dashboard using sendFriendData(response)
+    debugger
     this.props.sendFriendData(friendToAdd);
   }
 
