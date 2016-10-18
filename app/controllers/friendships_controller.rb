@@ -15,7 +15,6 @@ class FriendshipsController < ApplicationController
   def create
     friendee = User.find_by(user_params)
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
-    binding.pry
     if @friendship.save
       render json: {response: [friendee] }
     else
