@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
           friends: [response.response[0]].concat(this.state.friends)
         }
       })
-      $('#friend-search-form').trigger('reset')
+      // $('#friend-search-form').trigger('reset')
     }.bind(this))
 
   }

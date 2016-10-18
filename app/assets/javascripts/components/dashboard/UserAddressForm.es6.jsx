@@ -11,7 +11,6 @@ class UserAddressForm extends React.Component {
 
   userAddressChange(event) {
     this.setState( { address: event.target.value } );
-    console.log(this.state);
   };
 
 
@@ -24,7 +23,7 @@ class UserAddressForm extends React.Component {
       method: 'post',
       data: data
     })
-    .done(function(response){
+    .done(function(response) {
       this.setState({address: ""})
     }.bind(this))
   }
@@ -32,6 +31,7 @@ class UserAddressForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.sendAddressData(this.state.address);
+    this.setState({ address: "" })
   }
 
   render() {

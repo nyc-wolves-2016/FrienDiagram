@@ -4,9 +4,10 @@ class NewEventForm extends React.Component {
   }
   render() {
     const { friends, addresses, id, token,  } = this.props;
+
     return (
       <div>
-        <h2>This is a form to create a new event</h2>
+        <h2>Create a New Event</h2>
         <form action="/events" method="post">
           <label htmlFor="title">Event Title:</label><br/>
           <input type="text" name="event[title]" placeholder="Event Title" /><br/>
