@@ -38,7 +38,6 @@ class SignInForm extends React.Component {
 
         <button type="submit" name="commit" value="Sign in" data-disable-with="Sign in">Sign in</button>
       </form>
-
     );
   }
 }
