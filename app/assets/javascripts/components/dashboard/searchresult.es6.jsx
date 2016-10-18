@@ -9,21 +9,23 @@ class SearchResult extends React.Component {
     // Send data up to FriendSearchForm, then up to Dashboard
     event.preventDefault();
     this.props.passUpData(this.props.data)
+    $(event.target).trigger('reset');
+    $(event.target).parent().hide();
   }
 
   render() {
-    let { email } = this.props.data
+    const { email, first_name, last_name } = this.props.data
     return(
-      <div>
-        <div>
-          <span>{email}</span>
-        </div>
+      <div id="search-result"><br></br>
+        <div id="search-chip" className="chip">
+          <h6>{first_name} {last_name}</h6>
+        </div><br></br>
         <form onSubmit={this.handleSubmit} action="/friendships" method="POST" >
           <div>
             <div>
               <input type="hidden" name="email" value={email}/>
               <input type="hidden" name="authenticity_token" value={this.props.token}/>
-              <button type="submit">Add as Friend</button>
+              <button type="submit" className="waves-effect waves-light btn">Add as Friend</button>
             </div>
           </div>
           </form><br/>
