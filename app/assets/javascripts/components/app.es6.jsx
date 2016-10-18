@@ -16,7 +16,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $(".button-collapse").sideNav();
   }
 
   setEventDetails(venue) {
