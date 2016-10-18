@@ -23,9 +23,9 @@
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-  }
+  }*/
 
-  .sidenav {
+  /*.sidenav {
     height: 100%;
     width: 0;
     position: fixed;
@@ -58,12 +58,12 @@
     font-size: 36px;
     margin-left: 50px;
 }
+*/
 
-.container {
-  transition: margin-left .5s;
-  margin-left: 100px;
+.my-container {
+  margin-left: 300px;
 }
-
+/*
 .venue-list-container {
   width: 25%;
 }
