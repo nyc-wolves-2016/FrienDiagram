@@ -3,7 +3,8 @@ class Dashboard extends React.Component {
     super();
     this.state = {
       friendData : [],
-      homeBaseData: []
+      homeBaseData: [],
+      addressStatus: ""
     }
     this.gatherFriendData = this.gatherFriendData.bind(this);
     this.gatherAddressData = this.gatherAddressData.bind(this);
@@ -13,7 +14,8 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.setState({
       friendData: this.props.friends,
-      homeBaseData: this.props.homeBases
+      homeBaseData: this.props.homeBases,
+      addressStatus: this.props.addressStatus
      })
   }
 
@@ -46,11 +48,16 @@ class Dashboard extends React.Component {
       }
     }).done(function(response) {
       this.setState((prevState) => {
+
         return {
-          homeBaseData: [...prevState.homeBaseData, response.response[0]]
+          homeBaseData: [...prevState.homeBaseData, response.response[0]],
         }
       })
       $('#inputEmail3').val("")
+      var addStatus = "true"
+      this.setState({
+        addressStatus: addStatus
+      })
     }.bind(this))
   }
 
@@ -60,14 +67,18 @@ class Dashboard extends React.Component {
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
         <NewEventForm
-        homeBases={this.props.homeBases}
-        friendData={this.state.friendData}
-        homeBaseData={this.state.homeBaseData}
-        sendEventData={this.gatherEventData}
-        token={this.props.token}
-        current_user_id = {this.props.current_user_id}/>
+          homeBases={this.props.homeBases}
+          friendData={this.state.friendData}
+          homeBaseData={this.state.homeBaseData}
+          sendEventData={this.gatherEventData}
+          token={this.props.token}
+          current_user_id = {this.props.current_user_id}
+        />
 
-        <acceptInviteForm homeBases={this.props.homeBases} />
+        <AcceptInviteForm
+          addressStatus={this.state.addressStatus}
+          events={this.props.events}
+        />
       </div>
     )
   }

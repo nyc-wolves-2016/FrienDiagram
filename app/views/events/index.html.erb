@@ -6,7 +6,8 @@
 <%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token, current_user_id: current_user.id} %>
 
 
-<h3>Incoming Invitations</h3>
+
+<!-- <h3>Incoming Invitations</h3>
 <% current_user.invited_events.each do |event| %>
   <a href="events/<%=event.id%>">
     <span><%= event.host.id%></span>
@@ -36,6 +37,6 @@
       <span><%= event.status %></span>
     </a>
   </br>
-  </br>
+  </br> -->
 
 <% end %>
