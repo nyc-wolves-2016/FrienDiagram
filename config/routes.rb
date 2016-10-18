@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/friendships/new', to: "friendships#new"
   get '/events/search', to: "events#search"
   # post '/choices', to: "venue_choices#create"
-  put "/events/confirm", to: "events#confirm"
+  put "/events/:id/confirm", to: "events#confirm"
 
   resources :users do
     resources :friendships
