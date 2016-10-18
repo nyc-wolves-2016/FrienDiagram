@@ -3,11 +3,15 @@ class VenueChoice extends React.Component {
     super();
 
     this.passUpRemoveVenueChoice = this.passUpRemoveVenueChoice.bind(this);
+    this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
 
   passUpRemoveVenueChoice(venue) {
-    // Pass up remove event
     this.props.onRemove(venue);
+  }
+
+  acceptVenueChoice(venue) {
+    this.props.onAccept(venue);
   }
 
   render() {
@@ -16,7 +20,7 @@ class VenueChoice extends React.Component {
     return (
       <div>
         <div className="panel left">
-          <VenueAccept venue={ venueChoice }  />
+          <VenueAccept acceptVenueChoice={this.acceptVenueChoice} venue={ venueChoice }  />
         </div>
         <div className="panel right">
           <VenueRemove venue={venueChoice} handleRemoveVenueChoice={this.passUpRemoveVenueChoice} />

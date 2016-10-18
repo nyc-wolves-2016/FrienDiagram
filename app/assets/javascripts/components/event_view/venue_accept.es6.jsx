@@ -7,7 +7,7 @@ class VenueAccept extends React.Component {
   clickAcceptVenueChoice(event) {
     event.preventDefault();
     var venue = this.props.venue
-    this.props.handleAcceptVenueChoice(venue)
+    this.props.acceptVenueChoice(venue)
   }
 
   render() {

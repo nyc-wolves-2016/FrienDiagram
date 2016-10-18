@@ -3,11 +3,15 @@ class EventDetails extends React.Component {
     super();
 
     this.handleRemoveVenueChoice = this.handleRemoveVenueChoice.bind(this);
+    this.handleAccept = this.handleAccept.bind(this);
   }
 
   handleRemoveVenueChoice(venue) {
-
     this.props.removeVenueChoice(venue)
+  }
+
+  handleAccept(venue) {
+    this.props.acceptVenueChoice(venue);
   }
 
   render() {
@@ -18,7 +22,10 @@ class EventDetails extends React.Component {
        <div>
         <h4>{title}</h4>
         {venueChoices.map((venueChoice, i) =>
-          <VenueChoice key={i} venueChoice={venueChoice} onRemove={this.handleRemoveVenueChoice}  />
+          <VenueChoice key={i}
+          venueChoice={venueChoice}
+          onRemove={this.handleRemoveVenueChoice} onAccept={this.handleAccept}
+          />
         )}
         </div>
       </div>
