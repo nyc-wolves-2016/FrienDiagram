@@ -4,7 +4,7 @@ class App extends React.Component {
     this.state = {
       possibleVenues: [],
       midpoint: {lat: 40.705116, lng: -74.00883},
-      selectedVenue: {},
+      venueChoices: [],
       searchType: ['restaurant'],
       // Will remove and use MidPoint as these variables
       lat: 40.705116,
@@ -16,15 +16,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
   }
 
   setEventDetails(venue) {
     // setState to the data collected
-    this.setState((prevState) => {
-      return {
-       selectedVenue: venue
-      };
-    })
+
+    if (this.state.venueChoices.length < 3) {
+      this.setState((prevState) => {
+        return {
+          venueChoices: prevState.venueChoices.concat([venue])
+        }
+      });
+    }
   }
 
   grabPlaces(venuesArray) {
@@ -33,19 +37,12 @@ class App extends React.Component {
     this.setState({ possibleVenues: venuesArray })
   }
 
-
-  componentWillMount() {
-
-  }
-
   render() {
-    const { searchType, lat, lng, midpoint, possibleVenues, detailsView } = this.state
-    // Uncomment line below to see state change
-    // console.log('This is my state', this.state)
-    console.log(possibleVenues)
+    const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
+    const { event } = this.props;
     return (
         <div>
-          <div className="row card-panel teal">
+          <div className="row card-panel teal l12">
             <MapView
               passUpPlaces={this.grabPlaces}
               venues={possibleVenues}
@@ -54,7 +51,7 @@ class App extends React.Component {
               midpoint={midpoint}
               searchType={searchType}
               />
-            <EventDetails venue={this.state.selectedVenue} details={this.props.event}/>
+            <EventDetails venueChoices={ venueChoices } details={ event }/>
           </div>
             <VenueList handleData={this.setEventDetails} details = {this.props.event} venues={ possibleVenues } />
           </div>
