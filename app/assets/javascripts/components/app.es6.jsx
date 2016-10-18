@@ -15,6 +15,9 @@ class App extends React.Component {
     this.grabPlaces = this.grabPlaces.bind(this);
   }
 
+  componentDidMount() {
+    $(".button-collapse").sideNav();
+  }
 
   setEventDetails(venue) {
     // setState to the data collected
@@ -31,9 +34,6 @@ class App extends React.Component {
     this.setState({ possibleVenues: venuesArray })
   }
 
-  componentDidMount() {
-
-  }
 
   componentWillMount() {
 
