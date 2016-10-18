@@ -42,7 +42,7 @@ class App extends React.Component {
     const { event } = this.props;
     return (
         <div>
-          <div className="row card-panel teal">
+          <div className="row card-panel teal l12">
             <MapView
               passUpPlaces={this.grabPlaces}
               venues={possibleVenues}

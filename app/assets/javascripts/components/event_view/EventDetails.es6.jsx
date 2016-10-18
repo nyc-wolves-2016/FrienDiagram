@@ -4,7 +4,7 @@ class EventDetails extends React.Component {
     const { venueChoices } = this.props
     return(
       <div className="col s4 valign-wrapper">
-       <div className="card-panel light-blue darken-3">
+       <div>
         <h4>{title}</h4>
         {venueChoices.map((venueChoice, i) =>
           <VenueChoice key={i} venueChoice={venueChoice} />
