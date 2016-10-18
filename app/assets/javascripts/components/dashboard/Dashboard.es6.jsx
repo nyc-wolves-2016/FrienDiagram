@@ -19,14 +19,14 @@ class Dashboard extends React.Component {
 
   gatherFriendData(searchResult) {
     console.log(this.state)
-    var data = searchResult
+    var data = searchResult;
     $.ajax({
       url: "/friendships",
       method: "post",
       data: {
         email: data
       }
-    }).done(function(response){
+    }).done(function(response) {
       this.setState((prevState) => {
         return {
           friendData: [response.response[0]].concat(this.state.friendData)
@@ -37,12 +37,22 @@ class Dashboard extends React.Component {
   }
 
   gatherAddressData(newAddress) {
-    console.log(this.state)
-    this.setState((prevState) => {
-      return {
-        homeBaseData: [...prevState.homeBaseData, newAddress]
+    // console.log(this.state)
+    var data = newAddress;
+    $.ajax({
+      url: '/user_addresses',
+      method: 'POST',
+      data: {
+        address: data
       }
-    })
+    }).done(function(response) {
+      this.setState((prevState) => {
+        return {
+          homeBaseData: [...prevState.homeBaseData, response.response[0]]
+        }
+      })
+
+    }.bind(this))
   }
 
   render() {

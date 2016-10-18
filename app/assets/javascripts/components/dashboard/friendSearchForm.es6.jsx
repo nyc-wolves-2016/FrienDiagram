@@ -70,6 +70,7 @@ class FriendSearchForm extends React.Component {
                    />
             })
           }
+          <br/>
       </div>
     );
   }

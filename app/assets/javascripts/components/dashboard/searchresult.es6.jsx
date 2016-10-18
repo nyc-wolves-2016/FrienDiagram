@@ -26,7 +26,7 @@ class SearchResult extends React.Component {
               <button type="submit">Add as Friend</button>
             </div>
           </div>
-          </form>
+          </form><br/>
       </div>
     );
   }
