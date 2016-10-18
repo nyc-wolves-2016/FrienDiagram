@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
     friendee = User.find_by(user_params)
     @friendship = Friendship.new(friender: current_user, friendee: friendee)
     if @friendship.save
-      redirect_to root_path
+      render json: {response: [friendee] }
     else
       @errors = "You're already friends with this person."
       redirect_to root_path

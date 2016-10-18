@@ -4,7 +4,7 @@ class FriendSearchForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      results: ["hello", "hhello"]
+      results: []
     }
     this.userNameChange = this.userNameChange.bind(this);
     this.emailChange = this.emailChange.bind(this);

@@ -26,10 +26,10 @@ class Dashboard extends React.Component {
       data: {
         email: data
       }
-    }).done(function(){
+    }).done(function(response){
       this.setState((prevState) => {
         return {
-          friendData: [...prevState.friendData, searchResult]
+          friendData: [response.response[0]].concat(this.state.friendData)
         }
       })
     }.bind(this))

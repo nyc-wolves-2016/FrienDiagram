@@ -5,7 +5,10 @@ class NewEventForm extends React.Component {
 
   render() {
     const { friendData, homeBaseData } = this.props;
-    debugger
+
+      // <option key='1' value='1'>rachael@gmail.com</option>
+      // <option key='2' value='2'>ryan@gmail.com</option>
+      // <option key='3' value='3'>devin@gmail.com</option>
     return (
       <div>
         <h2>This is a form to create a new event</h2>
@@ -17,7 +20,7 @@ class NewEventForm extends React.Component {
           <input type="datetime-local" name="event[date]" />
 
           <p>Friends:</p>
-          <select name="invitation[guest_id]">
+          <select className="event_form" name="invitation[guest_id]">
             { friendData.map((friend, i) => {
               return <option key={i} value={friend.id}>
                 {friend.email }
@@ -26,13 +29,13 @@ class NewEventForm extends React.Component {
           </select>
 
           <p>Homebase:</p>
-          <ul>
+          <select className="event_form">
             { homeBaseData.map((homeBase, i) => {
-              return <li key={i} value={homeBase.id}>
+              return <option key={i} value={homeBase.id}>
                 {homeBase.address}
-              </li>
+              </option>
             }) }
-          </ul>
+          </select>
 
           <br/><br/>
           <input type="hidden" name="authenticity_token" value={this.props.token}/>
