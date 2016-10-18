@@ -39,7 +39,7 @@ class UserAddressForm extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form id="add-address-form" onSubmit={this.handleSubmit}>
 
           <div>
             <label htmlFor="inputEmail3" className="control-label">Add an Address</label>

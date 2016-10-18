@@ -45,7 +45,7 @@ class FriendSearchForm extends React.Component {
     const { username, email, results } = this.state;
     return(
       <div>
-        <form onSubmit={this.searchUser}>
+        <form id="friend-search-form" onSubmit={this.searchUser}>
 
           <div>
             <label htmlFor="inputEmail3">Search By Email</label>

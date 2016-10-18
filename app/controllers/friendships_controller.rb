@@ -8,7 +8,6 @@ class FriendshipsController < ApplicationController
   end
 
   def search
-    # binding.pry
     @user = User.find_by(email: params[:email])
     render json: {response: [@user.email] }
   end

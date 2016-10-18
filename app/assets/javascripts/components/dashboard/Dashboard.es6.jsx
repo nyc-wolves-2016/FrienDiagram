@@ -18,7 +18,6 @@ class Dashboard extends React.Component {
   }
 
   gatherFriendData(searchResult) {
-    console.log(this.state)
     var data = searchResult;
     $.ajax({
       url: "/friendships",
@@ -32,12 +31,12 @@ class Dashboard extends React.Component {
           friendData: [response.response[0]].concat(this.state.friendData)
         }
       })
+      $('#friend-search-form').trigger('reset')
     }.bind(this))
 
   }
 
   gatherAddressData(newAddress) {
-    // console.log(this.state)
     var data = newAddress;
     $.ajax({
       url: '/user_addresses',
@@ -51,7 +50,7 @@ class Dashboard extends React.Component {
           homeBaseData: [...prevState.homeBaseData, response.response[0]]
         }
       })
-
+      $('#inputEmail3').val("")
     }.bind(this))
   }
 
