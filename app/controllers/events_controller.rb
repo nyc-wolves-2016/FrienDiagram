@@ -1,15 +1,26 @@
 class EventsController < ApplicationController
   before_action :find_user
   def index
-      if user_signed_in?
-        @token = form_authenticity_token
-        session[:user_id] = current_user.id
-        @friends = current_user.friends
-        @home_bases = current_user.user_addresses
+    if user_signed_in?
+      session[:user_id] = current_user.id
+      if current_user.user_addresses.length > 0
+        @addressStatus = "true"
       else
-        redirect_to root_path
+        @addressStatus = "false"
       end
-    # render component: 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token }
+      @user_profile = {
+        id: current_user.id,
+        addressStatus: @addressStatus,
+        friends: current_user.friends,
+        addresses: current_user.user_addresses,
+        token: form_authenticity_token,
+        open_invites: current_user.open_invites,
+        open_events: current_user.open_events,
+        upcoming_events: current_user.upcoming_events
+      }
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -38,33 +49,33 @@ class EventsController < ApplicationController
   def create
     form = params[:event]
     @event = Event.new({
-      host_id:          form[:host_id],
-      title:            form[:title],
-      host_address_id:  form[:host_address_id].to_i,
-      date:             form[:date],
-      event_type:       form[:event_type]
+      host_id: form[:host_id],
+      title: form[:title],
+      host_address_id: form[:host_address_id].to_i,
+      date: form[:date],
+      event_type: form[:event_type]
       })
     if @event.save
-      if current_user === @event.host
-        redirect_to events_path
-      else
-        Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
-        redirect_to event_path(@event)
-      end
+      Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
+      redirect_to root_path
     else
       render 'new'
     end
   end
 
   def update
-    event = Event.find_by(id: params[:id])
-    event.update_attributes(:status => "Accepted", :guest_address_id => params[:event][:guest_addresses])
+      event = Event.find_by(id: params[:id])
+      response = params[:invitation][:response]
+      if response == "Accept"
+        event.update_attributes(:status => response, :guest_address_id => params[:event][:guest_address_id])
+      else
+        event.update_attributes(:status => response)
+      end
     event.save
-    redirect_to event_path
+    redirect_to events_path
   end
 
   def confirm
-    # binding.pry
     event = Event.find_by(id: params[:id])
       if event.status == "Open"
         event.update_attributes(venue: params[:name], venue_address:   params[:address],status: "Confirmed")

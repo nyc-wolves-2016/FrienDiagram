@@ -2,8 +2,9 @@ class Dashboard extends React.Component {
   constructor() {
     super();
     this.state = {
-      friendData : [],
-      homeBaseData: []
+      friends : [],
+      addresses: [],
+      addressStatus: ""
     }
     this.gatherFriendData = this.gatherFriendData.bind(this);
     this.gatherAddressData = this.gatherAddressData.bind(this);
@@ -12,8 +13,9 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     this.setState({
-      friendData: this.props.friends,
-      homeBaseData: this.props.homeBases
+      friends: this.props.userProfile.friends,
+      addresses: this.props.userProfile.addresses,
+      addressStatus: this.props.userProfile.addressStatus
      })
   }
 
@@ -28,7 +30,7 @@ class Dashboard extends React.Component {
     }).done(function(response) {
       this.setState((prevState) => {
         return {
-          friendData: [response.response[0]].concat(this.state.friendData)
+          friends: [response.response[0]].concat(this.state.friends)
         }
       })
       $('#friend-search-form').trigger('reset')
@@ -46,11 +48,16 @@ class Dashboard extends React.Component {
       }
     }).done(function(response) {
       this.setState((prevState) => {
+
         return {
-          homeBaseData: [...prevState.homeBaseData, response.response[0]]
+          addresses: [...prevState.addresses, response.response[0]],
         }
       })
       $('#inputEmail3').val("")
+      var addStatus = "true"
+      this.setState({
+        addressStatus: addStatus
+      })
     }.bind(this))
   }
 
@@ -60,12 +67,19 @@ class Dashboard extends React.Component {
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
         <NewEventForm
-        homeBases={this.props.homeBases}
-        friendData={this.state.friendData}
-        homeBaseData={this.state.homeBaseData}
-        sendEventData={this.gatherEventData}
-        token={this.props.token}
-        current_user_id = {this.props.current_user_id}/>
+          homeBases={this.props.homeBases}
+          friends={this.state.friends}
+          addresses={this.state.addresses}
+          sendEventData={this.gatherEventData}
+          token={this.props.token}
+          id = {this.props.userProfile.id}
+        />
+
+        <AcceptInviteForm
+          addressStatus={this.state.addressStatus}
+          events={this.props.userProfile.open_invites}
+          addresses={this.state.addresses}
+        />
       </div>
     )
   }

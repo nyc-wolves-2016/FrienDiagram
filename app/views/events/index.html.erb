@@ -3,27 +3,8 @@
 <%= session[:user_id] %><br />
 
 
-<%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token, current_user_id: current_user.id} %>
-
-
-<h3>Incoming Invitations</h3>
-<% current_user.invited_events.each do |event| %>
-  <a href="events/<%=event.id%>">
-    <span><%= event.host.id%></span>
-    <span><%= event.host.username%></span>
-    <span><%= event.title%></span>
-    <span><%= event.date%></span>
-  </a>
-    <% if event.status == "Open" %>
-      <%= form_for event do |f| %>
-      <%= f.label :Homebase %>:
-      <%= f.collection_select(:guest_addresses, current_user.user_addresses, :id, :address) %>
-      <%= f.button %>
-    <% end %>
-    <% else %>
-    <span><%=event.status%></span>
-    <% end %>
-<% end %>
+<%= react_component 'Dashboard', { userProfile: @user_profile } %>
+<!--
 
 <h3>Outgoing Invitations</h3>
 <% current_user.events.each do |event| %>
@@ -36,6 +17,6 @@
       <span><%= event.status %></span>
     </a>
   </br>
-  </br>
+  </br> --> -->
 
 <% end %>
