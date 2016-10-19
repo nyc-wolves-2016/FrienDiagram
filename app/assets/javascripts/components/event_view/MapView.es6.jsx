@@ -10,21 +10,21 @@ class MapView extends React.Component {
   componentDidMount() {
     const { searchType, midpoint, choices } = this.props
     debugger
-    
+    var focus = { lat: midpoint[0], lng: midpoint[1] }
     this.map = new window.google.maps.Map(this.refs.map, {
-      center: midpoint,
+      center: focus,
       zoom: 16
     });
     var midpointLocal = new google.maps.Marker({
-      position: midpoint,
+      position: focus,
       map: this.map,
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
-        scale: 8
+        scale: 6
       }
     });
     var request = {
-      location: midpoint,
+      location: focus,
       radius: '500',
       types: searchType
     };

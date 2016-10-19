@@ -14,13 +14,12 @@ class App extends React.Component {
     this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
 
-  componentWillMount(){
-    const { midpoint, searchType } = this.props.event
-    this.setState({
-      midpoint: midpoint,
-      searchType: searchType
-    })
-  }
+  // componentWillMount(){
+  //   const { midpoint, event_type } = this.props.event
+  //   this.setState({
+  //
+  //   })
+  // }
 
   setEventDetails(venue) {
     // setState to the data collected
@@ -96,12 +95,15 @@ class App extends React.Component {
       console.log(err)
     })
   }
-  componentDidMount() {
-    this.setState({venueChoices: this.props.venueChoices})
+  componentWillMount() {
+    const { venueChoices } = this.props
+    const { midpoint, event_type } = this.props.event
+    this.setState({venueChoices: venueChoices,
+                    midpoint: midpoint,
+                    searchType: event_type})
   }
 
   render() {
-    debugger
     const { searchType, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
     const { event } = this.props;
     return (
