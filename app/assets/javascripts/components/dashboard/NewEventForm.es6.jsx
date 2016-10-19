@@ -47,7 +47,7 @@ class NewEventForm extends React.Component {
 
       <div className="row">
         <div className="input-field col s12">
-          <select multiple type="text" name="event[guest_id]">
+          <select multiple type="text" name="invitation[guest_id]">
             <option value="" disabled selected>Choose your friend</option>
               { friends.map((friend, i) => {
                 return <option key={i} value={friend.id}>
@@ -56,6 +56,19 @@ class NewEventForm extends React.Component {
               })}
           </select>
           <label>Select a buddy</label>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="input-field col s12">
+          <select type="text" name="event[host_address_id]">
+            <option value="asdadsa" disabled selected>Choose your option</option>
+              { addresses.map((address, i) => {
+                return <option  key={i} value={address.id}>
+                  {address.address}, {address.id}
+                </option>
+              })}
+          </select>
         </div>
       </div>
 
