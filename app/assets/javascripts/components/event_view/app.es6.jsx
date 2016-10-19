@@ -90,6 +90,7 @@ class App extends React.Component {
       method: 'PUT',
       data: venueObj
     }).done(function(response) {
+      debugger
     })
     .fail(function(err) {
       console.log(err)

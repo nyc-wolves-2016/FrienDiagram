@@ -15,20 +15,26 @@ class EventDetails extends React.Component {
   }
 
   render() {
-    const { title, date, host } = this.props.details
+    const { title, date, host, venue } = this.props.details
     const { venueChoices } = this.props
-    return(
-      <div>
-       <div>
-        <h4>{title}</h4>
-        {venueChoices.map((venueChoice, i) =>
-          <VenueChoice key={i}
-          venueChoice={venueChoice}
-          onRemove={this.handleRemoveVenueChoice} onAccept={this.handleAccept}
-          />
-        )}
+    if (venue && venue != "") {
+      return(
+        <h1>This has been selected</h1>
+      )
+    } else {
+      return(
+        <div>
+         <div>
+          <h4>{title}</h4>
+          {venueChoices.map((venueChoice, i) =>
+            <VenueChoice key={i}
+            venueChoice={venueChoice}
+            onRemove={this.handleRemoveVenueChoice} onAccept={this.handleAccept}
+            />
+          )}
+          </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
+    }
 }
