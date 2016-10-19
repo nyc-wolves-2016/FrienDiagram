@@ -35,4 +35,12 @@ class Event < ApplicationRecord
   def invitees
     self.guests + [self.host]
   end
+
+  def host_address
+    UserAddress.find_by(id: self.host_address_id)
+  end
+
+  def guest_address
+    UserAddress.find_by(id: self.guest_address_id)
+  end
 end

@@ -5,7 +5,6 @@ class TimelineEvent extends React.Component {
 
   render() {
     const { key, event } = this.props
-    debugger;
     return (
       <div>
         <li>
