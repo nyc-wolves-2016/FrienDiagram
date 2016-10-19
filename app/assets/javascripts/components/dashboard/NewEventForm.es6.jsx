@@ -27,12 +27,12 @@ class NewEventForm extends React.Component {
       <div className="row">
         <div className="input-field col s12">
           <select type="text" name="event[event_type]">
-            <option value="asdadsa" disabled selected>Choose your option</option>
-            <option value="1">Bar</option>
-            <option value="2">Cafe</option>
-            <option value="3">Museum</option>
-            <option value="4">Park</option>
-            <option value="5">Restaurant</option>
+            <option disabled="asdadsa">Choose your option</option>
+            <option value="bar">Bar</option>
+            <option value="cafe">Cafe</option>
+            <option value="museum">Museum</option>
+            <option value="park">Park</option>
+            <option value="restaurant">Restaurant</option>
           </select>
           <label htmlFor="type">What would you like to do?</label>
         </div>
@@ -41,14 +41,14 @@ class NewEventForm extends React.Component {
       <div className="row">
         <div className="input-field col s12">
           <label htmlFor="date">Pick a date</label>
-          <input type="date" className="datepicker" />
+          <input type="datetime" className="datepicker" />
         </div>
       </div>
 
       <div className="row">
         <div className="input-field col s12">
           <select multiple type="text" name="invitation[guest_id]">
-            <option value="" disabled selected>Choose your friend</option>
+            <option value="fsdfasfa" disabled="dasdfdas">Choose your friend</option>
               { friends.map((friend, i) => {
                 return <option key={i} value={friend.id}>
                           {friend.email}
@@ -62,7 +62,7 @@ class NewEventForm extends React.Component {
       <div className="row">
         <div className="input-field col s12">
           <select type="text" name="event[host_address_id]">
-            <option value="asdadsa" disabled selected>Choose your option</option>
+            <option disabled="dsafsd">Choose your option</option>
               { addresses.map((address, i) => {
                 return <option  key={i} value={address.id}>
                   {address.address}, {address.id}

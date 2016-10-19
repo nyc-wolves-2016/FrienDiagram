@@ -13,7 +13,6 @@ class AcceptInviteForm extends React.Component {
   }
 
   render() {
-    console.log(this.props.addressStatus)
     let { events } = this.state
     let { addresses } = this.props
     if (this.props.addressStatus === "true" && events.length > 0) {
