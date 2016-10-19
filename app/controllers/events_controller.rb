@@ -2,10 +2,13 @@ class EventsController < ApplicationController
   before_action :find_user
   def index
     # TIMELINE DATA
-    @allEvents = Event.all
-    # binding.pry
-    # TIMELINE DATA
-
+    @allEvents = Event.all.map do |event|
+      { venue: event.venue,
+        title: event.title,
+        host: event.host_username,
+        event_type: event.event_type
+        }
+    end
     if user_signed_in?
       session[:user_id] = current_user.id
       if current_user.user_addresses.length > 0

@@ -16,12 +16,11 @@ class Dashboard extends React.Component {
      })
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
-    this.setState({
-      timelineData: nextProps
-    })
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({
+  //     timelineData: nextProps
+  //   })
+  // }
 
   gatherFriendData(searchResult) {
     var data = searchResult;
@@ -104,12 +103,6 @@ class Dashboard extends React.Component {
 
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
-
-
-
-
-
-
 
       </div>
     )
