@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       if !@event.invitees.include?(current_user)
         redirect_to root_path
       else
-        @possibleVenues = @event.venue_choices
+        @venueChoices = @event.venue_choices
         @bookmarks = current_user.bookmarks
       end
     end

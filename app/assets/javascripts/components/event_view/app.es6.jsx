@@ -9,8 +9,7 @@ class App extends React.Component {
       // Will remove and use MidPoint as these variables
       lat: 40.705116,
       lng: -74.00883,
-      venue: [],
-      allEvents: []
+      venue: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
@@ -21,14 +20,31 @@ class App extends React.Component {
 
   setEventDetails(venue) {
     // setState to the data collected
-
+    const eventId = this.props.event.id
+    const url = `/events/${String(eventId)}/venue_choices`
+    const venueChoiceObj = {
+      event_id: eventId, venue:{
+        event_id: eventId,
+        place_id: venue.place_id,
+        name: venue.name,
+        vicinity: venue.vicinity,
+        price_level: venue.price_level,
+        rating: venue.rating
+        }
+      }
     if (this.state.venueChoices.length < 3) {
       this.setState((prevState) => {
         return {
-          venueChoices: prevState.venueChoices.concat([venue])
+          venueChoices: prevState.venueChoices.concat([venueChoiceObj.venue])
         }
       });
     }
+    $.ajax({
+      url,
+      method: "POST",
+      data: venueChoiceObj
+    }).done((response) => {
+    })
   }
 
   grabPlaces(venuesArray) {
@@ -38,12 +54,22 @@ class App extends React.Component {
   }
 
   removeVenueChoice(venue) {
-      var i = this.state.venueChoices.indexOf(venue)
+    debugger;
+    const eventId = this.props.event.id
+    const url = `/events/${String(eventId)}/venue_choices/${String(venue.id)}`
+    const venueObj = venue
+    var i = this.state.venueChoices.indexOf(venue)
 
-      if (i != -1) {
-        this.state.venueChoices.splice(i, 1)
-        this.setState({ venueChoices: this.state.venueChoices })
-      }
+    if (i != -1) {
+      this.state.venueChoices.splice(i, 1)
+      this.setState({ venueChoices: this.state.venueChoices })
+    }
+    $.ajax({
+      url,
+      method: 'DELETE',
+      data: venueObj
+    }).done((response) => {
+    })
   }
 
   acceptVenueChoice(venue) {
@@ -67,15 +93,13 @@ class App extends React.Component {
       console.log(err)
     })
   }
-
   componentDidMount() {
-    this.setState({ allEvents: this.props.allEvents })
+    this.setState({venueChoices: this.props.venueChoices})
   }
 
   render() {
     const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
-    const { event, user } = this.props;
-
+    const { event } = this.props;
     return (
         <div>
           <div className="row card-panel teal l12">
@@ -99,10 +123,6 @@ class App extends React.Component {
             handleData={this.setEventDetails}
             details = {this.props.event}
             venues={ possibleVenues }
-            />
-
-            <Timeline
-              events={this.state.allEvents}
             />
           </div>
     )
