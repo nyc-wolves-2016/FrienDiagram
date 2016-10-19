@@ -33,18 +33,18 @@ class App extends React.Component {
         }
       }
     if (this.state.venueChoices.length < 3) {
-      this.setState((prevState) => {
-        return {
-          venueChoices: prevState.venueChoices.concat([venueChoiceObj.venue])
-        }
+      $.ajax({
+        url,
+        method: "POST",
+        data: venueChoiceObj
+      }).done((response) => {
+        this.setState((prevState) => {
+          return {
+            venueChoices: prevState.venueChoices.concat([response])
+          }
+      })
       });
     }
-    $.ajax({
-      url,
-      method: "POST",
-      data: venueChoiceObj
-    }).done((response) => {
-    })
   }
 
   grabPlaces(venuesArray) {

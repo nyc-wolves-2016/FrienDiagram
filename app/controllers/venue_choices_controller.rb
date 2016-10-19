@@ -4,6 +4,7 @@ class VenueChoicesController < ApplicationController
     event = Event.find(params[:event_id])
     venue = VenueChoice.new(venue_params)
     if venue.save
+      render json: venue
     end
   end
 
