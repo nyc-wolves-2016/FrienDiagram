@@ -12,6 +12,14 @@ class Dashboard extends React.Component {
       addressStatus: this.props.userProfile.addressStatus,
       upComingEvents: this.props.userProfile.upcoming_events,
       pendingEvents: this.props.userProfile.pending_events
+      timelineData: this.props.timelineData
+     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    debugger;
+    this.setState({
+      timelineData: nextProps
     })
   }
 
@@ -60,15 +68,16 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-      <NewEventForm
-        current_user={this.props.current_user}
-        homeBases={this.props.homeBases}
-        friends={this.state.friends}
-        addresses={this.state.addresses}
-        sendEventData={this.gatherEventData}
-        token={this.props.token}
-        id = {this.props.userProfile.id}
-      />
+        <NewEventForm
+          current_user={this.props.current_user}
+          homeBases={this.props.homeBases}
+          friends={this.state.friends}
+          addresses={this.state.addresses}
+          sendEventData={this.gatherEventData}
+          token={this.props.token}
+          id = {this.props.userProfile.id}
+        />
+
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
 
@@ -78,9 +87,15 @@ class Dashboard extends React.Component {
           addresses={this.state.addresses}
         />
 
+
         <UpComingEvents userEvents={this.state.upComingEvents} />
 
         <PendingInvites pendingEvents={this.state.pendingEvents}/>
+
+        <Timeline
+          timelineData={this.state.timelineData}
+        />
+
       </div>
     )
   }

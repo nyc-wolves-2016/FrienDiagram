@@ -3,4 +3,22 @@
 <%= session[:user_id] %><br />
 
 
+<<<<<<< HEAD
 <%= react_component 'Dashboard', { current_user: current_user, userProfile: @user_profile } %>
+=======
+<%= react_component 'Dashboard', { current_user: current_user, userProfile: @user_profile, timelineData: @allEvents } %>
+
+<!-- <h3>Outgoing Invitations</h3>
+<% current_user.events.each do |event| %>
+  <a href="events/<%=event.id%>">
+    <span><%= event.id %></span>
+    <span><%= event.title%></span></br>
+    <% event.guests.each do |guest| %>
+      <span><%= guest.email %></span>
+      <% end %>
+      <span><%= event.status %></span>
+    </a>
+  </br>
+  </br> -->
+<% end %>
+>>>>>>> Add timeline (needs refactoring).
