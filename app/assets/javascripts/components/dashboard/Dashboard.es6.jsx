@@ -16,12 +16,6 @@ class Dashboard extends React.Component {
      })
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     timelineData: nextProps
-  //   })
-  // }
-
   gatherFriendData(searchResult) {
     var data = searchResult;
     $.ajax({
@@ -65,28 +59,31 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="card-panel main-panel">
         <Timeline
           timelineData={this.state.timelineData}
         />
         <ul className="collapsible" data-collapsible="accordion">
           <li>
-            <div className="collapsible-header"><i className="material-icons">filter_drama</i>Pending Events</div>
-            <div className="collapsible-body">
-                    <AcceptInviteForm
-                      addressStatus={this.state.addressStatus}
-                      events={this.props.userProfile.open_invites}
-                      addresses={this.state.addresses}
-                    />
+            <div className="collapsible-header">
+              <i className="material-icons">filter_drama</i>Pending Events
             </div>
+            <AcceptInviteForm
+              addressStatus={this.state.addressStatus}
+              events={this.props.userProfile.open_invites}
+              addresses={this.state.addresses}
+            />
           </li>
           <li>
-            <div className="collapsible-header"><i className="material-icons">place</i>Upcoming Events</div>
-
-              <UpComingEvents userEvents={this.state.upComingEvents} />
+            <div className="collapsible-header">
+              <i className="material-icons">place</i>Upcoming Events
+            </div>
+            <UpComingEvents userEvents={this.state.upComingEvents} />
           </li>
           <li>
-            <div className="collapsible-header"><i className="material-icons">whatshot</i>Pending Invites</div>
+            <div className="collapsible-header">
+              <i className="material-icons">whatshot</i>Pending Invites
+            </div>
               <PendingInvites pendingEvents={this.state.pendingEvents}/>
           </li>
         </ul>

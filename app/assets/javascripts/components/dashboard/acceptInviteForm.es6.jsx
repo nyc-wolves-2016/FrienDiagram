@@ -17,7 +17,7 @@ class AcceptInviteForm extends React.Component {
     let { addresses } = this.props
     if (this.props.addressStatus === "true" && events.length > 0) {
       return (
-        <div>
+        <div className="collapsible-body">
           <h2>Open Invitations awaiting your Reply</h2>
           { events.map((event, i) => {
 
@@ -43,7 +43,7 @@ class AcceptInviteForm extends React.Component {
                   }) }
                 </select>
 
-                <input className="waves-effect waves-light btn" type="submit" value="Respond to Invite" />
+                <input className="waves-effect waves-light normal-btn btn" type="submit" value="Respond to Invite" />
               </form>
             </div>
           }) }

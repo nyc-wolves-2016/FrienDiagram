@@ -50,6 +50,15 @@
     background-color: #3E4649;
     color: white;
   }
+
+  .side-nav {
+    background-color: #3E4649;
+  }
+
+  .side-nav.fixed a {
+    color: white;
+    font-weight: 300;
+  }
   .venue-choice {
     width: 300px;
     height: 140px;
@@ -61,7 +70,9 @@
   .choice {
     padding: 0px;
   }
-
+  .collapsible-header {
+    background-color: #1DACD6;
+  }
   .venue-choice-info {
     padding-top: 30px;
     padding-left: 10px;
@@ -73,6 +84,10 @@
   .choice-btn {
     padding: 2px;
     background-color: transparent;
+  }
+
+  .normal-btn {
+    background-color: #1DACD6;
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -4,7 +4,6 @@ class PendingInvites extends React.Component {
   }
 
   render() {
-    console.log(this)
     let { pendingEvents } = this.props
     if (pendingEvents.length > 0) {
       return (
@@ -25,7 +24,7 @@ class PendingInvites extends React.Component {
       )
     } else {
       return (
-        <h6>Find a Friend. Create an Event. Meet in the Middle.</h6>
+        <h5>Find a Friend. Create an Event. Meet in the Middle.</h5>
       )
     }
 
