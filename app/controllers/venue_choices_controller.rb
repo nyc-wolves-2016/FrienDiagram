@@ -17,6 +17,9 @@ class VenueChoicesController < ApplicationController
     end
   end
 
+  
+
+
   def venue_params
     params.require(:venue).permit(:name, :vicinity, :rating, :price_level, :place_id, :event_id)
   end
