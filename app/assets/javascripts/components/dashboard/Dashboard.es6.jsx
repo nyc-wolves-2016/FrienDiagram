@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
       addresses: this.props.userProfile.addresses,
       addressStatus: this.props.userProfile.addressStatus,
       upComingEvents: this.props.userProfile.upcoming_events,
-      pendingEvents: this.props.userProfile.pending_events
+      pendingEvents: this.props.userProfile.pending_events,
       timelineData: this.props.timelineData
      })
   }
@@ -37,7 +37,6 @@ class Dashboard extends React.Component {
           friends: [response.response[0]].concat(this.state.friends)
         }
       })
-      // $('#friend-search-form').trigger('reset')
     }.bind(this))
 
   }
