@@ -11,8 +11,13 @@
    height: 400px;
   }
 
-  .event_form {
-    display: inline-block;
+  .my-container {
+    margin-left: 300px;
+  }
+
+  .datepicker {
+    /*height: 3rem !important;*/
+    margin-top: 20px !important;
   }
 
   /*.mysidenav {
@@ -64,16 +69,16 @@
 }
 */
 
-.my-container {
-  margin-left: 300px;
-}
 /*
 .venue-list-container {
   width: 25%;
 }
+.event_form {
+display: inline-block;
+}
 
 /* this is the login form  */
-.form-signin {
+/*.form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
@@ -110,4 +115,4 @@
 
 .details {
   clear: right;
-}
+}*/
