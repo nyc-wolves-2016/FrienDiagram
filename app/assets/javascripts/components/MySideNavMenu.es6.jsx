@@ -24,7 +24,7 @@ class mySidenavmenu extends React.Component {
             <li><a className="waves-effect" href="/"><i className="material-icons">cloud</i>Dashbord</a></li>
             <li><div className="divider"></div></li>
             <li><a className="waves-effect" href="#!">Add an address</a></li>
-            <li><a className="waves-effect" href="#!">Find New Friend</a></li>
+            <li><a className="waves-effect" href="#!">Add a Friend</a></li>
             <li><a className="waves-effect" href="/events">Create New Event</a></li>
             <li><a className="waves-effect" data-method="delete" href="/users/sign_out">Log out</a></li>
           </ul>
