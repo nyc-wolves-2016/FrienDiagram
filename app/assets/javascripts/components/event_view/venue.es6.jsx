@@ -45,7 +45,7 @@ class Venue extends React.Component {
             </button>
           </form>
            */}
-          <div onClick={this.handleClick} className="possible-venue cyan lighten-2 panel push-s1 waves-effect waves-light">
+          <div onClick={this.handleClick} className="possible-venue panel push-s1 waves-effect waves-light">
               <span><h5>{name}</h5></span><hr></hr>
             <div className="row">
               <span className="col s6"> Rating: {rating} </span>

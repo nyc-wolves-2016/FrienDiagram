@@ -102,8 +102,8 @@ class App extends React.Component {
     // const { event } = this.props;
     return (
         <div className="row">
-            <div className="card-panel blue-grey darken-3 col l12">
-              <div className="col l8">
+            <div className="card-panel main-panel col l12">
+              <div className="map-container col l8">
                 <MapView
                   passUpPlaces={this.grabPlaces}
                   venues={possibleVenues}
