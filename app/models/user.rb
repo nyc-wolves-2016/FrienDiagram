@@ -41,6 +41,12 @@ class User < ApplicationRecord
    end
  end
 
+ def pending_events
+   self.current_events.select do |event|
+     event.status == "Open"
+   end
+ end
+
  def declined_events
    self.current_events.select do |event|
      event.status == "Decline"
@@ -53,16 +59,6 @@ class User < ApplicationRecord
    end
  end
 
- def upcoming_events
-   self.accepted_events + self.accepted_invites
- end
-
- def open_events
-   self.current_events.select do |event|
-     event.status == "Open"
-   end
- end
-
  def open_invites
    self.current_invited_events.select do |event|
      event.status == "Open"
@@ -72,4 +68,10 @@ class User < ApplicationRecord
  def accepted_invites
    self.current_invited_events.select { |event| event.status == "Accept" }
  end
+
+
+ def upcoming_events
+   self.accepted_events + self.accepted_invites
+ end
+
 end

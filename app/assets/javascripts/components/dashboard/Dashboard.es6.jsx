@@ -10,7 +10,8 @@ class Dashboard extends React.Component {
       friends: this.props.userProfile.friends,
       addresses: this.props.userProfile.addresses,
       addressStatus: this.props.userProfile.addressStatus,
-      upComingEvents: this.props.userProfile.upcoming_events
+      upComingEvents: this.props.userProfile.upcoming_events,
+      pendingEvents: this.props.userProfile.pending_events
     })
   }
 
@@ -78,6 +79,8 @@ class Dashboard extends React.Component {
         />
 
         <UpComingEvents userEvents={this.state.upComingEvents} />
+
+        <PendingInvites pendingEvents={this.state.pendingEvents}/>
       </div>
     )
   }

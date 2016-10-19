@@ -19,7 +19,7 @@ class EventsController < ApplicationController
         addresses: current_user.user_addresses,
         token: form_authenticity_token,
         open_invites: current_user.open_invites,
-        open_events: current_user.open_events,
+        pending_events: current_user.pending_events,
         upcoming_events: current_user.upcoming_events
       }
     else
