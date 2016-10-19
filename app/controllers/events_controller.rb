@@ -13,10 +13,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    puts "*" * 25
-    puts "why am i in here?"
-    puts params
-    puts "*" * 25
     if !user_signed_in?
       redirect_to root_path
     else
