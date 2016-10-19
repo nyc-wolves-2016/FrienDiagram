@@ -9,7 +9,6 @@ class MapView extends React.Component {
 
   componentDidMount() {
     const { searchType, midpoint, choices } = this.props
-    debugger
     var focus = { lat: midpoint[0], lng: midpoint[1] }
     this.map = new window.google.maps.Map(this.refs.map, {
       center: focus,
