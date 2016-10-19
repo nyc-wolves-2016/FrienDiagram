@@ -9,9 +9,8 @@ class MapView extends React.Component {
 
   componentDidMount() {
     const { searchType, midpoint, choices } = this.props
-    //
-    // this.callPlaces(lat, lng);
-    // this.initMap(lat,lng);
+    debugger
+    
     this.map = new window.google.maps.Map(this.refs.map, {
       center: midpoint,
       zoom: 16

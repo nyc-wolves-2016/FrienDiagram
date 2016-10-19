@@ -3,12 +3,9 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: {lat: 40.705116, lng: -74.00883},
+      midpoint: "",
       venueChoices: [],
-      searchType: ['restaurant'],
-      // Will remove and use MidPoint as these variables
-      lat: 40.705116,
-      lng: -74.00883,
+      searchType: [],
       venue: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
@@ -17,6 +14,13 @@ class App extends React.Component {
     this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
 
+  componentWillMount(){
+    const { midpoint, searchType } = this.props.event
+    this.setState({
+      midpoint: midpoint,
+      searchType: searchType
+    })
+  }
 
   setEventDetails(venue) {
     // setState to the data collected
@@ -97,7 +101,8 @@ class App extends React.Component {
   }
 
   render() {
-    const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
+    debugger
+    const { searchType, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
     const { event } = this.props;
     return (
         <div>
@@ -105,8 +110,6 @@ class App extends React.Component {
             <MapView
               passUpPlaces={this.grabPlaces}
               venues={possibleVenues}
-              lat={lat}
-              lng={lng}
               midpoint={midpoint}
               searchType={searchType}
             />
