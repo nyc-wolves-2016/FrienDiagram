@@ -9,7 +9,8 @@ class App extends React.Component {
       // Will remove and use MidPoint as these variables
       lat: 40.705116,
       lng: -74.00883,
-      venue: []
+      venue: [],
+      allEvents: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
@@ -66,12 +67,15 @@ class App extends React.Component {
       console.log(err)
     })
   }
+
   componentDidMount() {
+    this.setState({ allEvents: this.props.allEvents })
   }
 
   render() {
     const { searchType, lat, lng, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
     const { event, user } = this.props;
+
     return (
         <div>
           <div className="row card-panel teal l12">
@@ -95,6 +99,10 @@ class App extends React.Component {
             handleData={this.setEventDetails}
             details = {this.props.event}
             venues={ possibleVenues }
+            />
+
+            <Timeline
+              events={this.state.allEvents}
             />
           </div>
     )
