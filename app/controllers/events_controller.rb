@@ -60,8 +60,13 @@ class EventsController < ApplicationController
   end
 
   def confirm
-    binding.pry
+    # binding.pry
     event = Event.find_by(id: params[:id])
+      if event.status == "Open"
+        event.update_attributes(venue: params[:name], venue_address:   params[:address],status: "Confirmed")
+      else
+        render json: {errors:["This event has already been confirmed or doesn't exist."]}
+      end
     # event.update_attributes()
     # event.save
     # redirect_to event_path

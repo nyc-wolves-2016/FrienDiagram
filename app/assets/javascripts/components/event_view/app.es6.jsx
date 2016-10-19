@@ -3,13 +3,13 @@ class App extends React.Component {
     super();
     this.state = {
       possibleVenues: [],
-      midpoint: {lat: 0, lng: 0},
+      midpoint: {lat: 40.705116, lng: -74.00883},
       venueChoices: [],
-      searchType: [],
+      searchType: ['restaurant'],
       // Will remove and use MidPoint as these variables
-      // lat: 0,
-      // lng: 0,
-      venues: []
+      lat: 40.705116,
+      lng: -74.00883,
+      venue: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
@@ -17,12 +17,6 @@ class App extends React.Component {
     this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
 
-  componentWillMount() {
-    const { event } = this.props
-    this.setState({ midpoint: { lat: event.midpoint[0], lng: event.midpoint[1] },
-                    searchType: [event.event_type]
-    })
-  }
 
   setEventDetails(venue) {
     // setState to the data collected
@@ -52,19 +46,27 @@ class App extends React.Component {
   }
 
   acceptVenueChoice(venue) {
+    this.setState({ venue: [venue] })
     // Change status of event to confirmed
     // add venue information
     // venue address
-    // debugger;
-    // $.ajax({
-    //   url: '/events/confirm',
-    //   method: 'post',
-    //   data: {
-    //     venue: venue
-    //   }
-    // }).done(function(response) {
-    //   debugger;
-    // }.bind(this))
+    const eventId = this.props.event.id
+    const url = `/events/${String(eventId)}/confirm`
+    const venueObj = {
+      name: venue.name,
+      address: venue.vicinity
+    }
+    $.ajax({
+      url,
+      method: 'PUT',
+      data: venueObj
+    }).done(function(response) {
+    })
+    .fail(function(err) {
+      console.log(err)
+    })
+  }
+  componentDidMount() {
   }
 
   render() {
