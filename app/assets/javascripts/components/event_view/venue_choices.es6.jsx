@@ -18,19 +18,23 @@ class VenueChoice extends React.Component {
     const { name, price_level, rating, icon } = this.props.venueChoice
     const { venueChoice } = this.props
     return (
-      <div>
-        <div className="panel left">
-          <VenueAccept acceptVenueChoice={this.acceptVenueChoice} venue={ venueChoice }  />
+        <div className="col l4">
+          <div className="card-panel venue-choice cyan lighten-2">
+            <div className="choice left">
+              <VenueAccept acceptVenueChoice={this.acceptVenueChoice} venue={ venueChoice }  />
+            </div>
+            <div className="choice right">
+              <VenueRemove venue={venueChoice} handleRemoveVenueChoice={this.passUpRemoveVenueChoice} />
+            </div>
+            <div className="venue-choice-info">
+              <span><h5>{name}</h5></span><hr></hr>
+              <div className="row">
+                <span className="col s6"> Rating: {rating} </span>
+                <span className="col s6"> Price: {price_level} </span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="panel right">
-          <VenueRemove venue={venueChoice} handleRemoveVenueChoice={this.passUpRemoveVenueChoice} />
-        </div>
-        <div className="card-panel red">
-          <span><h5><strong>{name}</strong></h5></span><hr></hr>
-          <span> {rating} </span>
-          <span> {price_level} </span>
-        </div>
-      </div>
     )
   }
 }

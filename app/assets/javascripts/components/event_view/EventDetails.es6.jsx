@@ -18,7 +18,7 @@ class EventDetails extends React.Component {
     const { title, date, host } = this.props.details
     const { venueChoices } = this.props
     return(
-      <div className="col s4 valign-wrapper">
+      <div>
        <div>
         <h4>{title}</h4>
         {venueChoices.map((venueChoice, i) =>
