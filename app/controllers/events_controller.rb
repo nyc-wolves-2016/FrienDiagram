@@ -18,7 +18,6 @@ class EventsController < ApplicationController
         open_events: current_user.open_events,
         upcoming_events: current_user.upcoming_events
       }
-      redirect_to root_path
     else
       redirect_to root_path
     end
@@ -65,7 +64,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
       event = Event.find_by(id: params[:id])
       response = params[:invitation][:response]
       if response == "Accept"
@@ -78,7 +76,6 @@ class EventsController < ApplicationController
   end
 
   def confirm
-    # binding.pry
     event = Event.find_by(id: params[:id])
       if event.status == "Open"
         event.update_attributes(venue: params[:name], venue_address:   params[:address],status: "Confirmed")
