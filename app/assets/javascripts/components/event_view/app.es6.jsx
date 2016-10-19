@@ -103,6 +103,7 @@ class App extends React.Component {
     return (
         <div className="row">
             <div className="card-panel main-panel col l12">
+            <h2> {event.title} </h2>
               <div className="map-container col l8">
                 <MapView
                   passUpPlaces={this.grabPlaces}
