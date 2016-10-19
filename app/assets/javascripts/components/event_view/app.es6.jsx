@@ -107,28 +107,35 @@ class App extends React.Component {
     const { searchType, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
     const { event } = this.props;
     return (
-        <div>
-          <div className="row card-panel teal l12">
-            <MapView
-              passUpPlaces={this.grabPlaces}
-              venues={possibleVenues}
-              midpoint={midpoint}
-              searchType={searchType}
-            />
-            <EventDetails
-            venueChoices={ venueChoices }
-            details={ event }
-            removeVenueChoice={this.removeVenueChoice}
-            acceptVenueChoice={this.acceptVenueChoice}
-            />
-
-          </div>
-            <VenueList
-            handleData={this.setEventDetails}
-            details = {this.props.event}
-            venues={ possibleVenues }
-            />
-          </div>
+        <div className="row">
+            <div className="card-panel blue-grey darken-3 col l12">
+              <div className="col l8">
+                <MapView
+                  passUpPlaces={this.grabPlaces}
+                  venues={possibleVenues}
+                  midpoint={midpoint}
+                  searchType={searchType}
+                />
+              </div>
+              <div id="venue-scroll" className="row card-panel col l5 push-s1">
+                <VenueList
+                handleData={this.setEventDetails}
+                details = {this.props.event}
+                venues={ possibleVenues }
+                />
+              </div>
+              <div className="row">
+                <div className="col l12">
+                  <EventDetails
+                    venueChoices={ venueChoices }
+                    details={ event }
+                    removeVenueChoice={this.removeVenueChoice}
+                    acceptVenueChoice={this.acceptVenueChoice}
+                  />
+                </div>
+              </div>
+            </div>
+        </div>
     )
   }
 }

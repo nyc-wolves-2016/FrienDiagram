@@ -13,8 +13,8 @@ class VenueAccept extends React.Component {
   render() {
     return (
       <form onSubmit={this.clickAcceptVenueChoice}>
-        <button type="submit" className="btn-floating waves-effect waves-light btn">
-          <i className="small material-icons">done</i>
+        <button type="submit" className="waves-effect waves-light btn choice-btn">
+          <i className="icono-check"></i>
         </button>
       </form>
     )

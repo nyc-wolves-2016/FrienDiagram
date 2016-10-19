@@ -16,9 +16,9 @@ class VenueList extends React.Component {
     const { venues } = this.props
     return (
       <div>
-        <div className="row">
+        <div>
           {venues.map((venue, i) =>
-            <div className="row col s6" key={i}>
+            <div key={i}>
               <Venue
               venue={venue}
               details={this.props.details}
