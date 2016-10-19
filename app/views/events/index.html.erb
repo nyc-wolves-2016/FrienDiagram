@@ -1,11 +1,9 @@
-
-
 <%= user_signed_in? %><br />
 <%= current_user.email %><br />
 <%= session[:user_id] %><br />
 
 
-<%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token, current_user_id: current_user.id } %>
+<%= react_component 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token, current_user_id: current_user.id} %>
 
 
 <h3>Incoming Invitations</h3>

@@ -3,12 +3,17 @@ class NewEventForm extends React.Component {
     super();
   }
 
+  handleSubmit() {
+
+  }
+
   render() {
     const { friendData, homeBaseData } = this.props;
 
       // <option key='1' value='1'>rachael@gmail.com</option>
       // <option key='2' value='2'>ryan@gmail.com</option>
       // <option key='3' value='3'>devin@gmail.com</option>
+
     return (
       <div>
         <h2>This is a form to create a new event</h2>

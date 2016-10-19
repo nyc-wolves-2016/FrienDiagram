@@ -45,10 +45,8 @@ class EventsController < ApplicationController
       event_type:       form[:event_type]
       })
     if @event.save
-    
       if current_user === @event.host
-        @pending = "#{@event.title} is awaiting approval."
-        render 'events/index'
+        redirect_to events_path
       else
         Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
         redirect_to event_path(@event)
