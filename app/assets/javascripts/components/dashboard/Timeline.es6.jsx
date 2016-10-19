@@ -4,15 +4,18 @@ class Timeline extends React.Component {
   }
 
   render() {
-    const { events } = this.props
+    const { timelineData } = this.props
     return (
       <section id="events-container">
         <ul>
-          {events.map((event, i) =>
-            <TimelineEvent
+          <li><h4>Timeline</h4></li>
+          {timelineData.map((event, i) => {
+            return ( <TimelineEvent
               key={i}
               event={event}
             />
+            )
+          }
           )}
         </ul>
       </section>

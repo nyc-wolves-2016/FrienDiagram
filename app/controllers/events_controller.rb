@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
   before_action :find_user
   def index
+    # TIMELINE DATA
+    @allEvents = Event.all
+    # binding.pry
+    # TIMELINE DATA
+
     if user_signed_in?
       session[:user_id] = current_user.id
       if current_user.user_addresses.length > 0
@@ -28,7 +33,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @allEvents = Event.all
     if !user_signed_in?
       redirect_to root_path
     else

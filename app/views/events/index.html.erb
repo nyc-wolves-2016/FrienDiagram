@@ -1,6 +1,6 @@
-<%= user_signed_in? %><br />
+<p> User is logged in? <%= user_signed_in? %></p>
 <%= current_user.email %><br />
 <%= session[:user_id] %><br />
 
 
-<%= react_component 'Dashboard', { current_user: current_user, userProfile: @user_profile } %>
+<%= react_component 'Dashboard', { current_user: current_user, userProfile: @user_profile, timelineData: @allEvents } %>
