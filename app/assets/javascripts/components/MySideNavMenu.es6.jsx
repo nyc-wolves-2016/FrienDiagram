@@ -21,7 +21,7 @@ class mySidenavmenu extends React.Component {
                 </a>
               </div>
             </li>
-            <li><a className="waves-effect" href="/"><i className="material-icons">cloud</i>Dashbord</a></li>
+            <li><a className="waves-effect" href="/"><i className="material-icons">cloud</i>Dashboard</a></li>
             <li><div className="divider"></div></li>
             <li><a className="waves-effect" href="#!">Add an address</a></li>
             <li><a className="waves-effect" href="#!">Add a Friend</a></li>

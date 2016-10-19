@@ -5,14 +5,19 @@
   background-color: #eee !important;
   transition: background-color .5s;
 }*/
+  body {
+    background-color: #2E2F31;
+  }
 
  #map {
    width: 100%;
    height: 400px;
   }
 
+  .map-container {
+    margin-top: 0px;
+  }
   .my-container {
-    margin-left: 300px;
   }
 
   .datepicker {
@@ -21,30 +26,36 @@
   }
 
   #venue-scroll {
+    margin-top: 5px;
     overflow-x: auto;
-    max-width: 285px;
+    max-width: 400px;
     max-height: 400px;
     background-color : transparent;
+    scroll-behavior: auto;
   }
 
   .possible-venue {
-    width: 250px;
-    margin: 1px;
+    width: 350px;
+    height: 100px;
+    margin: 2px;
     border-radius: 2px;
-    border: 0.2px;
-    border-style: solid;
-    border-color: #D3D3D3;
-    box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-    padding-top: 30px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #1DACD6;
+    text-align: center;
+    color: white;
   }
-
+  .main-panel {
+    background-color: #3E4649;
+    color: white;
+  }
   .venue-choice {
     width: 300px;
-    height: 160px;
+    height: 140px;
     margin: 10px;
     padding: 0px;
+    background-color: #1DACD6;
   }
 
   .choice {
@@ -55,6 +66,8 @@
     padding-top: 30px;
     padding-left: 10px;
     padding-right: 10px;
+    text-align: center;
+    color: white;
   }
 
   .choice-btn {
@@ -65,6 +78,12 @@
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
   }
+
+ .container {
+   margin-top: 100px;
+   margin-left: 450px;
+
+ }
   /*.mysidenav {
     text-align: center;
     color: #fff;

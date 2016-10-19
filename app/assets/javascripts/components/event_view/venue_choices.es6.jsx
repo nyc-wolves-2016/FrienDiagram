@@ -19,7 +19,7 @@ class VenueChoice extends React.Component {
     const { venueChoice } = this.props
     return (
         <div className="col l4">
-          <div className="card-panel venue-choice cyan lighten-2">
+          <div className="card-panel venue-choice">
             <div className="choice left">
               <VenueAccept acceptVenueChoice={this.acceptVenueChoice} venue={ venueChoice }  />
             </div>

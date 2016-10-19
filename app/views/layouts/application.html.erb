@@ -6,7 +6,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
@@ -34,26 +34,6 @@
       });
     </script>
     <%= react_component 'mySidenavmenu', current_user: current_user %>
-    <div class="my-container">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Logo</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">add</a></li>
-            <li><a href="badges.html">Some</a></li>
-            <li><a href="collapsible.html">Stuff</a></li>
-            <li><a href="mobile.html">Here?</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-          </ul>
-        </div>
-      </nav>
-
       <div class="container">
         <div class="row">
           <div class="col l12">
