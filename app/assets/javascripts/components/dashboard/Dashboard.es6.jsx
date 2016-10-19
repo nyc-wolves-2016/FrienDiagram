@@ -64,16 +64,17 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
+      <NewEventForm
+        current_user={this.props.current_user}
+        homeBases={this.props.homeBases}
+        friends={this.state.friends}
+        addresses={this.state.addresses}
+        sendEventData={this.gatherEventData}
+        token={this.props.token}
+        id = {this.props.userProfile.id}
+      />
         <FriendSearchForm sendFriendData={this.gatherFriendData} />
         <UserAddressForm sendAddressData={this.gatherAddressData} />
-        <NewEventForm
-          homeBases={this.props.homeBases}
-          friends={this.state.friends}
-          addresses={this.state.addresses}
-          sendEventData={this.gatherEventData}
-          token={this.props.token}
-          id = {this.props.userProfile.id}
-        />
 
         <AcceptInviteForm
           addressStatus={this.state.addressStatus}

@@ -20,6 +20,16 @@
   </head>
 
   <body>
+    <script>
+    $(document).ready(function() {
+      $('select').material_select();
+
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+      });
+    </script>
     <%= react_component 'mySidenavmenu', current_user: current_user %>
     <div class="my-container">
       <nav>
@@ -46,8 +56,8 @@
           <div class="col l12">
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
-            <%= yield %>
           </div>
+          <%= yield %>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 <%= session[:user_id] %><br />
 
 
-<%= react_component 'Dashboard', { userProfile: @user_profile } %>
+<%= react_component 'Dashboard', { current_user: current_user, userProfile: @user_profile } %>
 
 <!-- <h3>Outgoing Invitations</h3>
 <% current_user.events.each do |event| %>
