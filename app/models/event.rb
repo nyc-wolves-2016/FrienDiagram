@@ -43,4 +43,8 @@ class Event < ApplicationRecord
   def guest_address
     UserAddress.find_by(id: self.guest_address_id)
   end
+
+  def host_username
+    User.find(self.host_id)
+  end
 end

@@ -3,7 +3,7 @@ class NewEventForm extends React.Component {
     super();
   }
   render() {
-    const { current_user, friends, addresses, id, token,  } = this.props;
+    const { current_user, friends, addresses, id, token  } = this.props;
     return (
   <div className="row">
     <form className="col s12" action="/events" method="post">
