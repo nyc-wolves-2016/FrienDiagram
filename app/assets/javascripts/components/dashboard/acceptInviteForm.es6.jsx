@@ -13,25 +13,38 @@ class AcceptInviteForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.addressStatus)
     let { events } = this.state
-    if (this.props.addressStatus === "true") {
+    let { addresses } = this.props
+    if (this.props.addressStatus === "true" && events.length > 0) {
       return (
         <div>
-          <h2>Invitations awaiting your Reply</h2>
+          <h2>Open Invitations awaiting your Reply</h2>
           { events.map((event, i) => {
-            return <div className="invite_container">
-              <h4>{event.title}</h4>
-              <h4>{event.host}</h4>
-              <h4>{event.date}</h4>
 
-              <form action="/events" method="post">
+            return <div key={i} className="invite_container">
+              <h4 className="event_form">{event.title}</h4>
+              <h4 className="event_form">{event.host}</h4>
+              <h4 className="event_form">{event.date}</h4>
+
+              <form action={"/events/"+event.id} method="post">
+                <input type="hidden" name="_method" value="put" />
                 <label htmlFor="title">RSVP:</label><br/>
-                <select className="event_form" type="text" name="event[event_type]" placeholder="Event Type">
-                  <option value="accept">Accept</option>
-                  <option value="decline">Decline</option>
+                <select className="event_form" type="text" name="invitation[response]" placeholder="Event Type">
+                  <option value="Accept">Accept</option>
+                  <option value="Decline">Decline</option>
                 </select>
 
-                <input type="submit" value="Response to Invite" />
+                <p>Homebase:</p>
+                <select className="event_form" name="event[guest_address_id]">
+                  { addresses.map((address, i) => {
+                    return <option  key={i} value={address.id}>
+                      {address.address}, {address.id}
+                    </option>
+                  }) }
+                </select>
+
+                <input className="waves-effect waves-light btn" type="submit" value="Respond to Invite" />
               </form>
             </div>
           }) }
@@ -48,7 +61,7 @@ class AcceptInviteForm extends React.Component {
         )
       } else {
         return (
-          <h1>Errors of Errors</h1>
+          <h1></h1>
         )
       }
     }

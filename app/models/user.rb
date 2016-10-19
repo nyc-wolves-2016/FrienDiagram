@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :hosts, through: :invited_events
 
 
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
  def friends
@@ -26,5 +27,49 @@ class User < ApplicationRecord
    bookmarks = self.voted_venues.map do |venue|
      venue.place_id
    end
+ end
+
+ def current_events
+   self.events.select do |event|
+     event.date > Time.now
+   end
+ end
+
+ def current_invited_events
+   self.invited_events.select do |event|
+     event.date > Time.now
+   end
+ end
+
+ def declined_events
+   self.current_events.select do |event|
+     event.status == "Decline"
+   end
+ end
+
+ def accepted_events
+   self.current_events.select do |event|
+     event.status == "Accept"
+   end
+ end
+
+ def upcoming_events
+   self.accepted_events + self.accepted_invites
+ end
+
+ def open_events
+   self.current_events.select do |event|
+     event.status == "Open"
+   end
+ end
+
+ def open_invites
+   self.current_invited_events.select do |event|
+     event.status == "Open"
+   end
+ end
+
+ def accepted_invites
+   self.current_invited_events.select { |event| event.status == "Accept" }
  end
 end

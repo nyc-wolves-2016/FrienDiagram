@@ -22,8 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_address?
-    @user = User.find_by(id: session[:user_id])
-    return true if @user.user_addresses.length > 0
+    return true if current_user.user_addresses.length > 0
       else return false
   end
 
