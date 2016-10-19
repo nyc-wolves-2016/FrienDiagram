@@ -7,7 +7,7 @@ class UpComingEvents extends React.Component {
     console.log(this)
     let { userEvents } = this.props
     return (
-      <div className="row">
+      <div className="collapsible-body">
         <h3>Upcoming Events</h3>
         { userEvents.map((event, i ) => {
           return (

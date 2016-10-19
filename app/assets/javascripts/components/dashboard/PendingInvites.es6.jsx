@@ -8,7 +8,7 @@ class PendingInvites extends React.Component {
     let { pendingEvents } = this.props
     if (pendingEvents.length > 0) {
       return (
-        <div className="row">
+        <div className="collapsible-body">
           <h3>Events awaiting Response from Invitee</h3>
           { pendingEvents.map((event, i ) => {
             return (
