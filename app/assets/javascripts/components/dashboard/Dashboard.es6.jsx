@@ -3,7 +3,7 @@ class Dashboard extends React.Component {
     super();
     this.state = {
       friendData : [],
-      homeBaseData: [],
+      homeBaseData: []
     }
     this.gatherFriendData = this.gatherFriendData.bind(this);
     this.gatherAddressData = this.gatherAddressData.bind(this);
