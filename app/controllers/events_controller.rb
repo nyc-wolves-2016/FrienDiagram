@@ -37,7 +37,7 @@ class EventsController < ApplicationController
         @venueChoices = @event.venue_choices
         @bookmarks = current_user.bookmarks
       else
-        redirect_to root_pathexit
+        redirect_to root_path
       end
     end
   end
