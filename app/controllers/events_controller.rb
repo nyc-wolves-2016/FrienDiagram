@@ -28,12 +28,12 @@ class EventsController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     else
-      @event = Event.find_by(id: params[:id])
-      if !@event.invitees.include?(current_user)
-        redirect_to root_path
-      else
+      @event = Event.find(params[:id])
+      if @event.invitees.include?(current_user)
         @venueChoices = @event.venue_choices
         @bookmarks = current_user.bookmarks
+      else
+        redirect_to root_pathexit
       end
     end
   end
