@@ -2,22 +2,8 @@ class NewEventForm extends React.Component {
   constructor() {
     super();
   }
-
-  handleSubmit() {
-
-  }
-
   render() {
-<<<<<<< HEAD
-    const { friendData, homeBaseData } = this.props;
-
-      // <option key='1' value='1'>rachael@gmail.com</option>
-      // <option key='2' value='2'>ryan@gmail.com</option>
-      // <option key='3' value='3'>devin@gmail.com</option>
-
-=======
     const { friends, addresses, id, token,  } = this.props;
->>>>>>> finalize the hash object to be passed in as params in the Dashboard component
     return (
       <div>
         <h2>This is a form to create a new event</h2>

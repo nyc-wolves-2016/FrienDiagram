@@ -1,21 +1,8 @@
 class EventsController < ApplicationController
   before_action :find_user
   def index
-<<<<<<< HEAD
-      if user_signed_in?
-        @token = form_authenticity_token
-        session[:user_id] = current_user.id
-        @friends = current_user.friends
-        @home_bases = current_user.user_addresses
-      else
-        redirect_to root_path
-      end
-=======
     if user_signed_in?
-      # @token = form_authenticity_token
       session[:user_id] = current_user.id
-      # @friends = current_user.friends
-      # @home_bases = current_user.user_addresses
       if current_user.user_addresses.length > 0
         @addressStatus = "true"
       else
@@ -31,12 +18,10 @@ class EventsController < ApplicationController
         open_events: current_user.open_events,
         upcoming_events: current_user.upcoming_events
       }
-
+      redirect_to root_path
     else
       redirect_to root_path
     end
->>>>>>> finalize the hash object to be passed in as params in the Dashboard component
-    # render component: 'Dashboard', { homeBases: @home_bases, friends: @friends, token: @token }
   end
 
   def show
@@ -72,17 +57,8 @@ class EventsController < ApplicationController
       event_type: form[:event_type]
       })
     if @event.save
-<<<<<<< HEAD
-      if current_user === @event.host
-        redirect_to events_path
-      else
-        Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
-        redirect_to event_path(@event)
-      end
-=======
       Invitation.create(guest_id: params[:invitation][:guest_id], event: @event)
       redirect_to root_path
->>>>>>> finalize the hash object to be passed in as params in the Dashboard component
     else
       render 'new'
     end
