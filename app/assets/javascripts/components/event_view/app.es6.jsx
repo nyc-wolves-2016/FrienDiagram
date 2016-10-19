@@ -54,6 +54,7 @@ class App extends React.Component {
   }
 
   removeVenueChoice(venue) {
+    debugger;
     const eventId = this.props.event.id
     const url = `/events/${String(eventId)}/venue_choices/${String(venue.id)}`
     const venueObj = venue

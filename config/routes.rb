@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :venue_choices, only: [:delete, :create]
+    resources :venue_choices, only: [:destroy, :create]
   end
   resources :user_addresses
 end
