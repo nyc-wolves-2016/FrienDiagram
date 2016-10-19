@@ -1,22 +1,18 @@
 class Dashboard extends React.Component {
   constructor() {
-    super();
-    this.state = {
-      friends : [],
-      addresses: [],
-      addressStatus: ""
-    }
+    super()
     this.gatherFriendData = this.gatherFriendData.bind(this);
     this.gatherAddressData = this.gatherAddressData.bind(this);
-    // this.gatherEventData = this.gatherEventData.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       friends: this.props.userProfile.friends,
       addresses: this.props.userProfile.addresses,
-      addressStatus: this.props.userProfile.addressStatus
-     })
+      addressStatus: this.props.userProfile.addressStatus,
+      upComingEvents: this.props.userProfile.upcoming_events,
+      pendingEvents: this.props.userProfile.pending_events
+    })
   }
 
   gatherFriendData(searchResult) {
@@ -81,6 +77,10 @@ class Dashboard extends React.Component {
           events={this.props.userProfile.open_invites}
           addresses={this.state.addresses}
         />
+
+        <UpComingEvents userEvents={this.state.upComingEvents} />
+
+        <PendingInvites pendingEvents={this.state.pendingEvents}/>
       </div>
     )
   }

@@ -8,6 +8,10 @@ class EventsController < ApplicationController
       else
         @addressStatus = "false"
       end
+      puts "*" * 25
+      puts "I'm about to send off the user profile obj"
+      puts current_user
+      puts "*" * 25
       @user_profile = {
         id: current_user.id,
         addressStatus: @addressStatus,
@@ -15,7 +19,7 @@ class EventsController < ApplicationController
         addresses: current_user.user_addresses,
         token: form_authenticity_token,
         open_invites: current_user.open_invites,
-        open_events: current_user.open_events,
+        pending_events: current_user.pending_events,
         upcoming_events: current_user.upcoming_events
       }
     else
@@ -33,7 +37,7 @@ class EventsController < ApplicationController
         @venueChoices = @event.venue_choices
         @bookmarks = current_user.bookmarks
       else
-        redirect_to root_pathexit
+        redirect_to root_path
       end
     end
   end
