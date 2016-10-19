@@ -88,9 +88,10 @@ class EventsController < ApplicationController
   end
 
   def confirm
-    event = Event.find_by(id: params[:id])
-      if event.status == "Open"
+    event = Event.find_by(id: params[:event_id])
+      if event.status == "Accept"
         event.update_attributes(venue: params[:name], venue_address:   params[:address],status: "Confirmed")
+        render json: {success: ["This event was successfully update"]}
       else
         render json: {errors:["This event has already been confirmed or doesn't exist."]}
       end
@@ -98,6 +99,15 @@ class EventsController < ApplicationController
     # event.save
     # redirect_to event_path
   end
+
+  def reset
+    event = Event.find_by(id: params[:id])
+    event.update_attributes(venue: "", venue_address: "", status: "Accept")
+    event.save
+    redirect_to event_path(event)
+  end
+
+
   private
   def find_user
     @user = current_user

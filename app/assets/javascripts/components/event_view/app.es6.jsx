@@ -6,20 +6,12 @@ class App extends React.Component {
       midpoint: "",
       venueChoices: [],
       searchType: [],
-      venue: []
     }
     this.setEventDetails = this.setEventDetails.bind(this);
     this.grabPlaces = this.grabPlaces.bind(this);
     this.removeVenueChoice = this.removeVenueChoice.bind(this);
     this.acceptVenueChoice = this.acceptVenueChoice.bind(this);
   }
-
-  // componentWillMount(){
-  //   const { midpoint, event_type } = this.props.event
-  //   this.setState({
-  //
-  //   })
-  // }
 
   setEventDetails(venue) {
     // setState to the data collected
@@ -75,37 +67,39 @@ class App extends React.Component {
   }
 
   acceptVenueChoice(venue) {
-    this.setState({ venue: [venue] })
-    // Change status of event to confirmed
-    // add venue information
-    // venue address
+    const app = this
     const eventId = this.props.event.id
     const url = `/events/${String(eventId)}/confirm`
     const venueObj = {
       name: venue.name,
       address: venue.vicinity
-    }
-    $.ajax({
+      }
+    var xhr = $.ajax({
       url,
       method: 'PUT',
       data: venueObj
-    }).done(function(response) {
     })
-    .fail(function(err) {
+    xhr.fail(function(err) {
       console.log(err)
+    })
+    this.setState({
+      venue: venue.name
     })
   }
   componentWillMount() {
-    const { venueChoices } = this.props
+    const { venueChoices, event } = this.props
     const { midpoint, event_type } = this.props.event
     this.setState({venueChoices: venueChoices,
                     midpoint: midpoint,
-                    searchType: event_type})
+                    searchType: event_type,
+                    event: event,
+                    venue: event.venue
+                })
   }
 
   render() {
-    const { searchType, midpoint, possibleVenues, detailsView, venueChoices} = this.state;
-    const { event } = this.props;
+    const { searchType, midpoint, possibleVenues, detailsView, venueChoices, event, venue} = this.state;
+    // const { event } = this.props;
     return (
         <div className="row">
             <div className="card-panel blue-grey darken-3 col l12">
@@ -129,6 +123,7 @@ class App extends React.Component {
                   <EventDetails
                     venueChoices={ venueChoices }
                     details={ event }
+                    venue={ venue }
                     removeVenueChoice={this.removeVenueChoice}
                     acceptVenueChoice={this.acceptVenueChoice}
                   />
