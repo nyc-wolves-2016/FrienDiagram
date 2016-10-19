@@ -21,12 +21,13 @@ class mySidenavmenu extends React.Component {
                 </a>
               </div>
             </li>
-            <li><a className="waves-effect" href="/"><i className="material-icons">cloud</i>Dashboard</a></li>
-            <li><div className="divider"></div></li>
-            <li><a className="waves-effect" href="#!">Add an address</a></li>
-            <li><a className="waves-effect" href="#!">Add a Friend</a></li>
-            <li><a className="waves-effect" href="/events">Create New Event</a></li>
-            <li><a className="waves-effect" data-method="delete" href="/users/sign_out">Log out</a></li>
+            <li><a className="waves-effect side-nav-item" href="/"><i className="material-icons">cloud</i>Dashboard</a></li>
+            <li>
+            <div className="divider"></div></li>
+            <li><a className="waves-effect side-nav-item" href="#!">Add an address</a></li>
+            <li><a className="waves-effect side-nav-item" href="#!">Add a Friend</a></li>
+            <li><a className="waves-effect side-nav-item" href="/events">Create New Event</a></li>
+            <li><a className="waves-effect side-nav-item" data-method="delete" href="/users/sign_out">Log out</a></li>
           </ul>
       )
     }

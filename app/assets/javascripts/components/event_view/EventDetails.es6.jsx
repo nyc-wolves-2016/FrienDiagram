@@ -22,14 +22,15 @@ class EventDetails extends React.Component {
         <div>
           <h2>Great! This event is set!</h2>
           <h3>{title}</h3>
-          <h6>{date}</h6>
-          <h6>{host}</h6>
-          <h6>{venue}</h6>
-          <h6>{venue_address}</h6>
+          <hr></hr>
+          <h5>{date}</h5>
+          <h5>{host}</h5>
+          <h5>{venue}</h5>
+          <h5>{venue_address}</h5>
           <div>
             <form action={"/events/"+id+"/reset"} method="post">
               <input type="hidden" name="_method" value="PUT" />
-              <input type="submit" value="Choose a Different Venue"></input>
+              <input type="submit" value="Choose a Different Venue" className="waves-effect waves-light btn normal-btn"></input>
             </form>
           </div>
         </div>
@@ -38,7 +39,6 @@ class EventDetails extends React.Component {
       return(
         <div>
          <div>
-          <h4>{title}</h4>
           {venueChoices.map((venueChoice, i) =>
             <VenueChoice key={i}
             venueChoice={venueChoice}

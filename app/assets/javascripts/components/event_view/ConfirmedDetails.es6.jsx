@@ -20,7 +20,7 @@ class ConfirmedDetails extends React.Component {
           <div>
             <form  action={"/events/"+this.props.details.id+"/reset"} method="post">
               <input type="hidden" name="_method" value="put"></input>
-              <input type="submit" value="Pick a Different Location"></input>
+              <input type="submit" value="Pick a Different Location" className="waves-effect waves-light btn choice-btn"></input>
             </form>
           </div>
 
@@ -30,7 +30,6 @@ class ConfirmedDetails extends React.Component {
       return(
         <div>
          <div>
-          <h4>{title}</h4>
           {venueChoices.map((venueChoice, i) =>
             <VenueChoice key={i}
             venueChoice={venueChoice}
