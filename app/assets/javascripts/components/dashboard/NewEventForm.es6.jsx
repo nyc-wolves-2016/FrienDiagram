@@ -47,7 +47,7 @@ class NewEventForm extends React.Component {
     <br/><br/>
     <input type="hidden" name="event[host_id]" value={id}/>
     <input type="hidden" name="authenticity_token" value={token}/>
-    <input type="submit" value="Create Event" />
+    <input type="submit" value="Create Event" className="waves-effect waves-light btn normal-btn" />
   </form>
 </div>
 

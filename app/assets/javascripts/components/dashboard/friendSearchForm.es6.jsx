@@ -58,7 +58,7 @@ class FriendSearchForm extends React.Component {
 
           <div>
             <div>
-              <button type="submit" className="waves-effect waves-light btn">Search for Friend</button>
+              <button type="submit" className="waves-effect waves-light normal-btn btn">Search for Friend</button>
             </div>
           </div>
           </form>
