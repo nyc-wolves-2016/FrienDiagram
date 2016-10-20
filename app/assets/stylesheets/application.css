@@ -5,6 +5,11 @@
   background-color: #eee !important;
   transition: background-color .5s;
 }*/
+
+.browser-default {
+  background-color: #1DACD6;
+
+}
   body {
     background-color: #2E2F31;
   }
@@ -55,7 +60,8 @@
 
   .sign-in {
     color: white;
-  }
+}
+
 
  #map {
    width: 100%;

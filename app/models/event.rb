@@ -50,7 +50,9 @@ class Event < ApplicationRecord
   end
 
   def guest_username
-    self.guest_username = self.guests.first.username
+    if self.guest_address_id
+      self.guest_username = self.guests.first.username
+    end
   end
 
   def day
