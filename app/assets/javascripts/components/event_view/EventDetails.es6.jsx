@@ -15,10 +15,12 @@ class EventDetails extends React.Component {
   }
 
   render() {
+    console.log("these are the event details props", this.props)
 
     const { title, day, host_username, venue, venue_address, id } = this.props.details
     const { venueChoices } = this.props
-    if (this.props.venue && this.props.venue != "") {
+    // const { venue } = this.props
+    if (venue && venue != "") {
       return(
         <div>
           <h2>Great! This event is set!</h2>
