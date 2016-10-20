@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   belongs_to :host, class_name: :User
   has_many :guests, through: :invitations
   has_many :guest_addresses, through: :guests, source: :user_addresses
-  before_save :midpoint
+  before_save :midpoint, :host_username
 
   def host_coordinates
     if has_both_points

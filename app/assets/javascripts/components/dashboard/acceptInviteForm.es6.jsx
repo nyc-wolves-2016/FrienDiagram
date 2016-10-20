@@ -60,7 +60,7 @@ class AcceptInviteForm extends React.Component {
         )
       } else {
         return (
-          <h1></h1>
+          <h4>Find a Friend and meet in the middle!</h4>
         )
       }
     }

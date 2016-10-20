@@ -3,8 +3,10 @@ class NewEventForm extends React.Component {
     super();
   }
 
+
   render() {
-    const { current_user, friends, addresses, id, token,  } = this.props;
+    const { current_user, friends, addresses, id, token  } = this.props;
+    // console.log("I'm in the new event form render, here's the amount of friends", friends.length)
     return (
       <div>
   <h2>Create a New Event</h2>

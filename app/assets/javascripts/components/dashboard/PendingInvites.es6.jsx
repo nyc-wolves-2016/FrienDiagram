@@ -8,7 +8,7 @@ class PendingInvites extends React.Component {
     if (pendingEvents.length > 0) {
       return (
         <div className="collapsible-body">
-          <h3>Events awaiting Response from Invitee</h3>
+          <h4>Events awaiting Response from Invitee</h4>
           { pendingEvents.map((event, i ) => {
             return (
               <div key={i}>
@@ -24,7 +24,7 @@ class PendingInvites extends React.Component {
       )
     } else {
       return (
-        <h5>Find a Friend. Create an Event. Meet in the Middle.</h5>
+        <h4>Pending Events</h4>
       )
     }
 
