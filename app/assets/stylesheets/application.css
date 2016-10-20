@@ -9,19 +9,62 @@
     background-color: #2E2F31;
   }
 
+  .home-page-content h1 {
+    position: absolute;
+    top: 100px;
+    left: 550px;
+  }
+
+  .home-page-content div {
+    position: absolute;
+    top: 150px;
+  }
+
+  .home-page-content section {
+    position: absolute;
+    top: 250px;
+  }
+  .sidebar-logo {
+    position: relative;
+    left: 50px;
+  }
  #map {
    width: 100%;
    height: 400px;
    color: black;
    font-size: 20px;
   }
-
+  .quote {
+    font-size: 30px;
+    font-weight: 200;
+  }
   .per {
+    font-size: 20px;
     font-style: italic;
   }
-
-  .home-page {
+  .home-page-logo {
+    margin-top: 130px;
+    margin-left: 450px;
+    background-color: transparent;
+  }
+  .home-page-content {
+    margin-left: 450px;
+    background-color: transparent;
     color: white;
+  }
+  .home-page {
+    overflow: hidden;
+    margin-top: -100px;
+    margin-left: -450px;
+    margin-bottom: -50px;
+    width: 4000px;
+    height: 1080px;
+    background-color: transparent;
+    background: url("/pexels-photo-large.jpg") fixed center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   .map-container {
