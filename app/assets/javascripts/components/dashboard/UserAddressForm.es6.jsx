@@ -38,7 +38,7 @@ class UserAddressForm extends React.Component {
     const { address } = this.state;
 
     return(
-      <div>
+      <div id="add_address" className="section scrollspy">
         <form id="add-address-form" onSubmit={this.handleSubmit}>
 
           <div>

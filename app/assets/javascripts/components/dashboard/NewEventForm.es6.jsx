@@ -8,7 +8,7 @@ class NewEventForm extends React.Component {
     const { current_user, friends, addresses, id, token  } = this.props;
     // console.log("I'm in the new event form render, here's the amount of friends", friends.length)
     return (
-      <div>
+      <div id="add_event" className="section scrollspy">
   <h2>Create a New Event</h2>
   <form action="/events" method="post">
     <label htmlFor="title">Event Title:</label><br/>
