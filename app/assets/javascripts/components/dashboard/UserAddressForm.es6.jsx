@@ -51,7 +51,7 @@ class UserAddressForm extends React.Component {
 
           <div className="form-group">
             <div>
-              <button type="submit" className="waves-effect waves-light btn">Add</button>
+              <button type="submit" className="waves-effect waves-light normal-btn btn">Add</button>
             </div>
           </div>
           </form>

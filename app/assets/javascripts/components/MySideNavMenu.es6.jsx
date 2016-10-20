@@ -42,10 +42,10 @@ class mySidenavmenu extends React.Component {
             </svg>
           </div>
         </li>
-        <li><a href="/">Home</a></li>
+        <li><a className="waves-effect" href="/">Home</a></li>
         <li><div className="divider"></div></li>
-        <li><a href="/users/sign_in">Login</a></li>
-        <li><a href="/users/sign_up">Sign up</a></li>
+        <li><a className="waves-effect" href="/users/sign_in">Login</a></li>
+        <li><a className="waves-effect" href="/users/sign_up">Sign up</a></li>
         <li><a className="waves-effect" href="#!">About</a></li>
       </ul>
     )

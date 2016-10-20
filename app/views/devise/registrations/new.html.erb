@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row sign-in">
   <form id="new_user" class="col s12" action="/users" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="#{@token}">
@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="input_text" type="text" name="user[username]" length="15">
+        <input id="input_text" type="text" class="validate" name="user[username]" length="15">
         <label for="input_text">Username</label>
       </div>
     </div>
@@ -40,7 +40,7 @@
         <label for="password">Password Confirmation</label>
       </div>
     </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Sign up
+    <button class="btn waves-effect waves-light normal-btn" type="submit" name="action">Sign up
       <i class="material-icons right">send</i>
     </button>
   </form>

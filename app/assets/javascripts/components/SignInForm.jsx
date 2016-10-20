@@ -15,7 +15,7 @@ class SignInForm extends React.Component {
 
   render() {
     return(
-      <form action="/users/sign_in" acceptCharset="UTF-8" method="post">
+      <form className="signin-form" action="/users/sign_in" acceptCharset="UTF-8" method="post">
         <input name="utf8" type="hidden" value="✓" />
         <input type="hidden" name="authenticity_token" value="AOqjzDi8NNsrVV2e1/t1OWGnO5SbsEfazP/N911Xef0VuBBexJ6oSDBu5f1g8P0gCFY4/6ffye9HDuEGuEOheA==" />
 
