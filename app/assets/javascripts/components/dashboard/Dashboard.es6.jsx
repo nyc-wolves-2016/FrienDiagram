@@ -72,6 +72,12 @@ class Dashboard extends React.Component {
         <ul className="collapsible" data-collapsible="accordion">
           <li>
             <div className="collapsible-header">
+              <i className="material-icons">whatshot</i>Pending Invites
+            </div>
+              <PendingInvites pendingEvents={this.state.pendingEvents}/>
+          </li>
+          <li>
+            <div className="collapsible-header">
               <i className="material-icons">event</i>Pending Events
             </div>
             <AcceptInviteForm
@@ -86,12 +92,7 @@ class Dashboard extends React.Component {
             </div>
             <UpComingEvents userEvents={this.state.upComingEvents} />
           </li>
-          <li>
-            <div className="collapsible-header">
-              <i className="material-icons">whatshot</i>Pending Invites
-            </div>
-              <PendingInvites pendingEvents={this.state.pendingEvents}/>
-          </li>
+
         </ul>
 
           <NewEventForm
