@@ -22,8 +22,8 @@ class AcceptInviteForm extends React.Component {
 
             return <div key={i} className="invite_container">
               <h5 className="event_form">{event.title}</h5>
-              <h5 className="event_form">{event.host}</h5>
-              <h5 className="event_form">{event.date}</h5>
+              <h5 className="event_form">{event.host_username}</h5>
+              <h5 className="event_form">{event.day} @ {event.hour}</h5>
 
               <form action={"/events/"+event.id} method="post">
                 <input type="hidden" name="_method" value="put" />
