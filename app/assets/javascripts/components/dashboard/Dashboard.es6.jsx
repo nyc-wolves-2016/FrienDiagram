@@ -18,19 +18,24 @@ class Dashboard extends React.Component {
 
   gatherFriendData(searchResult) {
     var data = searchResult;
+    const { friends } = this.state
     $.ajax({
       url: "/friendships",
       method: "post",
       data: {
         email: data
       }
-    }).done(function(response) {
-      this.setState((prevState) => {
-        return {
-          friends: [response.response[0]].concat(this.state.friends)
-        }
+    }).done((response) => {
+      // debugger
+      this.setState({
+        friends: [...response.response, ...friends]
       })
-    }.bind(this))
+      // this.setState((prevState) => {
+      //   return {
+      //     friends: [response.response[0]].concat(this.state.friends)
+      //   }
+      // })
+    })
 
   }
 
@@ -43,6 +48,7 @@ class Dashboard extends React.Component {
         address: data
       }
     }).done(function(response) {
+      debugger
       this.setState((prevState) => {
 
         return {
@@ -66,7 +72,13 @@ class Dashboard extends React.Component {
         <ul className="collapsible" data-collapsible="accordion">
           <li>
             <div className="collapsible-header">
-              <i className="material-icons">filter_drama</i>Pending Events
+              <i className="material-icons">whatshot</i>Pending Invites
+            </div>
+              <PendingInvites pendingEvents={this.state.pendingEvents}/>
+          </li>
+          <li>
+            <div className="collapsible-header">
+              <i className="material-icons">event</i>Pending Events
             </div>
             <AcceptInviteForm
               addressStatus={this.state.addressStatus}
@@ -80,12 +92,7 @@ class Dashboard extends React.Component {
             </div>
             <UpComingEvents userEvents={this.state.upComingEvents} />
           </li>
-          <li>
-            <div className="collapsible-header">
-              <i className="material-icons">whatshot</i>Pending Invites
-            </div>
-              <PendingInvites pendingEvents={this.state.pendingEvents}/>
-          </li>
+
         </ul>
 
           <NewEventForm

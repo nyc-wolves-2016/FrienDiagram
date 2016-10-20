@@ -8,7 +8,7 @@ class UpComingEvents extends React.Component {
     let { userEvents } = this.props
     return (
       <div className="collapsible-body">
-        <h3>Upcoming Events</h3>
+        <h5>Upcoming Events</h5>
         { userEvents.map((event, i ) => {
           return (
             <div key={i}>
