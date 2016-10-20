@@ -16,10 +16,6 @@ class EventsController < ApplicationController
       else
         @addressStatus = "false"
       end
-      puts "*" * 25
-      puts "I'm about to send off the user profile obj"
-      puts current_user
-      puts "*" * 25
       @user_profile = {
         id: current_user.id,
         addressStatus: @addressStatus,

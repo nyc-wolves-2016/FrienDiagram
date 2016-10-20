@@ -4,8 +4,7 @@ class UpComingEvents extends React.Component {
   }
 
   render() {
-    console.log(this)
-    let { userEvents } = this.props
+    const { userEvents } = this.props
     return (
       <div className="collapsible-body">
         <h5>Upcoming Events</h5>

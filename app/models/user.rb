@@ -55,7 +55,7 @@ class User < ApplicationRecord
 
  def accepted_events
    self.current_events.select do |event|
-     event.status == "Accept"
+     event.status == "Confirmed"
    end
  end
 
@@ -66,7 +66,7 @@ class User < ApplicationRecord
  end
 
  def accepted_invites
-   self.current_invited_events.select { |event| event.status == "Accept" }
+   self.current_invited_events.select { |event| event.status == "Confirmed" }
  end
 
 
