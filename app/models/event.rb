@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   belongs_to :host, class_name: :User
   has_many :guests, through: :invitations
   has_many :guest_addresses, through: :guests, source: :user_addresses
-  before_save :midpoint, :host_username, :simple_date
+  before_save :midpoint, :host_username, :guest_username, :day
 
   def host_coordinates
     if has_both_points
@@ -45,10 +45,15 @@ class Event < ApplicationRecord
   end
 
   def host_username
-    User.find(self.host_id)
+
+    self.host_username = self.host.username
   end
 
-  def simple_date
-    self.date
+  def guest_username
+    self.guest_username = self.guests.first.username
+  end
+
+  def day
+    self.day = self.date.to_date
   end
 end
