@@ -30,13 +30,7 @@ class Dashboard extends React.Component {
       this.setState({
         friends: [...response.response, ...friends]
       })
-      // this.setState((prevState) => {
-      //   return {
-      //     friends: [response.response[0]].concat(this.state.friends)
-      //   }
-      // })
-    })
-
+    }.bind(this))
   }
 
   gatherAddressData(newAddress) {
