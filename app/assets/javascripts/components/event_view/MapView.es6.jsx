@@ -17,15 +17,11 @@ class MapView extends React.Component {
     var midpointLocal = new google.maps.Marker({
       position: focus,
       map: this.map,
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 6
-      }
     });
     var request = {
       location: focus,
       radius: '500',
-      types: searchType
+      types: [searchType]
     };
     this.service = new google.maps.places.PlacesService(this.map);
     var results = this.service.nearbySearch(request, (results) => {

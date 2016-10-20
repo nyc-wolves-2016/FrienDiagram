@@ -12,6 +12,16 @@
  #map {
    width: 100%;
    height: 400px;
+   color: black;
+   font-size: 20px;
+  }
+
+  .per {
+    font-style: italic;
+  }
+
+  .home-page {
+    color: white;
   }
 
   .map-container {
