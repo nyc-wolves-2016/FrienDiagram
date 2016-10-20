@@ -65,36 +65,38 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="card-panel main-panel">
-        <Timeline
-          timelineData={this.state.timelineData}
-        />
-        <ul className="collapsible" data-collapsible="accordion">
-          <li>
-            <div className="collapsible-header">
-              <i className="material-icons">whatshot</i>Pending Invites
-            </div>
-              <PendingInvites pendingEvents={this.state.pendingEvents}/>
-          </li>
-          <li>
-            <div className="collapsible-header">
-              <i className="material-icons">event</i>Pending Events
-            </div>
-            <AcceptInviteForm
-              addressStatus={this.state.addressStatus}
-              events={this.props.userProfile.open_invites}
-              addresses={this.state.addresses}
-            />
-          </li>
-          <li>
-            <div className="collapsible-header">
-              <i className="material-icons">place</i>Upcoming Events
-            </div>
-            <UpComingEvents userEvents={this.state.upComingEvents} />
-          </li>
+      <div className="my-panel card-panel main-panel">
+        <div id="first-container">
+          <Timeline
+            timelineData={this.state.timelineData}
+          />
+          <ul className="collapsible" data-collapsible="accordion">
+            <li>
+              <div className="collapsible-header">
+                <i className="material-icons">whatshot</i>Pending Invites
+              </div>
+                <PendingInvites pendingEvents={this.state.pendingEvents}/>
+            </li>
+            <li>
+              <div className="collapsible-header">
+                <i className="material-icons">event</i>Pending Events
+              </div>
+              <AcceptInviteForm
+                addressStatus={this.state.addressStatus}
+                events={this.props.userProfile.open_invites}
+                addresses={this.state.addresses}
+              />
+            </li>
+            <li>
+              <div className="collapsible-header">
+                <i className="material-icons">place</i>Upcoming Events
+              </div>
+              <UpComingEvents userEvents={this.state.upComingEvents} />
+            </li>
 
-        </ul>
-
+          </ul>
+        </div>
+        <div id="second-container">
           <NewEventForm
             current_user={this.props.current_user}
             homeBases={this.props.homeBases}
@@ -104,9 +106,15 @@ class Dashboard extends React.Component {
             token={this.props.token}
             id = {this.props.userProfile.id}
           />
+        </div>
 
-        <FriendSearchForm sendFriendData={this.gatherFriendData} />
-        <UserAddressForm sendAddressData={this.gatherAddressData} />
+        <div id="third-container">
+          <FriendSearchForm sendFriendData={this.gatherFriendData} />
+        </div>
+
+        <div id="fourth-container">
+          <UserAddressForm sendAddressData={this.gatherAddressData} />
+        </div>
 
       </div>
     )

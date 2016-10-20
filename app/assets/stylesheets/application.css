@@ -70,8 +70,6 @@
   .map-container {
     margin-top: 0px;
   }
-  .my-container {
-  }
 
   .datepicker {
     /*height: 3rem !important;*/
@@ -100,7 +98,7 @@
     color: white;
   }
   .main-panel {
-    background-color: #3E4649;
+    background-color: #2E2F31;
     color: white;
   }
 
@@ -148,9 +146,7 @@
   }
 
  .container {
-   margin-top: 100px;
    margin-left: 450px;
-
  }
 
  .invite_container {
@@ -158,19 +154,39 @@
  }
 
  #add_event {
-   margin-top: 50px;
+   /*margin-top: 50px;*/
  }
 
  #add_friend {
-   margin-top: 100px;
+   /*margin-top: 100px;*/
  }
 
  #add_address {
-   margin-top: 100px;
+   /*margin-top: 100px;*/
  }
 
  #events-container {
-   margin-top: 50px;
+   /*margin-top: 50px;*/
+ }
+
+ #first-container{
+   height: 100vh;
+ }
+
+ #second-container {
+   height: 100vh;
+ }
+
+ #third-container {
+   height: 50vh;
+ }
+
+ #fourth-container {
+   height: 50vh;
+ }
+
+ .my-panel {
+   box-shadow: none;
  }
   /*.mysidenav {
     text-align: center;
