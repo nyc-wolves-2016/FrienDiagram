@@ -16,7 +16,7 @@ class EventDetails extends React.Component {
 
   render() {
 
-    const { title, date, host_username, venue, venue_address, id } = this.props.details
+    const { title, day, host_username, venue, venue_address, id } = this.props.details
     const { venueChoices } = this.props
     if (this.props.venue && this.props.venue != "") {
       return(
@@ -24,7 +24,7 @@ class EventDetails extends React.Component {
           <h2>Great! This event is set!</h2>
           <h3>{title}</h3>
           <hr></hr>
-          <h5>Date: {date}</h5>
+          <h5>Date: {day}</h5>
           <h5>Host: {host_username}</h5>
           <h5>Venue: {venue}</h5>
           <h5>Address: {venue_address}</h5>

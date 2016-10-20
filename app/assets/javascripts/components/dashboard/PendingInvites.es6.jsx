@@ -13,7 +13,7 @@ class PendingInvites extends React.Component {
               <div key={i}>
                 <h5><a href={"events/"+event.id}>Event: {event.title}</a></h5>
                 <h6>Date: {event.date}</h6>
-                <h6>Host: {event.invitee}</h6>
+                <h6>Host: {event.host_username}</h6>
                 <h6>Type: {event.event_type}</h6>
               </div>
             )}
