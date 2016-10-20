@@ -82,8 +82,13 @@ class App extends React.Component {
     xhr.fail(function(err) {
       console.log(err)
     })
-    this.setState({
-      venue: venue.name
+    xhr.done((response) => {
+      new_event = this.state.event
+      new_event.venue = venue.name
+      new_event.venue_address = venue.vicinity
+      this.setState({
+        event: new_event
+      })
     })
   }
   componentWillMount() {
@@ -93,13 +98,13 @@ class App extends React.Component {
                     midpoint: midpoint,
                     searchType: event_type,
                     event: event,
-                    venue: event.venue
+                    venue: event.venue,
+                    venueAddress: event.venue_address
                 })
   }
 
   render() {
-    const { searchType, midpoint, possibleVenues, detailsView, venueChoices, event, venue} = this.state;
-    // const { event } = this.props;
+    const { searchType, midpoint, possibleVenues, detailsView, venueChoices, event, venue, venueAddress} = this.state;
     return (
         <div className="row">
             <div className="card-panel main-panel col l12">
@@ -125,6 +130,7 @@ class App extends React.Component {
                     venueChoices={ venueChoices }
                     details={ event }
                     venue={ venue }
+                    venueAddress={ venueAddress}
                     removeVenueChoice={this.removeVenueChoice}
                     acceptVenueChoice={this.acceptVenueChoice}
                   />

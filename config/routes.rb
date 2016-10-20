@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   put "/events/:event_id/confirm", to: "events#confirm"
   put "/events/:id/reset", to: "events#reset"
 
+
   resources :users do
     resources :friendships
   end

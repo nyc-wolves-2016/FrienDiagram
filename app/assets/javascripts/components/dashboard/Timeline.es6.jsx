@@ -6,7 +6,7 @@ class Timeline extends React.Component {
   render() {
     const { timelineData } = this.props
     return (
-      <section id="events-container">
+      <section id="events-container" className="scrollspy section">
         <ul>
           <li><h4>Timeline</h4></li>
           {timelineData.map((event, i) => {

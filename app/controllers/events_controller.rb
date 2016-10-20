@@ -40,7 +40,7 @@ class EventsController < ApplicationController
       redirect_to root_path
     else
       @event = Event.find(params[:id])
-      if @event.invitees.include?(current_user)
+      if @event.invitees.include?(current_user) && @event.guest_address_id
         @venueChoices = @event.venue_choices
         @bookmarks = current_user.bookmarks
       else
