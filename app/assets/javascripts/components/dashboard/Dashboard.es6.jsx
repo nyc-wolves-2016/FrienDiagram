@@ -42,7 +42,6 @@ class Dashboard extends React.Component {
         address: data
       }
     }).done(function(response) {
-      debugger
       this.setState((prevState) => {
 
         return {
@@ -58,6 +57,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    console.log("these are the upcoming events", this.state.upComingEvents)
     return (
       <div className="my-panel card-panel main-panel">
         <div id="first-container">
@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
           <ul className="collapsible" data-collapsible="accordion">
             <li>
               <div className="collapsible-header">
-                <i className="material-icons">whatshot</i>Pending Invites
+                <i className="material-icons">mail</i>Sent Invitations
               </div>
                 <PendingInvites pendingEvents={this.state.pendingEvents}/>
             </li>
