@@ -16,6 +16,14 @@
    font-size: 20px;
   }
 
+  .per {
+    font-style: italic;
+  }
+
+  .home-page {
+    color: white;
+  }
+
   .map-container {
     margin-top: 0px;
   }
