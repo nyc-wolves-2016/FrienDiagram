@@ -84,7 +84,7 @@ class EventsController < ApplicationController
         event.update_attributes(:status => response)
       end
     event.save
-    redirect_to events_path
+    redirect_to event_path
   end
 
   def confirm
