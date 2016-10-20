@@ -37,7 +37,7 @@ class App extends React.Component {
           return {
             venueChoices: prevState.venueChoices.concat([response])
           }
-      })
+        })
       });
     }
   }

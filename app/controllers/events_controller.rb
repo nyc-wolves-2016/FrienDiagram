@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     @allEvents = Event.all.map do |event|
       { venue: event.venue,
         title: event.title,
-        host: event.host_username,
+        host: event.host,
         event_type: event.event_type
         }
     end
