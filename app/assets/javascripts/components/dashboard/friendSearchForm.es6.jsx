@@ -46,7 +46,7 @@ class FriendSearchForm extends React.Component {
   render() {
     const { username, email, results } = this.state;
     return(
-      <div>
+      <div id="add_friend" className="section scrollspy">
         <form id="friend-search-form" onSubmit={this.searchUser}>
 
           <div>

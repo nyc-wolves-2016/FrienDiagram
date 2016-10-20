@@ -23,9 +23,9 @@ class mySidenavmenu extends React.Component {
             <li><a className="waves-effect side-nav-item" href="/">Dashboard</a></li>
             <li>
             <div className="divider"></div></li>
-            <li><a className="waves-effect side-nav-item" href="#!">Add an address</a></li>
-            <li><a className="waves-effect side-nav-item" href="#!">Add a Friend</a></li>
-            <li><a className="waves-effect side-nav-item" href="/events">Create New Event</a></li>
+            <li><a className="waves-effect side-nav-item" href="#add_address">Add an address</a></li>
+            <li><a className="waves-effect side-nav-item" href="#add_friend">Add a Friend</a></li>
+            <li><a className="waves-effect side-nav-item" href="#add_event">Create New Event</a></li>
             <li><a className="waves-effect side-nav-item" data-method="delete" href="/users/sign_out">Log out</a></li>
           </ul>
       )

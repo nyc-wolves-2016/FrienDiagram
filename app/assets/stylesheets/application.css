@@ -113,6 +113,22 @@
  .invite_container {
    padding: 10px;
  }
+
+ #add_event {
+   margin-top: 50px;
+ }
+
+ #add_friend {
+   margin-top: 100px;
+ }
+
+ #add_address {
+   margin-top: 100px;
+ }
+
+ #events-container {
+   margin-top: 50px;
+ }
   /*.mysidenav {
     text-align: center;
     color: #fff;
