@@ -17,6 +17,6 @@
 !/log/.keep
 !/tmp/.keep
 *.yml
-
+*.env
 # Ignore Byebug command history file.
 .byebug_history
