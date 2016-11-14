@@ -66,7 +66,7 @@ class User < ApplicationRecord
  end
 
  def accepted_invites
-   self.current_invited_events.select { |event| event.status == "Confirmed" }
+   self.current_invited_events.select { |event| event.status == "Accept" }
  end
 
 
