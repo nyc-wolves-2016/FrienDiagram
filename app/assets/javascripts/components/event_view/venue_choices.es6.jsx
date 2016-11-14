@@ -19,7 +19,7 @@ class VenueChoice extends React.Component {
     const { venueChoice } = this.props
     return (
         <div className="col l4">
-          <div className="card-panel venue-choice">
+          <div className="card-panel possible-venue">
             <div className="choice left">
               <VenueAccept acceptVenueChoice={this.acceptVenueChoice} venue={ venueChoice }  />
             </div>
@@ -28,7 +28,7 @@ class VenueChoice extends React.Component {
             </div>
             <div className="venue-choice-info">
               <span><h5>{name}</h5></span><hr></hr>
-              <div className="row">
+              <div className="row ratings">
                 <span className="col s6"> Rating: {rating} </span>
                 <span className="col s6"> Price: {price_level} </span>
               </div>
