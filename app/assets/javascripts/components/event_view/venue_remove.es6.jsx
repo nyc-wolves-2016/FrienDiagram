@@ -12,7 +12,7 @@ class VenueRemove extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.clickRemoveVenueChoice}>
+      <form className="add_remove" onSubmit={this.clickRemoveVenueChoice}>
         <button type="submit" className="waves-effect waves-light btn choice-btn">
           <i className="icono-cross" aria-hidden="true"></i>
         </button>

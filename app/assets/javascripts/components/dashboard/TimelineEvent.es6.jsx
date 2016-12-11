@@ -8,7 +8,7 @@ class TimelineEvent extends React.Component {
     return (
       <div>
         <li>
-          <span> <strong>{ host.first_name }</strong> is hosting an event called "{ title }" and is going to { venue }.</span>
+          <span className="timeline"> <strong>{ host.first_name }</strong> is hosting an event called <strong>"{ title }"</strong> and is going to <strong>{ venue }</strong>.</span>
 
           <hr/>
         </li>
