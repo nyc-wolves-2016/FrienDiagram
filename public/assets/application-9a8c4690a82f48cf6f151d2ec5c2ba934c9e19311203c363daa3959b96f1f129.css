@@ -1,0 +1,365 @@
+/*body {
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee !important;
+  transition: background-color .5s;
+}*/
+
+
+.browser-default {
+  background-color: #1DACD6;
+
+}
+  body {
+    background-color: #2E2F31;
+  }
+
+  .home-page-content h1 {
+    position: absolute;
+    top: 100px;
+    left: 550px;
+  }
+
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #1DACD6;
+    box-shadow: 0 1px 0 0 #1DACD6;
+  }
+
+  .input-field input[type=email].valid {
+    border-bottom: 1px solid #1DACD6;
+    box-shadow: 0 1px 0 0 #1DACD6;
+  }
+
+  .input-field input[type=email].valid+label:after {
+  color: #1DACD6;
+  }
+
+  .input-field input[type=password].valid {
+    border-bottom: 1px solid #1DACD6;
+    box-shadow: 0 1px 0 0 #1DACD6;
+  }
+
+  .input-field input[type=password_confirmation].valid {
+    border-bottom: 1px solid #1DACD6;
+    box-shadow: 0 1px 0 0 #1DACD6;
+  }
+
+  .home-page-content div {
+    position: absolute;
+    top: 150px;
+  }
+
+  .home-page-content section {
+    position: absolute;
+    top: 250px;
+  }
+  .sidebar-logo {
+    position: relative;
+    left: 50px;
+  }
+
+  .sign-in {
+    margin-top: 140px;
+    color: white;
+}
+
+
+ #map {
+   width: 100%;
+   height: 400px;
+   color: black;
+   font-size: 20px;
+  }
+  .quote {
+    font-size: 30px;
+    font-weight: 200;
+  }
+  .per {
+    font-size: 20px;
+    font-style: italic;
+  }
+  .home-page-logo {
+    margin-top: 235px;
+    margin-left: 450px;
+    background-color: transparent;
+  }
+  .home-page-content {
+    margin-left: 450px;
+    background-color: transparent;
+    color: white;
+  }
+  .home-page {
+    overflow: hidden;
+    margin-top: -100px;
+    margin-left: -450px;
+    margin-bottom: -50px;
+    width: 4000px;
+    height: 1180px;
+    background-color: transparent;
+    background: url("/pexels-photo-large.jpg") fixed center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .map-container {
+    margin-top: 0px;
+  }
+
+  .datepicker {
+    /*height: 3rem !important;*/
+    margin-top: 20px !important;
+  }
+
+  #venue-scroll {
+    margin-top: 5px;
+    overflow-x: auto;
+    max-width: 300px;
+    max-height: 400px;
+    background-color : #2E2F31;
+    scroll-behavior: auto;
+  }
+
+  .possible-venue {
+    width: 100%;
+    height: 100px;
+    margin: 2px;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #1DACD6;
+    text-align: center;
+    color: #2E2F31;
+    line-height: 50%;
+    }
+
+  hr {
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 95%;
+  }
+
+  .ratings {
+    margin-top: 5%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .details {
+    display: block;
+    height: 1em;
+  }
+
+  h5 {
+    font-size: 1.25em;
+    font-weight: 300;
+  }
+
+
+  .main-panel {
+    background-color: #2E2F31;
+    color: white;
+  }
+
+  .side-nav {
+    background-color: #3E4649;
+  }
+
+  .side-nav.fixed a {
+    color: white;
+    font-weight: 300;
+  }
+  .venue-choice {
+    width: 300px;
+    height: 100%;
+    margin: 10px;
+    padding: 0px;
+    background-color: #1DACD6;
+  }
+
+  .choice {
+    padding: 0px;
+    height: 55%;
+  }
+
+  .checked {
+    height: 150px;
+  }
+  .collapsible-header {
+    background-color: #1DACD6;
+  }
+  .venue-choice-info {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: auto;
+    text-align: center;
+    color: #2E2F31;
+  }
+
+  .choice-btn {
+    padding: 2px;
+    background-color: transparent;
+  }
+
+  .normal-btn {
+    background-color: #1DACD6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+  }
+
+ .container {
+   margin-left: 325px;
+ }
+
+ .invite_container {
+   padding: 10px;
+ }
+
+ #add_event {
+   /*margin-top: 50px;*/
+ }
+
+ #add_friend {
+   /*margin-top: 100px;*/
+ }
+
+ #add_address {
+   /*margin-top: 100px;*/
+ }
+
+ #events-container {
+   /*margin-top: 50px;*/
+ }
+
+ #first-container{
+   height: 70vh;
+   display: block;
+   overflow: hidden;
+ }
+
+ #second-container {
+   clear: both;
+   margin-top: 100px;
+   height: 100vh;
+   display: block;
+ }
+
+ #third-container {
+   height: 50vh;
+ }
+
+ #fourth-container {
+   height: 50vh;
+ }
+
+ .my-panel {
+   box-shadow: none;
+ }
+
+ .timeline {
+   line-height: 1em;
+   padding-left: 25px;
+   font-size: 1.5em;
+   font-weight: lighter;
+ }
+  /*.mysidenav {
+    text-align: center;
+    color: #fff;
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    display: block;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+  }*/
+
+  /*.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 100px;
+    background-color: #2d2d2d;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+*/
+
+/*
+.venue-list-container {
+  width: 25%;
+}
+.event_form {
+display: inline-block;
+}
+
+/* this is the login form  */
+/*.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.details {
+  clear: right;
+}*/
