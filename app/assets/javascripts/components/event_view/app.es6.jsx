@@ -104,12 +104,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     const { searchType, midpoint, possibleVenues, detailsView, venueChoices, event, venue, venueAddress} = this.state;
     return (
         <div className="row">
             <div className="card-panel main-panel col l12">
-            <h4 className="event-details-info"> {event.title} </h4>
+            <h5 className="event-details-info"> {event.title} </h5>
               <div className="map-container col l8">
                 <MapView
                   passUpPlaces={this.grabPlaces}
