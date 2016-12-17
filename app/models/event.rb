@@ -62,4 +62,6 @@ class Event < ApplicationRecord
   def hour
     self.hour = self.date.strftime('%I:%M:%S %p')
   end
+
+
 end

@@ -238,10 +238,11 @@
  #first-container{
    height: 70vh;
    display: block;
+   overflow: hidden;  
  }
 
  #second-container {
-   clear: all;
+   clear: both;
    margin-top: 100px;
    height: 100vh;
    display: block;
