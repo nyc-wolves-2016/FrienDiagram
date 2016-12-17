@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :find_user
   def index
     # TIMELINE DATA
-    @allEvents = Event.all.map do |event|
+    sortedEvents = Event.all.sort {|x,y| x.created_at <=> y.created_at}
+    @allEvents = sortedEvents[0...10].map do |event|
       { venue: event.venue,
         title: event.title,
         host: event.host,

@@ -8,8 +8,8 @@ class Timeline extends React.Component {
     return (
       <div id="first-container">
         <section id="events-container" className="scrollspy section">
+        <h3>Timeline</h3>
           <ul>
-            <li><h4>Timeline</h4></li>
             {timelineData.map((event, i) => {
               return ( <TimelineEvent
                 key={i}
